@@ -1,39 +1,58 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
-import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import {Platform} from '@ionic/angular';
+import {SplashScreen} from '@ionic-native/splash-screen/ngx';
+import {StatusBar} from '@ionic-native/status-bar/ngx';
+import {Router} from '@angular/router';
+import {AppService} from './app.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html'
+    selector: 'app-root',
+    templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  public appPages = [
-    {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
+
+    public href;
+    isSidebarVisible = true;
+    imagePrefix = './assets/icons/';
+    public appPages = [
+        {
+            title: 'Dashboard',
+            url: '/dashboard',
+            icon: this.imagePrefix + 'parcel_sent.png'
+        },
+        {
+            title: 'Sendungen zu mir',
+            url: '/parcels/in',
+            icon: this.imagePrefix + 'sendungen_zu_mir.png'
+        },
+        {
+            title: 'Sendungen von mir',
+            url: '/parcels/out',
+            icon: this.imagePrefix + 'sendungen_von_mir.png'
+        }
+    ];
+
+    constructor(
+        private platform: Platform,
+        private splashScreen: SplashScreen,
+        private statusBar: StatusBar,
+        private router: Router,
+        private appService: AppService
+    ) {
+        this.initializeApp();
+        this.href = this.router.url;
+        console.log(this.router.url);
     }
-  ];
 
-  constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar
-  ) {
-    this.initializeApp();
-  }
-
-  initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
-  }
+    initializeApp() {
+        this.platform.ready().then(() => {
+            this.statusBar.styleDefault();
+            this.splashScreen.hide();
+        });
+        this.appService.navState$.subscribe((state) => {
+            this.isSidebarVisible = state;
+            console.log(state);
+        }, error => console.log(error));
+    }
 }
