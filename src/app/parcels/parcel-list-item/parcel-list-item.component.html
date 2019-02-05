@@ -2,6 +2,7 @@
     <ion-img [src]="imagePrefix + 'confirmed.png'"></ion-img>
     <ion-label>{{parcel.status}}</ion-label>
     <ion-button *ngIf="parcel.status !== 'DELIVERED'" color="danger" fill="outline" slot="end">Löschen</ion-button>
+    <ion-button [routerLink]="['/vehicleRequest']" fill="outline" slot="end">Reqeust</ion-button>
     <ion-button fill="outline" slot="end">Details</ion-button>
 </ion-item>
 <ion-card-content>

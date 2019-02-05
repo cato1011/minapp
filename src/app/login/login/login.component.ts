@@ -23,7 +23,8 @@ export class LoginComponent implements OnInit {
         // console.log('submit' + this.form.value.username + ':' + this.form.value.password);
         this.loginService.login(this.form.value.username, this.form.value.password)
             .subscribe(
-                () => {
+                (user) => {
+                    console.log(user);
                     this.router.navigate(link);
                     this.appService.setNavBarState(true);
                 },

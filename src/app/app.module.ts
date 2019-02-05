@@ -13,6 +13,7 @@ import {LoginService} from './login/login.service';
 import {HttpClient} from '@angular/common/http';
 import {CoreModule} from './core/core.module';
 import {MatIconModule} from '@angular/material';
+import {VehiclesModule} from './vehicles/vehicles.module';
 
 @NgModule({
     declarations: [AppComponent],
@@ -21,6 +22,7 @@ import {MatIconModule} from '@angular/material';
         BrowserModule,
         IonicModule.forRoot(),
         LoginModule,
+        VehiclesModule,
         CoreModule,
         MatIconModule,
         AppRoutingModule
