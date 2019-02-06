@@ -17,6 +17,7 @@ import {
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {IonicModule} from '@ionic/angular';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
     declarations: [LoginComponent],
@@ -36,7 +37,8 @@ import {IonicModule} from '@ionic/angular';
         MatInputModule,
         MatButtonModule,
         MatCardModule,
-        IonicModule
+        IonicModule,
+        TranslateModule
     ],
     exports: [LoginComponent]
 })

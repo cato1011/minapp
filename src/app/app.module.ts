@@ -14,6 +14,12 @@ import {HttpClient} from '@angular/common/http';
 import {CoreModule} from './core/core.module';
 import {MatIconModule} from '@angular/material';
 import {VehiclesModule} from './vehicles/vehicles.module';
+import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+}
 
 @NgModule({
     declarations: [AppComponent],
@@ -21,6 +27,13 @@ import {VehiclesModule} from './vehicles/vehicles.module';
     imports: [
         BrowserModule,
         IonicModule.forRoot(),
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
         LoginModule,
         VehiclesModule,
         CoreModule,
@@ -41,4 +54,8 @@ import {VehiclesModule} from './vehicles/vehicles.module';
     bootstrap: [AppComponent]
 })
 export class AppModule {
+    constructor(translate: TranslateService) {
+        translate.setDefaultLang('de');
+        translate.use('de');
+    }
 }
