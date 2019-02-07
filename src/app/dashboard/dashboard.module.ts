@@ -6,6 +6,7 @@ import {MatButtonModule, MatCardModule} from '@angular/material';
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {IonicModule} from '@ionic/angular';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
     declarations: [DashboardTileComponent, DashboardListComponent],
@@ -15,7 +16,8 @@ import {IonicModule} from '@ionic/angular';
         CommonModule,
         MatCardModule,
         MatButtonModule,
-        IonicModule
+        IonicModule,
+        TranslateModule
     ],
     exports: [DashboardTileComponent]
 })
