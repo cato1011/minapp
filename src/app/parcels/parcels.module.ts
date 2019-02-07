@@ -6,6 +6,7 @@ import {RouterModule} from '@angular/router';
 import {ParcelRouterModule} from './parcel-router.module';
 import {IonicModule} from '@ionic/angular';
 import {ParcelListItemComponent} from './parcel-list-item/parcel-list-item.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
     declarations: [ParcelListViewComponent, ParcelListItemComponent, ParcelDetailViewComponent],
@@ -13,7 +14,8 @@ import {ParcelListItemComponent} from './parcel-list-item/parcel-list-item.compo
         CommonModule,
         RouterModule,
         ParcelRouterModule,
-        IonicModule
+        IonicModule,
+        TranslateModule
     ],
     exports: [ParcelListViewComponent]
 })

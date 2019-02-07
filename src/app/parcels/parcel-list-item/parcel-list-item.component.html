@@ -1,8 +1,8 @@
 <ion-item>
     <ion-img [src]="imagePrefix + 'confirmed.png'"></ion-img>
     <ion-label>{{parcel.status}}</ion-label>
-    <ion-button *ngIf="parcel.status== 'DELIVERY_REQUESTED' || parcel.status== 'DELIVERY_CONFIRMED'" color="danger" fill="outline" slot="end">Löschen</ion-button>
-    <ion-button *ngIf="parcel.status!= 'DELIVERY_REQUESTED' && parcel.status!= 'DELIVERY_CONFIRMED'" [routerLink]="['/vehicleRequest']" fill="outline" slot="end">Reqeust</ion-button>
+    <ion-button *ngIf="parcel.status== 'DELIVERY_REQUESTED' || parcel.status== 'DELIVERY_CONFIRMED' && parcel.status!= 'DELIVERED'" color="danger" fill="outline" slot="end">{{'parcel.cancel_appointment' | translate}}</ion-button>
+    <ion-button *ngIf="parcel.status!= 'DELIVERY_REQUESTED' && parcel.status!= 'DELIVERY_CONFIRMED' && parcel.status!= 'DELIVERED'" [routerLink]="['/vehicleRequest']" fill="outline" slot="end">{{'parcel.request_appointment' | translate}}</ion-button>
     <!-- <ion-button fill="outline" slot="end">Details</ion-button> -->
 </ion-item>
 <ion-card-content>

@@ -11,5 +11,8 @@
   "dashboard.parcels_from_me" : "Sent parcels",
   "dashboard.N2N": "Deliver to Neighbour",
   "dashboard.supplier": "Supplier",
-  "dashboard.request_vehicle":"Request Vehicle"
+  "dashboard.request_vehicle":"Request Vehicle",
+
+  "parcel.request_appointment":"Request Appointment",
+  "parcel.cancel_appointment":"Cancel Appointment"
 }

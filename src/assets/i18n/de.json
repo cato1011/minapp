@@ -11,5 +11,9 @@
   "dashboard.parcels_from_me" : "Sendungen von mir",
   "dashboard.N2N": "Quartier kurier",
   "dashboard.supplier": "Zulieferer",
-  "dashboard.request_vehicle":"Fahrzeug anfordern"
+  "dashboard.request_vehicle":"Fahrzeug anfordern",
+
+  "parcel.request_appointment":"Termin vereinbaren",
+  "parcel.cancel_appointment":"Termin absagen"
+
 }
