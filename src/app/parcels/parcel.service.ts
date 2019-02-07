@@ -30,6 +30,7 @@ export class ParcelService {
 
     reloadIn() {
         // this.loginService.getUser().subscribe(user => this.userToken = user.userToken);
+        
         this.httpClient.get<Parcel[]>('http://localhost:8082/parcels' + '/in/' + this.userToken, {
             headers: {userToken: this.userToken}
         }).subscribe((ps) => {

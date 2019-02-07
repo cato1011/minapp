@@ -35,6 +35,7 @@ export class LoginService {
   }
 
   getUser(): Observable<User | null> {
+    
     return this.user$.asObservable();
   }
 

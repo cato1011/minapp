@@ -22,11 +22,11 @@ export class ParcelListViewComponent implements OnInit {
         this.route.params.subscribe(params => {
             this.context = params['context'];
             if (this.context === 'in') {                
-                this.parcels = this.parcelService.getParcelsIn();
+               // this.parcels = this.parcelService.getParcelsIn();
                 this.parcelService.reloadIn();
                 this.parcels$ = this.parcelService.getAllIn();
             } else {
-                this.parcels = this.parcelService.getParcelsOut();
+               // this.parcels = this.parcelService.getParcelsOut();
                 this.parcelService.reloadOut();
                 this.parcels$ = this.parcelService.getAllOut();
             }
