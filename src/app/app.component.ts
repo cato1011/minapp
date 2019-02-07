@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-
 import {Platform} from '@ionic/angular';
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
 import {StatusBar} from '@ionic-native/status-bar/ngx';
@@ -22,12 +21,12 @@ export class AppComponent {
             icon: this.imagePrefix + 'parcel_sent.png'
         },
         {
-            title: 'Sendungen zu mir',
+            title: 'Sendungen zu mir (Received)',
             url: '/parcels/in',
             icon: this.imagePrefix + 'sendungen_zu_mir.png'
         },
         {
-            title: 'Sendungen von mir',
+            title: 'Sendungen von mir (Sent)',
             url: '/parcels/out',
             icon: this.imagePrefix + 'sendungen_von_mir.png'
         }

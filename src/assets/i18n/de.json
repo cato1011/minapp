@@ -3,5 +3,13 @@
   "login.placeholder_input": "Nutzer*in",
   "login.placeholder_password": "Password",
   "login.button_text": "Anmelden",
-  "login.forgot_password": "Password vergessen?"
+  "login.forgot_password": "Password vergessen?",
+
+  "dashboard.header":"Übersicht",
+  "dashboard.appointments":"Aktuelle Termin",    
+  "dashboard.parcels_to_me" : "Sendungen zu mir",
+  "dashboard.parcels_from_me" : "Sendungen von mir",
+  "dashboard.N2N": "Quartier kurier",
+  "dashboard.supplier": "Zulieferer",
+  "dashboard.request_vehicle":"Fahrzeug anfordern"
 }
