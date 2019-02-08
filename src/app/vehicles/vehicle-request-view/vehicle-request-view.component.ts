@@ -19,7 +19,8 @@ export class VehicleRequestViewComponent implements OnInit {
 
   ngOnInit() {
     this.parentForm =this.fb.group({
-      deliveryplaces: ['',Validators.required]    
+      deliveryplaces: ['',Validators.required],
+      datetime: ['',Validators.required]    
     });
 
     this.parentForm.valueChanges.subscribe(newVal =>console.log(newVal));

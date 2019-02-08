@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-datetime-item',
@@ -7,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DatetimeItemComponent implements OnInit {
 
+  @Input() parentForm:FormGroup;
+  // Get the present date
+  presentDate:Date = new Date(); 
+  // Add 30 mins to present date to set the minimum date for drop down
+  minimumDate=(new Date(this.presentDate.setMinutes(this.presentDate.getMinutes() + 90))).toISOString();
   constructor() { }
 
   ngOnInit() {
