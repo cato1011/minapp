@@ -2,11 +2,11 @@
         <ion-row>
             <ion-col>            
               <ion-list>
-                <ion-item>
-                  <ion-label>Select Place</ion-label>   
-                  <ion-select>                                    
-                          <ion-select-option *ngFor="let DeliveryPlace of (parcels$ | async)" value="{{DeliveryPlace.description}}">{{DeliveryPlace.description}}</ion-select-option>                 
-                        </ion-select>            
+                <ion-item [formGroup]="parentForm">
+                  <ion-label >Select Place</ion-label>   
+                  <ion-select [formControlName]="'deliveryplaces'">                                    
+                          <ion-select-option  *ngFor="let DeliveryPlace of (parcels$ | async)" value="{{DeliveryPlace.description}}">{{DeliveryPlace.description}}</ion-select-option>                 
+                        </ion-select> 
                 </ion-item>     
               </ion-list>
             </ion-col>

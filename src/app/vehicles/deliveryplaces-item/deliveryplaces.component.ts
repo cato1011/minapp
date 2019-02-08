@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {ReplaySubject, Subject} from 'rxjs';
 import {DeliveryPlace} from '../../delivery-places/delivery-places.model'
 import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {VehicleService} from '../vehicle.service'
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-deliveryplaces',
@@ -16,6 +18,8 @@ export class DeliveryplacesComponent implements OnInit {
   public userToken = 'c1e46f017983b562c8c6af0627f28ff9';
   parcels$: Observable<DeliveryPlace[]>;
   deliveryPlaces: DeliveryPlace[];
+  
+  @Input() parentForm:FormGroup;
 
   constructor(private httpClient: HttpClient) { }
 

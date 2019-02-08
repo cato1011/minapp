@@ -43,6 +43,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     providers: [
         StatusBar,
         SplashScreen,
+        
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
         {
             provide: APP_INITIALIZER,

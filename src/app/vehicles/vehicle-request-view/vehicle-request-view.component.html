@@ -9,5 +9,9 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
-<app-deliveryplaces></app-deliveryplaces>
+    <form [formGroup]="parentForm" (submit)=showData()>
+<app-deliveryplaces [parentForm]="parentForm"></app-deliveryplaces>
+
+
+</form>
 </ion-content>
