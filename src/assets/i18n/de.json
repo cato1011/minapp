@@ -24,5 +24,7 @@
   "dashboard.parcels_from_me": "Sendungen von mir",
   
   "parcel.request_appointment": "Termin vereinbaren",
-  "parcel.cancel_appointment": "Termin absagen"
+  "parcel.cancel_appointment": "Termin absagen",
+  "parcel.header.in": "Sendungen zu mir",
+  "parcel.header.out": "Sendungen von mir"
 }
