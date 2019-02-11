@@ -63,12 +63,14 @@ export class MenuService {
             {
                 title: 'menu.supplier',
                 url: '/supplier',
-                icon: this.imagePrefix + 'supplier_2x.png'
+                icon: this.imagePrefix + 'supplier_2x.png',
+                color: '#BCE0FD'
             },
             {
                 title: 'menu.waste',
                 url: '/waste',
-                icon: this.imagePrefix + 'waste_2x.png'
+                icon: this.imagePrefix + 'waste_2x.png',
+                color: '#BCE0FD'
             }
         ];
         return this.commercialMenuItems;
