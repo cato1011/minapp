@@ -11,7 +11,7 @@ import {AlertController} from '@ionic/angular';
 export class ParcelListItemComponent implements OnInit {
 
     @Input() parcel: Parcel;
-    imagePrefix = './assets/icons/';
+    imagePrefix = './assets/icons/parcels/';
 
     constructor(private alertController: AlertController) {
     }

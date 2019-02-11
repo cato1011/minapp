@@ -19,7 +19,7 @@ import {MenuRouterModule} from './menu-router.module';
         IonicModule,
         TranslateModule
     ],
-    exports: [MenuListComponent, MenuListItemComponent]
+    exports: [MenuListComponent]
 })
 export class MenuModule {
 }
