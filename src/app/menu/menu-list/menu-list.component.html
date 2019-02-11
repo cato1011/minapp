@@ -1,0 +1,20 @@
+<ion-list>
+    <ion-menu-toggle auto-hide="false">
+        <ion-item-group *ngFor="let fp of firstMenuItems;">
+            <app-menu-list-item [menuItem]="fp"></app-menu-list-item>
+        </ion-item-group>
+        <ion-item-divider [color]="'#1365B6'">
+            <ion-item [lines]="'none'" [color]="'#1365B6'">
+                <!-- TODO translate -->
+                <ion-label>BUGA:log for commercial usage</ion-label>
+            </ion-item>
+        </ion-item-divider>
+        <ion-item-group *ngFor="let cp of commercialMenuItems;">
+            <app-menu-list-item [menuItem]="cp"></app-menu-list-item>
+        </ion-item-group>
+        <ion-item-divider></ion-item-divider>
+        <ion-item-group *ngFor="let sp of secondMenuItems;">
+            <app-menu-list-item [menuItem]="sp"></app-menu-list-item>
+        </ion-item-group>
+    </ion-menu-toggle>
+</ion-list>

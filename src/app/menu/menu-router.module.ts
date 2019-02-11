@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {DashboardListComponent} from './dashboard-list/dashboard-list.component';
+import {MenuListComponent} from './menu-list/menu-list.component';
 
 const routes: Routes = [
-    {path: '', component: DashboardListComponent}
+    {path: '', component: MenuListComponent}
 ];
 
 @NgModule({
@@ -12,5 +12,5 @@ const routes: Routes = [
         RouterModule.forChild(routes)
     ]
 })
-export class DashboardRouterModule {
+export class MenuRouterModule {
 }

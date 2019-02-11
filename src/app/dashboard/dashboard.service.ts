@@ -16,7 +16,6 @@ export class DashboardService {
     }
 
     public getDashboard() {
-
         this.dashboardItems = [
             {
                 title: this.translate.instant('dashboard.appointments'),

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
 import {Parcel} from '../parcel.model';
-import { AlertController } from '@ionic/angular';
+import {AlertController} from '@ionic/angular';
 
 
 @Component({
@@ -18,28 +18,27 @@ export class ParcelListItemComponent implements OnInit {
 
     async DeleteAppointment() {
         const alert = await this.alertController.create({
-          header: 'Cancel Appointment!',          
-          message: 'Are you sure you want to cancel the appointment?',
-          buttons: [
-            {
-              text: 'No',
-              role: 'no',
-              cssClass: 'ion-color-danger',
-              handler: (blah) => {
-                console.log('Confirm Cancel');
-              }
-            }, {
-              text: 'Yes',
-              cssClass: 'mat-raised-button',
-              handler: () => {
-                this.deleteParcel();
-              }
-            }
-          ]
+            header: 'Cancel Appointment!',
+            message: 'Are you sure you want to cancel the appointment?',
+            buttons: [
+                {
+                    text: 'No',
+                    role: 'no',
+                    cssClass: 'ion-color-danger',
+                    handler: (blah) => {
+                        console.log('Confirm Cancel');
+                    }
+                }, {
+                    text: 'Yes',
+                    cssClass: 'mat-raised-button',
+                    handler: () => {
+                        this.deleteParcel();
+                    }
+                }
+            ]
         });
-    
         await alert.present();
-      }
+    }
 
     ngOnInit() {
     }
@@ -48,6 +47,5 @@ export class ParcelListItemComponent implements OnInit {
         console.log('unread');
     }
 
-    
 
 }

@@ -1,0 +1,6 @@
+<ion-item [lines]="'none'" [routerDirection]="'root'" [routerLink]="[menuItem.url]">
+    <ion-img style="width: 50px; height: 50px" [src]="menuItem.icon" slot="start"></ion-img>
+    <ion-label>
+        {{menuItem.title | translate}}
+    </ion-label>
+</ion-item>

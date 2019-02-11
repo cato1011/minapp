@@ -16,6 +16,7 @@ import {MatIconModule} from '@angular/material';
 import {VehiclesModule} from './vehicles/vehicles.module';
 import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {MenuModule} from './menu/menu.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -35,6 +36,7 @@ export function HttpLoaderFactory(http: HttpClient) {
             }
         }),
         LoginModule,
+        MenuModule,
         VehiclesModule,
         CoreModule,
         MatIconModule,

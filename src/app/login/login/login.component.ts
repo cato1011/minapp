@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {LoginService} from '../login.service';
 import {AppService} from '../../app.service';
 import {Router} from '@angular/router';
+import {MenuService} from '../../menu/menu.service';
 
 @Component({
     selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
     public username: string;
     public title = 'Herzlich Willkommen';
 
-    constructor(private loginService: LoginService, private appService: AppService, private router: Router) {
+    constructor(private loginService: LoginService, private menuService: MenuService, private router: Router) {
     }
 
     onSubmit() {
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
                 (user) => {
                     console.log(user);
                     this.router.navigate(link);
-                    this.appService.setNavBarState(true);
+                    this.menuService.setNavBarState(true);
                 },
                 error => console.log('error during login ' + error)
             );
