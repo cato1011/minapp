@@ -23,7 +23,7 @@ export class DeliveryplacesComponent implements OnInit {
 
   constructor(private httpClient: HttpClient) { }
 
-  reloadIn() {
+  reloadDeliveryPlaces() {
 
     this.httpClient.get<DeliveryPlace[]>('http://localhost:8082/deliveryPlaces/', {
       headers: { userToken: this.userToken }
@@ -41,7 +41,7 @@ export class DeliveryplacesComponent implements OnInit {
 
   ngOnInit() {
 
-    this.reloadIn();
+    this.reloadDeliveryPlaces();
     this.delivery_places$ = this.getAllDeliveryPlaces();
 
   }

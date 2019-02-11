@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {Parcel} from '../parcel.model';
 import { AlertController } from '@ionic/angular';
 
@@ -47,5 +47,7 @@ export class ParcelListItemComponent implements OnInit {
     deleteParcel() {
         console.log('unread');
     }
+
+    
 
 }

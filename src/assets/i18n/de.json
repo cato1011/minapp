@@ -5,15 +5,14 @@
   "login.button_text": "Anmelden",
   "login.forgot_password": "Password vergessen?",
 
-  "dashboard.header":"Übersicht",
-  "dashboard.appointments":"Aktuelle Termin",    
-  "dashboard.parcels_to_me" : "Sendungen zu mir",
-  "dashboard.parcels_from_me" : "Sendungen von mir",
+  "dashboard.header": "Übersicht",
+  "dashboard.appointments": "Aktuelle Termin",
+  "dashboard.parcels_to_me": "Sendungen zu mir",
+  "dashboard.parcels_from_me": "Sendungen von mir",
   "dashboard.N2N": "Quartier kurier",
   "dashboard.supplier": "Zulieferer",
-  "dashboard.request_vehicle":"Fahrzeug anfordern",
-
-  "parcel.request_appointment":"Termin vereinbaren",
-  "parcel.cancel_appointment":"Termin absagen"
-
+  "dashboard.request_vehicle": "Fahrzeug anfordern",
+  
+  "parcel.request_appointment": "Termin vereinbaren",
+  "parcel.cancel_appointment": "Termin absagen"
 }
