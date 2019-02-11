@@ -19,7 +19,7 @@
       <input matInput placeholder="{{ 'login.placeholder_password' | translate }}" type="password" [formControl]="form.controls['password']">
     </mat-form-field>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">{{ 'login.button_text' | translate }}</button>
+      <button type="submit"><img [src]="form.valid ? './assets/icons/login/next_2x.png' : './assets/icons/login/next_disabled_2x.png'"></button>
     </mat-card-actions>
   </form>
 </mat-card-content>
