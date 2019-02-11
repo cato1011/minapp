@@ -5,13 +5,23 @@
   "login.button_text": "Anmelden",
   "login.forgot_password": "Password vergessen?",
 
+  "menu.dashboard": "Übersicht",
+  "menu.appointments": "Aktuelle Termine",
+  "menu.parcels_to_me":  "Sendungen zu mir",
+  "menu.parcels_from_me": "Sendungen von mir",
+  "menu.return": "Paket zurücksenden / Retoure",
+  "menu.courier": "Quartier-Kurier",
+  "menu.divider": "BUGA:log für kommerzielle Nutzung",
+  "menu.supplier": "Zulieferer-Anlieferung",
+  "menu.waste": "Altpapier-Entsorgung",
+  "menu.settings": "Einstellungen",
+  "menu.help": "Hilfe / FAQ",
+  "menu.disclaimer": "Impressum / Datenschutz",
+
   "dashboard.header": "Übersicht",
   "dashboard.appointments": "Aktuelle Termin",
   "dashboard.parcels_to_me": "Sendungen zu mir",
   "dashboard.parcels_from_me": "Sendungen von mir",
-  "dashboard.N2N": "Quartier kurier",
-  "dashboard.supplier": "Zulieferer",
-  "dashboard.request_vehicle": "Fahrzeug anfordern",
   
   "parcel.request_appointment": "Termin vereinbaren",
   "parcel.cancel_appointment": "Termin absagen"

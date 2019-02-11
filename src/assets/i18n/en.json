@@ -5,13 +5,23 @@
   "login.button_text": "Login",
   "login.forgot_password": "Forgot Password?",
 
+  "menu.dashboard": "Dashboard",
+  "menu.appointments": "Active appointments",
+  "menu.parcels_to_me":  "Received parcels",
+  "menu.parcels_from_me": "Sent parcels",
+  "menu.return": "Return package",
+  "menu.courier": "Neighbour to neighbour",
+  "menu.divider": "BUGA:log for commercial usage",
+  "menu.supplier": "Suppliers' delivery",
+  "menu.waste": "Waste disposal",
+  "menu.settings": "Settings",
+  "menu.help": "Help / FAQ",
+  "menu.disclaimer": "Disclaimer / Privacy",
+
   "dashboard.header":"Dashboard",
   "dashboard.appointments":"Active appointments",  
   "dashboard.parcels_to_me" : "Received parcels",
   "dashboard.parcels_from_me" : "Sent parcels",
-  "dashboard.N2N": "Deliver to Neighbour",
-  "dashboard.supplier": "Supplier",
-  "dashboard.request_vehicle":"Request Vehicle",
 
   "parcel.request_appointment":"Request Appointment",
   "parcel.cancel_appointment":"Cancel Appointment"

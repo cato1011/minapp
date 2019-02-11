@@ -18,32 +18,32 @@ export class AppComponent {
     // TODO translation
     public appPages = [
         {
-            title: 'Dashboard',
+            title: 'menu.dashboard',
             url: '/dashboard',
             icon: this.imagePrefix + 'next_parcel_2x.png'
         },
         {
-            title: 'Aktuelle Termine',
-            url: '/events',
+            title: 'menu.appointments',
+            url: '/appointments',
             icon: this.imagePrefix + 'clock_small_2x.png'
         },
         {
-            title: 'Sendungen zu mir (Received)',
+            title: 'menu.parcels_to_me',
             url: '/parcels/in',
             icon: this.imagePrefix + 'parcels_in_2x.png'
         },
         {
-            title: 'Sendungen von mir (Sent)',
+            title: 'menu.parcels_from_me',
             url: '/parcels/out',
             icon: this.imagePrefix + 'parcels_out_2x.png'
         },
         {
-            title: 'Retoure',
+            title: 'menu.return',
             url: '/parcels/retoure',
             icon: this.imagePrefix + 'retoure_2x.png'
         },
         {
-            title: 'Quartier-Kurier',
+            title: 'menu.courier',
             url: '/parcels/n2n',
             icon: this.imagePrefix + 'n2n_2x.png'
         }
@@ -52,12 +52,12 @@ export class AppComponent {
     // TODO translation
     public commercialAppPages = [
         {
-            title: 'Zulieferer-Anlieferung',
+            title: 'menu.supplier',
             url: '/supplier',
             icon: this.imagePrefix + 'supplier_2x.png'
         },
         {
-            title: 'Altpapier-Entsorgung',
+            title: 'menu.waste',
             url: '/waste',
             icon: this.imagePrefix + 'waste_2x.png'
         }
@@ -66,17 +66,17 @@ export class AppComponent {
     // TODO translation
     public generalPages = [
         {
-            title: 'Settings',
+            title: 'menu.settings',
             url: '/settings',
             icon: this.imagePrefix + 'settings_2x.png'
         },
         {
-            title: 'Help / FAQ',
+            title: 'menu.help',
             url: '/help',
             icon: this.imagePrefix + 'faq_2x.png'
         },
         {
-            title: 'Disclaimer',
+            title: 'menu.disclaimer',
             url: '/dislaimer',
             icon: this.imagePrefix + 'disclaimer_2x.png'
         }
