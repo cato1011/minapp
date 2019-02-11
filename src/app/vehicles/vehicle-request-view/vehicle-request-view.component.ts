@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { VehicleService } from '../vehicle.service'
 import { Vehicles } from '../vehicles.model'
+import { ActivatedRoute } from "@angular/router";
+
 
 
 @Component({
@@ -14,6 +16,8 @@ export class VehicleRequestViewComponent implements OnInit {
   packetSizes = ['S', 'M', 'L', 'XL'];
   vehicleRequestForm: FormGroup;
   public userToken = 'c1e46f017983b562c8c6af0627f28ff9';
+  public  request_type: string;
+  public parcelGUID:string;
   vehicles: Vehicles = {
     "boxGUID": "",
     "id": 0,
@@ -37,13 +41,20 @@ export class VehicleRequestViewComponent implements OnInit {
 
 
 
-  constructor(private vehicleService: VehicleService, private fb: FormBuilder) { }
+  constructor(private vehicleService: VehicleService, private fb: FormBuilder, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    // Define Form
     this.vehicleRequestForm = this.fb.group({
       deliveryplaces: ['', Validators.required],
       datetime: [this.minimumDate]
     });
+
+    // Get URL params to distinguish between normal vehicle request or parcel related request
+    this.route.queryParams.subscribe(queryParams => {
+      this.request_type = queryParams['func'];     
+      this.parcelGUID=queryParams['parcelGUID'];
+  });    
 
   }
 
@@ -53,8 +64,22 @@ export class VehicleRequestViewComponent implements OnInit {
     // Set variables for post request
     this.vehicles.latitude = latitude_longitude[0];
     this.vehicles.longitude = latitude_longitude[1];
-    this.vehicles.requestPurpose = "VEHICLE_CALL";
-    this.vehicles.status = "CONFIRMED";
+
+    // Set Request purpose according to URL param
+    switch ( this.request_type) {
+      case ("pd"):
+        this.vehicles.requestPurpose = "PARCEL_DELIVERY";
+        this.vehicles.parcelGUID=this.parcelGUID;
+        break;
+
+      case ("vr"):
+        this.vehicles.requestPurpose = "VEHICLE_CALL";
+        break;
+    }
+
+    // Set other required fields for Vehicle Request Object
+   
+    this.vehicles.status = "PENDING";
     this.vehicles.time = this.vehicleRequestForm.value.datetime;
     this.vehicles.userToken = this.userToken;
 
