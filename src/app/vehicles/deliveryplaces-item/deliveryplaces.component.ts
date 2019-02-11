@@ -16,7 +16,7 @@ export class DeliveryplacesComponent implements OnInit {
   private deliveryPlacesSubject: Subject<DeliveryPlace[]> = new ReplaySubject<DeliveryPlace[]>(25);
   public parcelServerUrl: 'http://localhost:8082/parcels';
   public userToken = 'c1e46f017983b562c8c6af0627f28ff9';
-  parcels$: Observable<DeliveryPlace[]>;
+  delivery_places$: Observable<DeliveryPlace[]>;
   deliveryPlaces: DeliveryPlace[];
   
   @Input() parentForm:FormGroup;
@@ -42,7 +42,7 @@ getAllDeliveryPlaces() {
   ngOnInit() {
 
     this.reloadIn();
-    this.parcels$ = this.getAllDeliveryPlaces();
+    this.delivery_places$ = this.getAllDeliveryPlaces();
     
   }
 

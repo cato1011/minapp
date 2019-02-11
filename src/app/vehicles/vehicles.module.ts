@@ -7,6 +7,11 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms'
 import {IonicModule} from '@ionic/angular';
 import { DeliveryplacesComponent } from './deliveryplaces-item/deliveryplaces.component';
 import { DatetimeItemComponent } from './datetime-item/datetime-item.component';
+import {
+    MatButtonModule,
+    MatCardModule,
+    
+} from '@angular/material'
 
 @NgModule({
     declarations: [VehicleRequestViewComponent, DeliveryplacesComponent, DatetimeItemComponent],
@@ -16,7 +21,9 @@ import { DatetimeItemComponent } from './datetime-item/datetime-item.component';
         VehiclesRouterModule,
         FormsModule,
         ReactiveFormsModule,
-        IonicModule
+        IonicModule,
+        MatButtonModule,
+        MatCardModule,
     ],
     exports: [VehicleRequestViewComponent]
     

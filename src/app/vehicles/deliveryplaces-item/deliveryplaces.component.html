@@ -3,9 +3,10 @@
             <ion-col>            
               <ion-list>
                 <ion-item [formGroup]="parentForm">
-                  <ion-label >Select Place</ion-label>   
+                    
+                  <ion-label> <ion-icon color=primary name="pin"></ion-icon> Select Place</ion-label>                 
                   <ion-select [formControlName]="'deliveryplaces'">                                    
-                          <ion-select-option  *ngFor="let DeliveryPlace of (parcels$ | async)" value="{{DeliveryPlace.description}}">{{DeliveryPlace.description}}</ion-select-option>                 
+                          <ion-select-option  *ngFor="let DeliveryPlace of (delivery_places$ | async)" value="{{DeliveryPlace.latitude}}|{{DeliveryPlace.longitude}}">{{DeliveryPlace.description}}</ion-select-option>                 
                         </ion-select> 
                 </ion-item>     
               </ion-list>

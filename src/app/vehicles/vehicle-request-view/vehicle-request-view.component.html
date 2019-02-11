@@ -8,9 +8,32 @@
         </ion-title>
     </ion-toolbar>
   </ion-header>
+  
   <ion-content>
-    <form [formGroup]="parentForm" (submit)=showData()>
-<app-deliveryplaces [parentForm]="parentForm"></app-deliveryplaces>
-<app-datetime-item [parentForm]="parentForm"></app-datetime-item>
+  
+    <form [formGroup]="vehicleRequestForm" (ngSubmit)=sendData()>
+<app-deliveryplaces [parentForm]="vehicleRequestForm"></app-deliveryplaces>
+<app-datetime-item [parentForm]="vehicleRequestForm"></app-datetime-item>
+<ion-grid>
+    <ion-row>
+        <ion-col> 
+                <ion-item>
+                                           
+ <ion-input placeholder="Enter Description"></ion-input>
+                </ion-item>
+        </ion-col>
+    </ion-row>
+</ion-grid>
+<ion-row>
+    <ion-col offset="4">
+        <mat-card-actions>  
+            <button mat-raised-button color="primary" type="submit" > <ion-icon name="log-out"></ion-icon> Request Appointment</button> 
+                     
+          </mat-card-actions>
+      </ion-col>
+</ion-row>
+
 </form>
 </ion-content>
+
+

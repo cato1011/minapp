@@ -12,7 +12,9 @@ export class DatetimeItemComponent implements OnInit {
   // Get the present date
   presentDate:Date = new Date(); 
   // Add 30 mins to present date to set the minimum date for drop down
-  minimumDate=(new Date(this.presentDate.setMinutes(this.presentDate.getMinutes() + 90))).toISOString();
+  minimumTime=(new Date(this.presentDate.setMinutes(this.presentDate.getMinutes() + 90))).toISOString();
+  minimumDate=this.presentDate.toISOString();
+ 
   constructor() { }
 
   ngOnInit() {
