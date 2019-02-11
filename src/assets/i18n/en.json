@@ -24,5 +24,7 @@
   "dashboard.parcels_from_me" : "Sent parcels",
 
   "parcel.request_appointment":"Request Appointment",
-  "parcel.cancel_appointment":"Cancel Appointment"
+  "parcel.cancel_appointment":"Cancel Appointment",
+  "parcel.header.in": "Received parcels",
+  "parcel.header.out": "Sent parcels"
 }
