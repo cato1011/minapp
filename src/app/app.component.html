@@ -8,13 +8,38 @@
             </ion-header>
             <ion-content>
                 <ion-list>
-                    <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-                        <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
-                            <ion-img style="width: 50px; height: 50px" [src]="p.icon" slot="start"></ion-img>
-                            <ion-label>
-                                {{p.title}}
-                            </ion-label>
-                        </ion-item>
+                    <ion-menu-toggle auto-hide="false">
+                        <ion-item-group *ngFor="let p of appPages;">
+                            <ion-item [lines]="'none'" [routerDirection]="'root'" [routerLink]="[p.url]">
+                                <ion-img style="width: 50px; height: 50px" [src]="p.icon" slot="start"></ion-img>
+                                <ion-label>
+                                    {{p.title}}
+                                </ion-label>
+                            </ion-item>
+                        </ion-item-group>
+                        <ion-item-divider [color]="'#1365B6'">
+                            <ion-item [lines]="'none'" [color]="'#1365B6'">
+                                <!-- TODO translate -->
+                                <ion-label>BUGA:log for commercial usage</ion-label>
+                            </ion-item>
+                        </ion-item-divider>
+                        <ion-item-group *ngFor="let cp of commercialAppPages;">
+                            <ion-item [lines]="'none'" [color]="'#BCE0FD'" [routerDirection]="'root'" [routerLink]="[cp.url]">
+                                <ion-img style="width: 50px; height: 50px" [src]="cp.icon" slot="start"></ion-img>
+                                <ion-label>
+                                    {{cp.title}}
+                                </ion-label>
+                            </ion-item>
+                        </ion-item-group>
+                        <ion-item-divider></ion-item-divider>
+                        <ion-item-group *ngFor="let gp of generalPages;">
+                            <ion-item [lines]="'none'" [routerDirection]="'root'" [routerLink]="[gp.url]">
+                                <ion-img style="width: 50px; height: 50px" [src]="gp.icon" slot="start"></ion-img>
+                                <ion-label>
+                                    {{gp.title}}
+                                </ion-label>
+                            </ion-item>
+                        </ion-item-group>
                     </ion-menu-toggle>
                 </ion-list>
             </ion-content>

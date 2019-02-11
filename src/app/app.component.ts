@@ -13,22 +13,72 @@ export class AppComponent {
 
     public href;
     isSidebarVisible = true;
-    imagePrefix = './assets/icons/';
+    imagePrefix = './assets/icons/menu/';
+
+    // TODO translation
     public appPages = [
         {
             title: 'Dashboard',
             url: '/dashboard',
-            icon: this.imagePrefix + 'parcel_sent.png'
+            icon: this.imagePrefix + 'next_parcel_2x.png'
+        },
+        {
+            title: 'Aktuelle Termine',
+            url: '/events',
+            icon: this.imagePrefix + 'clock_small_2x.png'
         },
         {
             title: 'Sendungen zu mir (Received)',
             url: '/parcels/in',
-            icon: this.imagePrefix + 'sendungen_zu_mir.png'
+            icon: this.imagePrefix + 'parcels_in_2x.png'
         },
         {
             title: 'Sendungen von mir (Sent)',
             url: '/parcels/out',
-            icon: this.imagePrefix + 'sendungen_von_mir.png'
+            icon: this.imagePrefix + 'parcels_out_2x.png'
+        },
+        {
+            title: 'Retoure',
+            url: '/parcels/retoure',
+            icon: this.imagePrefix + 'retoure_2x.png'
+        },
+        {
+            title: 'Quartier-Kurier',
+            url: '/parcels/n2n',
+            icon: this.imagePrefix + 'n2n_2x.png'
+        }
+    ];
+
+    // TODO translation
+    public commercialAppPages = [
+        {
+            title: 'Zulieferer-Anlieferung',
+            url: '/supplier',
+            icon: this.imagePrefix + 'supplier_2x.png'
+        },
+        {
+            title: 'Altpapier-Entsorgung',
+            url: '/waste',
+            icon: this.imagePrefix + 'waste_2x.png'
+        }
+    ];
+
+    // TODO translation
+    public generalPages = [
+        {
+            title: 'Settings',
+            url: '/settings',
+            icon: this.imagePrefix + 'settings_2x.png'
+        },
+        {
+            title: 'Help / FAQ',
+            url: '/help',
+            icon: this.imagePrefix + 'faq_2x.png'
+        },
+        {
+            title: 'Disclaimer',
+            url: '/dislaimer',
+            icon: this.imagePrefix + 'disclaimer_2x.png'
         }
     ];
 

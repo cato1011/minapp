@@ -23,7 +23,6 @@ export class DashboardTileComponent implements OnInit {
 
   @Input() dashboardItem: DashboardItem;
   isHovering = false;
-  imagePrefix = './assets/icons/';
 
   constructor(private router: Router) {
   }

@@ -1,6 +1,6 @@
 <ion-item (click)="onClick()" (mouseenter)="isHovering = true" (mouseleave)="isHovering = false" [@hover]="isHovering">
     <ion-card-header>
-        <ion-img [src]="imagePrefix + dashboardItem.image"></ion-img>
+        <ion-img [src]="dashboardItem.image"></ion-img>
     </ion-card-header>
     <ion-card-content>
         <ion-card-title class="mat-accent"><h2>{{dashboardItem.title}}</h2></ion-card-title>
