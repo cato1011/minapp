@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
             username: new FormControl(this.username, Validators.required),
             password: new FormControl('', Validators.required)
         });
-        this.appService.setNavBarState(false);
     }
 
 }

@@ -11,3 +11,8 @@
 @import '~@ionic/angular/css/flex-utils.css';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import '~material-design-icons/iconfont/material-icons.css';
+
+ion-toolbar {
+  background-color: #1365B6;
+  color: white;
+}
