@@ -4,11 +4,12 @@
       <ion-list>
         <ion-item [formGroup]="parentForm">
           <ion-label>
-            <ion-icon color=primary name="pin"></ion-icon> Select Place
+              <!-- TODO translate -->
+            <ion-icon color=primary name="pin"></ion-icon> Select Delivery Place
           </ion-label>
-          <ion-select [formControlName]="'deliveryplaces'">
-            <ion-select-option *ngFor="let DeliveryPlace of (delivery_places$ | async)"
-              value="{{DeliveryPlace.latitude}}|{{DeliveryPlace.longitude}}">{{DeliveryPlace.description}}
+          <ion-select [formControlName]="'deliveryplaces'" >
+            <ion-select-option *ngFor="let deliveryPlace of (deliveryPlaces$ | async)"
+              value="{{deliveryPlace.latitude}}|{{deliveryPlace.longitude}}">{{deliveryPlace.description}}
             </ion-select-option>
           </ion-select>
         </ion-item>
