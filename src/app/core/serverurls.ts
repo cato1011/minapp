@@ -5,8 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class ServerUrl {
 
-   parcelServerUrl='http://locahost:8082';
-   carrierServerUrl='http://locahost:8081';;
+   parcelServerUrl='http://localhost:8082';
+   carrierServerUrl='http://localhost:8081';
+   
 
   constructor() {
 

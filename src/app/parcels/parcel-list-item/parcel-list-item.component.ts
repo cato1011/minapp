@@ -1,6 +1,7 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
 import {Parcel} from '../parcel.model';
 import {AlertController} from '@ionic/angular';
+import {VehicleService} from '../../vehicles/vehicle.service';
 
 
 @Component({
@@ -13,10 +14,11 @@ export class ParcelListItemComponent implements OnInit {
     @Input() parcel: Parcel;
     imagePrefix = './assets/icons/parcels/';
 
-    constructor(private alertController: AlertController) {
+    constructor(private alertController: AlertController, private vehicleService: VehicleService) {
+        
     }
 
-    async DeleteAppointment() {
+    async DeleteAppointment(parcel_object) {
         const alert = await this.alertController.create({
             header: 'Cancel Appointment!',
             message: 'Are you sure you want to cancel the appointment?',
@@ -32,7 +34,9 @@ export class ParcelListItemComponent implements OnInit {
                     text: 'Yes',
                     cssClass: 'mat-raised-button',
                     handler: () => {
-                        this.deleteParcel();
+                        console.log('Cancel Vehicle Request:');
+                        this.vehicleService.cancelVehicleRequest(parcel_object);                       
+                         
                     }
                 }
             ]
@@ -45,6 +49,7 @@ export class ParcelListItemComponent implements OnInit {
 
     deleteParcel() {
         console.log('unread');
+        
     }
 
 

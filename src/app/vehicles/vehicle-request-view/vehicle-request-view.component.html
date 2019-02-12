@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar>
+    <ion-toolbar [color]="'#1365B6'">
         <ion-buttons slot="end">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
@@ -9,7 +9,7 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [color]="'#212121'">
 
     <form [formGroup]="vehicleRequestForm" (ngSubmit)=sendData()>
         <app-deliveryplaces [parentForm]="vehicleRequestForm"></app-deliveryplaces>
