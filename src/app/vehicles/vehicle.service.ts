@@ -71,13 +71,19 @@ export class VehicleService {
 
     public cancelVehicleRequest(parcel_obj:Parcel) {
 
-       this.getVehicleRequestById(parcel_obj.vehicleRequestId).subscribe(
-        ( vehicleRequest: Vehicles[]) => {
-          this.vehicleRequest=vehicleRequest;   
+    //    this.getVehicleRequestById(parcel_obj.vehicleRequestId).subscribe(
+    //     ( vehicleRequest: Vehicles[]) => {
+    //       this.vehicleRequest=vehicleRequest;   
               
-        });
+    //     });
 
-        
+    //.pipe(map((result: Response) => this.BlackListData = result.json()));
+
+    this.getVehicleRequestById(parcel_obj.vehicleRequestId).subscribe(
+             ( vehicleRequest: Vehicles[]) => {
+               this.vehicleRequest=vehicleRequest;   
+                  
+             });
 
         // Set status for the Vehicle Request
       
