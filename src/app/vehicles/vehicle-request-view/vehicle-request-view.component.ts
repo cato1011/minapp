@@ -5,6 +5,7 @@ import {Vehicles} from '../vehicles.model';
 import {ActivatedRoute} from '@angular/router';
 import {DeliveryPlacesService} from '../../delivery-places/delivery-places.service';
 import {DeliveryPlace} from '../../delivery-places/delivery-places.model';
+import {Observable} from 'rxjs';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class VehicleRequestViewComponent implements OnInit {
     public userToken = 'c1e46f017983b562c8c6af0627f28ff9';
     public request_type: string;
     public parcelGUID: string;
-    public deliveryPlaces: DeliveryPlace[];
+    public deliveryPlaces$: Observable<DeliveryPlace[]>;
+
     vehicles: Vehicles = {
         'boxGUID': '',
         'id': 0,
@@ -40,7 +42,7 @@ export class VehicleRequestViewComponent implements OnInit {
     minimumDate = this.presentDate.toISOString();
 
     constructor(
-        private deliveryPlaceService: DeliveryPlacesService,
+        private deliveryPlacesService: DeliveryPlacesService,
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private vehicleService: VehicleService
@@ -69,7 +71,8 @@ export class VehicleRequestViewComponent implements OnInit {
     }
 
     initDeliveryPlaces() {
-        this.deliveryPlaces = this.deliveryPlaceService.getDeliveryPlaces();
+        this.deliveryPlacesService.reloadDeliveryPlaces();
+        this.deliveryPlaces$ = this.deliveryPlacesService.getDeliveryPlaces();
     }
 
     sendData() {

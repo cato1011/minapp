@@ -12,17 +12,13 @@ import {DeliveryPlacesService} from '../../delivery-places/delivery-places.servi
 export class DeliveryplacesComponent implements OnInit {
 
     @Input() parentForm: FormGroup;
-    deliveryPlaces$: Observable<DeliveryPlace[]>;
+    @Input() deliveryPlaces: DeliveryPlace[];
 
     constructor(private deliveryPlacesService: DeliveryPlacesService) {
     }
 
     ngOnInit() {
-        /*TODO initialize deliveryplace service in delivery place module
-        TODO and load delivery places in an init function
-         */
-        this.deliveryPlacesService.reloadDeliveryPlaces();
-        this.deliveryPlaces$ = this.deliveryPlacesService.getDeliveryPlaces();
+
     }
 
 }

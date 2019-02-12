@@ -8,7 +8,7 @@
             <ion-icon color=primary name="pin"></ion-icon> Select Delivery Place
           </ion-label>
           <ion-select [formControlName]="'deliveryplaces'" >
-            <ion-select-option *ngFor="let deliveryPlace of (deliveryPlaces$ | async)"
+            <ion-select-option *ngFor="let deliveryPlace of deliveryPlaces"
               value="{{deliveryPlace.latitude}}|{{deliveryPlace.longitude}}">{{deliveryPlace.description}}
             </ion-select-option>
           </ion-select>

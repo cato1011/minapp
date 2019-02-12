@@ -12,7 +12,7 @@
 <ion-content [color]="'#212121'">
 
     <form [formGroup]="vehicleRequestForm" (ngSubmit)=sendData()>
-        <app-deliveryplaces [parentForm]="vehicleRequestForm"></app-deliveryplaces>
+        <app-deliveryplaces [deliveryPlaces]="deliveryPlaces$ | async" [parentForm]="vehicleRequestForm"></app-deliveryplaces>
         <app-datetime-item [parentForm]="vehicleRequestForm"></app-datetime-item>
         <ion-grid>
             <ion-row>
