@@ -3,8 +3,7 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ServerUrl } from '../core/serverurls'
 import { Vehicles } from '../vehicles/vehicles.model'
 import { Parcel } from '../parcels/parcel.model'
-import { Subject, ReplaySubject } from 'rxjs';
-
+import { Subject, ReplaySubject} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -18,6 +17,20 @@ export class VehicleService {
     private sendVehicleRequestUrl:string;
     private getVehicleRequestUrl:string;
     private cancelVehicleRequestUrl:string;  
+    finalVehicleRequest: Vehicles = {
+        "boxGUID": "",
+        "id": 0,
+        "latitude": 0,
+        "longitude": 0,
+        "parcelGUID": "",
+        "potentialVehicleIds": [0],
+        "requestPurpose": "",
+        "size": "new_request",
+        "status": "",
+        "time": "",
+        "userToken": "",
+        "waitingTime": 0,
+      };
     
     
 
@@ -50,6 +63,7 @@ export class VehicleService {
           }).subscribe((ps) => {
             this.vehicleRequestSubject.next(ps);
           });
+          
 
           return this.vehicleRequestSubject.asObservable();
       }
@@ -58,13 +72,15 @@ export class VehicleService {
     public cancelVehicleRequest(parcel_obj:Parcel) {
 
        this.getVehicleRequestById(parcel_obj.vehicleRequestId).subscribe(
-        res => {
-           this.vehicleRequest= res;
-           console.log( this.vehicleRequest);
+        ( vehicleRequest: Vehicles[]) => {
+          this.vehicleRequest=vehicleRequest;   
+              
         });
 
+        
+
         // Set status for the Vehicle Request
-      //  this.vehicleRequest
+      
 
         // Set Cancelled status in vehicle Request
         this.cancelVehicleRequestUrl=this.serverUrl.carrierServerUrl+'/vehicleRequests/'+parcel_obj.vehicleRequestId;
