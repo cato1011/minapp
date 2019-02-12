@@ -1,5 +1,6 @@
 <ion-item>
-    <ion-img [src]="imagePrefix + 'confirmed.png'"></ion-img>
+    <!--TODO show different icon, when request is confirmed -->
+    <ion-img [src]="imagePrefix + 'vehicle_requested.png'"></ion-img>
     <ion-label>{{parcel.status}}</ion-label>
     <ion-button *ngIf="parcel.status== 'DELIVERY_REQUESTED' || parcel.status== 'DELIVERY_CONFIRMED' 
     && parcel.status!= 'DELIVERED'" color="danger" fill="outline" slot="end" (click)="DeleteAppointment(parcel)">

@@ -1,49 +1,28 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ReplaySubject, Subject } from 'rxjs';
-import { DeliveryPlace } from '../../delivery-places/delivery-places.model'
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { VehicleService } from '../vehicle.service'
-import { FormGroup } from '@angular/forms';
+import {Component, Input, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import {DeliveryPlace} from '../../delivery-places/delivery-places.model';
+import {FormGroup} from '@angular/forms';
+import {DeliveryPlacesService} from '../../delivery-places/delivery-places.service';
 
 @Component({
-  selector: 'app-deliveryplaces',
-  templateUrl: './deliveryplaces.component.html',
-  styleUrls: ['./deliveryplaces.component.sass']
+    selector: 'app-deliveryplaces',
+    templateUrl: './deliveryplaces.component.html',
+    styleUrls: ['./deliveryplaces.component.sass']
 })
 export class DeliveryplacesComponent implements OnInit {
 
-  private deliveryPlacesSubject: Subject<DeliveryPlace[]> = new ReplaySubject<DeliveryPlace[]>(25);
-  public parcelServerUrl: 'http://localhost:8082/parcels';
-  public userToken = 'c1e46f017983b562c8c6af0627f28ff9';
-  delivery_places$: Observable<DeliveryPlace[]>;
-  deliveryPlaces: DeliveryPlace[];
+    @Input() parentForm: FormGroup;
+    deliveryPlaces$: Observable<DeliveryPlace[]>;
 
-  @Input() parentForm: FormGroup;
+    constructor(private deliveryPlacesService: DeliveryPlacesService) {
+    }
 
-  constructor(private httpClient: HttpClient) { }
-
-  reloadDeliveryPlaces() {
-
-    this.httpClient.get<DeliveryPlace[]>('http://localhost:8082/deliveryPlaces/', {
-      headers: { userToken: this.userToken }
-    }).subscribe((ps) => {
-      this.deliveryPlacesSubject.next(ps);
-    });
-
-  }
-
-  getAllDeliveryPlaces() {
-
-    return this.deliveryPlacesSubject.asObservable();
-  }
-
-
-  ngOnInit() {
-
-    this.reloadDeliveryPlaces();
-    this.delivery_places$ = this.getAllDeliveryPlaces();
-
-  }
+    ngOnInit() {
+        /*TODO initialize deliveryplace service in delivery place module
+        TODO and load delivery places in an init function
+         */
+        this.deliveryPlacesService.reloadDeliveryPlaces();
+        this.deliveryPlaces$ = this.deliveryPlacesService.getDeliveryPlaces();
+    }
 
 }

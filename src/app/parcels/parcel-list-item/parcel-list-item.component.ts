@@ -12,7 +12,7 @@ import {VehicleService} from '../../vehicles/vehicle.service';
 export class ParcelListItemComponent implements OnInit {
 
     @Input() parcel: Parcel;
-    imagePrefix = './assets/icons/';
+    imagePrefix = './assets/icons/parcels/';
 
     constructor(private alertController: AlertController, private vehicleService: VehicleService) {
         

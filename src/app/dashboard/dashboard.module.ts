@@ -19,7 +19,7 @@ import {TranslateModule} from '@ngx-translate/core';
         IonicModule,
         TranslateModule
     ],
-    exports: [DashboardTileComponent]
+    exports: [DashboardListComponent]
 })
 export class DashboardModule {
 }

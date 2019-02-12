@@ -9,7 +9,6 @@ export class DashboardService {
 
     public dashboardItems: DashboardItem[];
     public imagePrefix = './assets/icons/dashboard/';
-    public foo: string;
 
     constructor(private translate: TranslateService) {
 
