@@ -17,12 +17,15 @@
         
         <ion-row>
             <ion-col offset="4">
-                <mat-card-actions>
-                    <button mat-raised-button color="primary" type="submit">
+                <button type="submit" [disabled]="!vehicleRequestForm.valid" style="background: transparent">
+                    <img src="../../../assets/icons/request/send_button.png" >
+                </button>
+                       
+                    <!-- <button mat-raised-button color="primary" type="submit">
                         <ion-icon name="log-out"></ion-icon> Request Appointment
-                    </button>
+                    </button> -->
 
-                </mat-card-actions>
+               
             </ion-col>
         </ion-row>
 
