@@ -102,7 +102,7 @@ export class VehicleRequestViewComponent implements OnInit {
 
         // Send Vehicle Request
         this.vehicleService.sendVehicleRequest(this.vehicles);
-        this.router.navigate(['/vehicleRequested'], { skipLocationChange: true });
+        this.router.navigate(['/vehicleRequested'], { skipLocationChange: false });
     }
 
     reset()

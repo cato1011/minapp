@@ -8,7 +8,7 @@ import {IonicModule} from '@ionic/angular';
 import {TranslateModule} from '@ngx-translate/core';
 import {DeliveryplacesComponent} from './deliveryplaces-item/deliveryplaces.component';
 import {DatetimeItemComponent} from './datetime-item/datetime-item.component';
-import {MatButtonModule, MatCardModule,} from '@angular/material';
+import {MatButtonModule, MatCardModule,MatMenuModule} from '@angular/material';
 import { VehicleRequestedViewComponent } from './vehicle-requested-view/vehicle-requested-view.component';
 
 @NgModule({
@@ -22,6 +22,7 @@ import { VehicleRequestedViewComponent } from './vehicle-requested-view/vehicle-
         IonicModule,
         MatButtonModule,
         MatCardModule,
+        MatMenuModule,
         TranslateModule
     ],
     exports: [VehicleRequestViewComponent, DeliveryplacesComponent,VehicleRequestedViewComponent]
