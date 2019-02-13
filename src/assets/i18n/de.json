@@ -32,10 +32,11 @@
   "parcel.header.retoure": "Paket zurücksenden / Retoure",
 
   "user.settings.header": "Einstellungen",
-  "user.settings.language": "Sprache",
+  "user.settings.language": "Sprache festlegen",
   "user.settings.english": "Englisch",
   "user.settings.german": "Deutsch",
-  "user.settings.favorite_delivery_place": "Lieferort",
+  "user.settings.favorite_delivery_place": "Bevorzugten Lieferort wählen",
+  "user.settings.favorite_delivery_place.select": "Lieferort wählen",
   "user.settings.favorite_delivery_place.selected": "Dein bevorzugter Lieferort",
 
   "pagenotfound.title": "Demnächst verfügbar",
