@@ -39,6 +39,11 @@
   "user.settings.preferred_delivery_place.select": "Lieferort wählen",
   "user.settings.preferred_delivery_place.selected": "Dein bevorzugter Lieferort",
 
+  "vehicle.requested.backtodashboard":"Zurück zur Übersicht",
+  "vehicle.requested.message":"Lieferung wird angefragt…",
+  "vehicle.requested.hour":"h",
+  "vehicle.requested.toast.message":"Vielen Dank! Der Liefertermin wird jetzt angefragt. Wir benachrichtigen Sie, wenn der Termin bestätigt ist.",
+
   "pagenotfound.title": "Demnächst verfügbar",
   "pagenotfound.heading": "Dieses Feature wurde noch nicht implementiert."
 
