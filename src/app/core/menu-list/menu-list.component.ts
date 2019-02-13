@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuService} from '../menu.service';
-import {DashboardItem} from '../../dashboard/dashboard.model';
 import {MenuItem} from '../menu.model';
 
 @Component({

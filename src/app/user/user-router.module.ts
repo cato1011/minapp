@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {MenuListComponent} from './menu-list/menu-list.component';
+import {SettingsViewComponent} from './settings-view/settings-view.component';
 
 const routes: Routes = [
-    {path: '', component: MenuListComponent}
+    {path: 'user/settings', component: SettingsViewComponent}
 ];
 
 @NgModule({
@@ -12,5 +12,6 @@ const routes: Routes = [
         RouterModule.forChild(routes)
     ]
 })
-export class MenuRouterModule {
+export class UserRouterModule {
 }
+

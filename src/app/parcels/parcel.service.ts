@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Parcel} from './parcel.model';
 import {ReplaySubject, Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {LoginService} from '../login/login.service';
+import {UserService} from '../user/user.service';
 
 @Injectable({
     providedIn: 'root'
@@ -13,7 +13,7 @@ export class ParcelService {
     private parcelOutSubject: Subject<Parcel[]> = new ReplaySubject<Parcel[]>(25);
     userToken = 'c1e46f017983b562c8c6af0627f28ff9';
 
-    constructor(private httpClient: HttpClient, private loginService: LoginService) {
+    constructor(private httpClient: HttpClient, private loginService: UserService) {
     }
 
     reloadIn() {

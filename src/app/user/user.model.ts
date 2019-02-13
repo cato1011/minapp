@@ -1,3 +1,5 @@
+import {DeliveryPlace} from '../delivery-places/delivery-places.model';
+
 export interface User {
   appartmentNumber: string;
   city: string;
@@ -65,6 +67,7 @@ export interface User {
   zipCode: string;
 }
 
-export interface DataWrapper<T> {
-  data: T;
+export interface UserSettings {
+  language: string;
+  deliveryPlace: DeliveryPlace;
 }

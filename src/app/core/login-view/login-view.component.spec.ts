@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoginComponent } from './login.component';
+import { LoginViewComponent } from './login-view.component';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
@@ -17,13 +17,13 @@ import {
 } from '@angular/material';
 import {RouterTestingModule} from '@angular/router/testing';
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+describe('LoginViewComponent', () => {
+  let component: LoginViewComponent;
+  let fixture: ComponentFixture<LoginViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ],
+      declarations: [ LoginViewComponent ],
       imports: [
         CommonModule,
         FormsModule,
@@ -47,7 +47,7 @@ describe('LoginComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(LoginViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

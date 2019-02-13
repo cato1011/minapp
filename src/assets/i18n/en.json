@@ -26,5 +26,7 @@
   "parcel.request_appointment":"Request Appointment",
   "parcel.cancel_appointment":"Cancel Appointment",
   "parcel.header.in": "Received parcels",
-  "parcel.header.out": "Sent parcels"
+  "parcel.header.out": "Sent parcels",
+
+  "user.settings.header": "Settings"
 }

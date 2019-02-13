@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {LoginComponent} from './login/login/login.component';
+import {LoginViewComponent} from './core/login-view/login-view.component';
 import {PagenotfoundComponent} from './core/pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
@@ -11,7 +11,7 @@ const routes: Routes = [
     },
     {
         path: 'login',
-        component: LoginComponent
+        component: LoginViewComponent
     },
     {
         path: 'dashboard',

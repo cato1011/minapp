@@ -31,7 +31,7 @@ export class MenuService {
             },
             {
                 title: 'menu.appointments',
-                url: '/appointments',
+                url: '/parcels/appointments',
                 icon: this.imagePrefix + 'clock_small_2x.png'
             },
             {
@@ -80,7 +80,7 @@ export class MenuService {
         this.menuItemsSecond = [
             {
                 title: 'menu.settings',
-                url: '/settings',
+                url: '/user/settings',
                 icon: this.imagePrefix + 'settings_2x.png'
             },
             {

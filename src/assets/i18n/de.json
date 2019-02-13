@@ -26,5 +26,7 @@
   "parcel.request_appointment": "Termin vereinbaren",
   "parcel.cancel_appointment": "Termin absagen",
   "parcel.header.in": "Sendungen zu mir",
-  "parcel.header.out": "Sendungen von mir"
+  "parcel.header.out": "Sendungen von mir",
+
+  "user.settings.header": "Einstellungen"
 }

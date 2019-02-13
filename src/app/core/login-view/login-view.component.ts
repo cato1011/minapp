@@ -1,32 +1,30 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {LoginService} from '../login.service';
-import {AppService} from '../../app.service';
 import {Router} from '@angular/router';
-import {MenuService} from '../../menu/menu.service';
+import {MenuService} from '../menu.service';
+import {AuthService} from '../auth.service';
 
 @Component({
     selector: 'app-login',
-    templateUrl: './login.component.html',
-    styleUrls: ['./login.component.sass']
+    templateUrl: './login-view.component.html',
+    styleUrls: ['./login-view.component.sass']
 })
-export class LoginComponent implements OnInit {
+export class LoginViewComponent implements OnInit {
 
     public form: FormGroup;
     public username: string;
     public title = 'Herzlich Willkommen';
 
-    constructor(private loginService: LoginService, private menuService: MenuService, private router: Router) {
+    constructor(private authService: AuthService, private menuService: MenuService, private router: Router) {
     }
 
     onSubmit() {
-        const link = ['dashboard'];
         // console.log('submit' + this.form.value.username + ':' + this.form.value.password);
-        this.loginService.login(this.form.value.username, this.form.value.password)
+        this.authService.login(this.form.value.username, this.form.value.password)
             .subscribe(
                 (user) => {
                     console.log(user);
-                    this.router.navigate(link);
+                    this.router.navigate(['dashboard']);
                     this.menuService.setNavBarState(true);
                 },
                 error => console.log('error during login ' + error)
