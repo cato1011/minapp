@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {VehicleService} from '../vehicle.service';
 import {Vehicles} from '../vehicles.model';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {DeliveryPlacesService} from '../../delivery-places/delivery-places.service';
 import {DeliveryPlace} from '../../delivery-places/delivery-places.model';
 import {Observable} from 'rxjs';
@@ -45,7 +45,8 @@ export class VehicleRequestViewComponent implements OnInit {
         private deliveryPlacesService: DeliveryPlacesService,
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
-        private vehicleService: VehicleService
+        private vehicleService: VehicleService,
+        private router: Router
     ) {
     }
 
@@ -101,6 +102,7 @@ export class VehicleRequestViewComponent implements OnInit {
 
         // Send Vehicle Request
         this.vehicleService.sendVehicleRequest(this.vehicles);
+        this.router.navigate(['/vehicleConfirmation'], { skipLocationChange: true });
     }
 
     reset()
