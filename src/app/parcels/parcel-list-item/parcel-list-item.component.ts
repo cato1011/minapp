@@ -2,20 +2,33 @@ import {Component, Input, OnInit, Output} from '@angular/core';
 import {Parcel} from '../parcel.model';
 import {AlertController} from '@ionic/angular';
 import {VehicleService} from '../../vehicles/vehicle.service';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 
 @Component({
     selector: 'app-parcel-list-item',
     templateUrl: './parcel-list-item.component.html',
-    styleUrls: ['./parcel-list-item.component.sass']
+    styleUrls: ['./parcel-list-item.component.sass'],
+    animations: [
+        trigger('hover', [
+            state('true', style({
+                transform: 'scale(1.025)',
+                'color': '#42B961'
+            })),
+            state('false', style({transform: 'scale(1.0)'})),
+            transition('false => true', animate('50ms ease-in')),
+            transition('true => false', animate('50ms ease-out'))
+        ])
+    ]
 })
 export class ParcelListItemComponent implements OnInit {
 
     @Input() parcel: Parcel;
     imagePrefix = './assets/icons/parcels/';
+    isHovering = false;
 
     constructor(private alertController: AlertController, private vehicleService: VehicleService) {
-        
+
     }
 
     async DeleteAppointment(parcel_object) {
@@ -35,8 +48,8 @@ export class ParcelListItemComponent implements OnInit {
                     cssClass: 'mat-raised-button',
                     handler: () => {
                         console.log('Cancel Vehicle Request:');
-                        this.vehicleService.cancelVehicleRequest(parcel_object);                       
-                         
+                        this.vehicleService.cancelVehicleRequest(parcel_object);
+
                     }
                 }
             ]
@@ -49,7 +62,7 @@ export class ParcelListItemComponent implements OnInit {
 
     deleteParcel() {
         console.log('unread');
-        
+
     }
 
 
