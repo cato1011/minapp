@@ -17,7 +17,7 @@ export class SettingsViewComponent implements OnInit {
     currentLang;
     public deliveryPlaces$: Observable<DeliveryPlace[]>;
     deliveryPlace: DeliveryPlace;
-    favoriteDeliveryPlaceExist: boolean = false;
+    preferredDeliveryPlaceExist: boolean = false;
 
     constructor(private translateService: TranslateService,
                 private userService: UserService,
@@ -38,7 +38,7 @@ export class SettingsViewComponent implements OnInit {
     }
 
     initData() {
-        // TODO get settings and set favorite delivery place as preselected value for form
+        // TODO get settings and set preferred delivery place as preselected value for form
         this.currentLang = this.translateService.currentLang;
         this.deliveryPlacesService.reloadDeliveryPlaces();
         this.deliveryPlaces$ = this.deliveryPlacesService.getDeliveryPlaces();
@@ -48,7 +48,7 @@ export class SettingsViewComponent implements OnInit {
         // TODO post settings to backend
         this.form.valueChanges.subscribe(form => {
             if (form.deliveryPlace !== null) {
-                this.favoriteDeliveryPlaceExist = true;
+                this.preferredDeliveryPlaceExist = true;
             }
             this.userService.setSettings(form);
             this.translateService.use(form.language);

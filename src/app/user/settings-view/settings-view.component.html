@@ -32,14 +32,14 @@
         </ion-radio-group>
         <ion-list>
             <ion-list-header [color]="'#BCE0FD'">
-                <ion-label>{{ 'user.settings.favorite_delivery_place' | translate }}</ion-label>
+                <ion-label>{{ 'user.settings.preferred_delivery_place' | translate }}</ion-label>
             </ion-list-header>
             <div id="select-frame">
                 <ion-item [lines]="'none'" id="select-item">
                     <ion-label>
                         <ion-icon name="pin"></ion-icon>
-                        <!-- TODO ngif favorite delivery place exist then use string user.setting.favorite_delivery_place.selected-->
-                        <p id="select-label-text">{{ (favoriteDeliveryPlaceExist ? 'user.settings.favorite_delivery_place.selected' : 'user.settings.favorite_delivery_place.select') | translate}}</p>
+                        <!-- TODO ngif preferred delivery place exist then use string user.setting.preferred_delivery_place.selected-->
+                        <p id="select-label-text">{{ (preferredDeliveryPlaceExist ? 'user.settings.preferred_delivery_place.selected' : 'user.settings.preferred_delivery_place.select') | translate}}</p>
                     </ion-label>
                     <ion-select [formControlName]="'deliveryPlace'">
                         <ion-select-option *ngFor="let deliveryPlace of deliveryPlaces$ | async"

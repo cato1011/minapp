@@ -35,9 +35,9 @@
   "user.settings.language": "Sprache festlegen",
   "user.settings.english": "Englisch",
   "user.settings.german": "Deutsch",
-  "user.settings.favorite_delivery_place": "Bevorzugten Lieferort wählen",
-  "user.settings.favorite_delivery_place.select": "Lieferort wählen",
-  "user.settings.favorite_delivery_place.selected": "Dein bevorzugter Lieferort",
+  "user.settings.preferred_delivery_place": "Bevorzugten Lieferort wählen",
+  "user.settings.preferred_delivery_place.select": "Lieferort wählen",
+  "user.settings.preferred_delivery_place.selected": "Dein bevorzugter Lieferort",
 
   "pagenotfound.title": "Demnächst verfügbar",
   "pagenotfound.heading": "Dieses Feature wurde noch nicht implementiert."
