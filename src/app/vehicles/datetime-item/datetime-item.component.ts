@@ -18,8 +18,7 @@ export class DatetimeItemComponent implements OnInit {
   
 
   constructor() {
-    console.log(this.preSelectedDateTime);
-    console.log(this.minimumDate);
+    
    }
 
   ngOnInit() {

@@ -5,6 +5,7 @@ import {VehiclesRouterModule} from './vehicles-router.module';
 import {RouterModule} from '@angular/router';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms'
 import {IonicModule} from '@ionic/angular';
+import {TranslateModule} from '@ngx-translate/core';
 import {DeliveryplacesComponent } from './deliveryplaces-item/deliveryplaces.component';
 import {DatetimeItemComponent } from './datetime-item/datetime-item.component';
 import {
@@ -24,6 +25,7 @@ import {
         IonicModule,
         MatButtonModule,
         MatCardModule,
+        TranslateModule
     ],
     exports: [VehicleRequestViewComponent]
     
