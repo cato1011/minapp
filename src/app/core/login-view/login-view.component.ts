@@ -32,6 +32,7 @@ export class LoginViewComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.menuService.setNavBarState(false);
         this.form = new FormGroup({
             username: new FormControl(this.username, Validators.required),
             password: new FormControl('', Validators.required)

@@ -29,3 +29,23 @@ ion-item-divider {
 ion-content {
   background-color: #212121;
 }
+
+.button-dark {
+  background-color: #212121
+}
+
+.button-light{
+  background-color: white;
+}
+
+.button-disabled-dark {
+  background-color: #212121;
+  opacity: 0.4;
+}
+
+.button-disabled-light {
+  background-color: white;
+  opacity: 0.4;
+}
+
+

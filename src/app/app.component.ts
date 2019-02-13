@@ -11,8 +11,8 @@ import {MenuService} from './core/menu.service';
 })
 export class AppComponent {
 
-    public href;
-    isSidebarVisible = true;
+    href;
+    isSidebarVisible;
 
     constructor(
         private platform: Platform,

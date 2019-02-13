@@ -1,34 +1,28 @@
 <ion-header>
     <ion-toolbar [color]="'#1365B6'">
-            
-                    
-        <ion-buttons slot="end" >
-                <ion-button>
-                        <ion-icon slot="icon-only" name="refresh" ></ion-icon>
-                      </ion-button>
+        <ion-buttons slot="end">
+            <ion-button>
+                <ion-icon slot="icon-only" name="refresh"></ion-icon>
+            </ion-button>
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
         <ion-title>
-           {{'parcel.request_appointment'|translate}}
+            {{'parcel.request_appointment'|translate}}
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content [color]="'#212121'">
-
     <form [formGroup]="vehicleRequestForm" (ngSubmit)=sendData()>
-        <app-deliveryplaces [deliveryPlaces]="deliveryPlaces$ | async" [parentForm]="vehicleRequestForm"></app-deliveryplaces>
+        <app-deliveryplaces [deliveryPlaces]="deliveryPlaces$ | async"
+                            [parentForm]="vehicleRequestForm"></app-deliveryplaces>
         <app-datetime-item [parentForm]="vehicleRequestForm"></app-datetime-item>
-        
         <ion-row>
             <ion-col offset="4">
-                <button type="submit" [disabled]="!vehicleRequestForm.valid" style="background: transparent">
-                    <img src="../../../assets/icons/request/send_button.png" >
+                <button [class]="vehicleRequestForm.valid ? 'button-dark' : 'button-disabled-dark'" type="submit">
+                    <img src="../../../assets/icons/request/send_button_2x.png">
                 </button>
-                       
-                   
             </ion-col>
         </ion-row>
-
     </form>
 </ion-content>
