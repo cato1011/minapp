@@ -9,10 +9,10 @@ import {TranslateModule} from '@ngx-translate/core';
 import {DeliveryplacesComponent} from './deliveryplaces-item/deliveryplaces.component';
 import {DatetimeItemComponent} from './datetime-item/datetime-item.component';
 import {MatButtonModule, MatCardModule,} from '@angular/material';
-import { VehicleConfirmationViewComponent } from './vehicle-confirmation-view/vehicle-confirmation-view.component';
+import { VehicleRequestedViewComponent } from './vehicle-requested-view/vehicle-requested-view.component';
 
 @NgModule({
-    declarations: [VehicleRequestViewComponent, DeliveryplacesComponent, DatetimeItemComponent, VehicleConfirmationViewComponent],
+    declarations: [VehicleRequestViewComponent, DeliveryplacesComponent, DatetimeItemComponent, VehicleRequestedViewComponent],
     imports: [
         CommonModule,
         RouterModule,
@@ -24,7 +24,7 @@ import { VehicleConfirmationViewComponent } from './vehicle-confirmation-view/ve
         MatCardModule,
         TranslateModule
     ],
-    exports: [VehicleRequestViewComponent, DeliveryplacesComponent]
+    exports: [VehicleRequestViewComponent, DeliveryplacesComponent,VehicleRequestedViewComponent]
 })
 export class VehiclesModule {
 }
