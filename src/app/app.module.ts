@@ -12,7 +12,6 @@ import {UserModule} from './user/user.module';
 import {UserService} from './user/user.service';
 import {HttpClient} from '@angular/common/http';
 import {CoreModule} from './core/core.module';
-import {MatIconModule} from '@angular/material';
 import {VehiclesModule} from './vehicles/vehicles.module';
 import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
