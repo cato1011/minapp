@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {DashboardTileComponent} from './dashboard-tile/dashboard-tile.component';
 import {DashboardRouterModule} from './dashboard-router.module';
 import {DashboardListComponent} from './dashboard-list/dashboard-list.component';
-import {MatButtonModule, MatCardModule,MatBadgeModule} from '@angular/material';
+import {MatButtonModule, MatCardModule} from '@angular/material';
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {IonicModule} from '@ionic/angular';
@@ -15,8 +15,7 @@ import {TranslateModule} from '@ngx-translate/core';
         DashboardRouterModule,
         CommonModule,
         MatCardModule,
-        MatButtonModule,
-        MatBadgeModule,
+        MatButtonModule,        
         IonicModule,
         TranslateModule
     ],
