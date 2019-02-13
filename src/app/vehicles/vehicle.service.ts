@@ -42,8 +42,7 @@ export class VehicleService {
             headers: {userToken: this.userToken, identifier: 'APP', 'Content-Type': 'application/json'}
         }).subscribe(
             (response: Response) => {
-                console.log(response);
-               // route.navigate[];
+                console.log(response);            
                
             }
         );
