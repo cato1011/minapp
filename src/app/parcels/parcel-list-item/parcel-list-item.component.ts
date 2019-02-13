@@ -1,9 +1,8 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Parcel} from '../parcel.model';
 import {AlertController} from '@ionic/angular';
 import {VehicleService} from '../../vehicles/vehicle.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-
 
 @Component({
     selector: 'app-parcel-list-item',

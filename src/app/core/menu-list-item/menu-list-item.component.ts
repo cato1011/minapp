@@ -10,6 +10,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
         trigger('hover', [
             state('true', style({
                 'color': '#42B961',
+                'font-weight': 'bold',
                 transform: 'scale(1.05)'
             })),
             state('false', style({})),

@@ -3,6 +3,6 @@
         <ion-img [src]="dashboardItem.image"></ion-img>
     </ion-card-header>
     <ion-card-content>
-        <ion-card-title class="mat-accent"><h2>{{dashboardItem.title}}</h2></ion-card-title>
+        <ion-card-title class="mat-accent"><h2 [@title]="isHovering">{{dashboardItem.title}}</h2></ion-card-title>
     </ion-card-content>
 </ion-item>

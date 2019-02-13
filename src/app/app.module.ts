@@ -29,7 +29,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         IonicModule.forRoot(),
         BrowserModule,
         CoreModule,
-        DashboardModule,
         UserModule,
         VehiclesModule,
         DeliveryPlacesModule,

@@ -13,13 +13,13 @@
 <mat-card-content>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <mat-form-field>
-      <input matInput placeholder="{{ 'login.placeholder_input' | translate }}" type="text" [formControl]="form.controls['username']">
+      <input matInput placeholder="{{ 'login.placeholder_input' | translate }}" id="username-input" type="text" [formControl]="form.controls['username']">
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="{{ 'login.placeholder_password' | translate }}" type="password" [formControl]="form.controls['password']">
+      <input matInput placeholder="{{ 'login.placeholder_password' | translate }}" id="password-input" type="password" [formControl]="form.controls['password']">
     </mat-form-field>
     <mat-card-actions>
-      <button [class]="form.valid ? 'button-light' : 'button-disabled-light'" type="submit"><img [src]="'./assets/icons/login/next_2x.png'"></button>
+      <button [disabled]="!form.valid" [class]="form.valid ? 'button-light' : 'button-disabled-light'" type="submit"><img [src]="'./assets/icons/login/next_2x.png'"></button>
     </mat-card-actions>
   </form>
 </mat-card-content>
