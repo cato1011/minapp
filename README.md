@@ -1,4 +1,4 @@
-# buga-mobile-app
+# mobile-app
 
 to start the app execute
 
