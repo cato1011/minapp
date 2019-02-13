@@ -39,7 +39,7 @@ export class VehicleRequestViewComponent implements OnInit {
 
     // For Default value in Form Group
     presentDate: Date = new Date();
-    minimumDate = this.presentDate.toISOString();
+    preSelectedDateTime = (new Date(this.presentDate.setMinutes(this.presentDate.getMinutes() + 90))).toISOString();
 
     constructor(
         private deliveryPlacesService: DeliveryPlacesService,
@@ -52,13 +52,13 @@ export class VehicleRequestViewComponent implements OnInit {
     ngOnInit() {
         this.initForm();
         this.initQueryParams();
-        this.initDeliveryPlaces();
+      //  this.initDeliveryPlaces();
     }
 
     initForm() {
         this.vehicleRequestForm = this.formBuilder.group({
             deliveryplaces: ['', Validators.required],
-            datetime: [this.minimumDate]
+            datetime: [this.preSelectedDateTime]
         });
     }
 
@@ -74,6 +74,7 @@ export class VehicleRequestViewComponent implements OnInit {
         this.deliveryPlacesService.reloadDeliveryPlaces();
         this.deliveryPlaces$ = this.deliveryPlacesService.getDeliveryPlaces();
     }
+
 
     sendData() {
         // TODO extract longitude and latitude from delivery place model
@@ -104,6 +105,8 @@ export class VehicleRequestViewComponent implements OnInit {
         this.vehicleService.sendVehicleRequest(this.vehicles);
 
     }
+
+   
 
 
 }
