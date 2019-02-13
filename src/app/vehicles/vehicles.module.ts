@@ -24,7 +24,7 @@ import { VehicleConfirmationViewComponent } from './vehicle-confirmation-view/ve
         MatCardModule,
         TranslateModule
     ],
-    exports: [VehicleRequestViewComponent]
+    exports: [VehicleRequestViewComponent, DeliveryplacesComponent]
 })
 export class VehiclesModule {
 }

@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {LoginViewComponent} from '../core/login-view/login-view.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
     MatButtonModule,
@@ -18,7 +17,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {IonicModule} from '@ionic/angular';
 import {TranslateModule} from '@ngx-translate/core';
-import { SettingsViewComponent } from './settings-view/settings-view.component';
+import {SettingsViewComponent} from './settings-view/settings-view.component';
 import {RouterModule} from '@angular/router';
 import {UserRouterModule} from './user-router.module';
 
