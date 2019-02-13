@@ -52,7 +52,7 @@ export class VehicleRequestViewComponent implements OnInit {
     ngOnInit() {
         this.initForm();
         this.initQueryParams();
-      //  this.initDeliveryPlaces();
+        this.initDeliveryPlaces();
     }
 
     initForm() {
