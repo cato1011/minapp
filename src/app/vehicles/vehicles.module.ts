@@ -10,9 +10,10 @@ import {DeliveryplacesComponent} from './deliveryplaces-item/deliveryplaces.comp
 import {DatetimeItemComponent} from './datetime-item/datetime-item.component';
 import {MatButtonModule, MatCardModule,MatMenuModule} from '@angular/material';
 import { VehicleRequestedViewComponent } from './vehicle-requested-view/vehicle-requested-view.component';
+import { NgxNavigationWithDataComponent } from "ngx-navigation-with-data";
 
 @NgModule({
-    declarations: [VehicleRequestViewComponent, DeliveryplacesComponent, DatetimeItemComponent, VehicleRequestedViewComponent],
+    declarations: [NgxNavigationWithDataComponent,VehicleRequestViewComponent, DeliveryplacesComponent, DatetimeItemComponent, VehicleRequestedViewComponent],
     imports: [
         CommonModule,
         RouterModule,
@@ -24,7 +25,9 @@ import { VehicleRequestedViewComponent } from './vehicle-requested-view/vehicle-
         MatCardModule,
         MatMenuModule,
         TranslateModule
+        
     ],
+    providers: [NgxNavigationWithDataComponent],
     exports: [VehicleRequestViewComponent, DeliveryplacesComponent,VehicleRequestedViewComponent]
 })
 export class VehiclesModule {

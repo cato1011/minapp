@@ -6,6 +6,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {DeliveryPlacesService} from '../../delivery-places/delivery-places.service';
 import {DeliveryPlace} from '../../delivery-places/delivery-places.model';
 import {Observable} from 'rxjs';
+import { NgxNavigationWithDataComponent } from 'ngx-navigation-with-data';
 
 
 @Component({
@@ -46,7 +47,8 @@ export class VehicleRequestViewComponent implements OnInit {
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private vehicleService: VehicleService,
-        private router: Router
+        private router: Router,
+        public navCtrl: NgxNavigationWithDataComponent
     ) {
     }
 
@@ -102,7 +104,8 @@ export class VehicleRequestViewComponent implements OnInit {
 
         // Send Vehicle Request
         this.vehicleService.sendVehicleRequest(this.vehicles);
-        this.router.navigate(['/vehicleRequested'], { skipLocationChange: false });
+       // this.router.navigate(['/vehicleRequested'], { skipLocationChange: false });
+       this.navCtrl.navigate('vehicleRequested', {name:"marium"});
     }
 
     reset()
