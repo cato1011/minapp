@@ -8,3 +8,38 @@
         </ion-title>
     </ion-toolbar>
 </ion-header>
+<ion-content>
+    <form [formGroup]="form">
+        <ion-radio-group [formControlName]="'language'">
+            <ion-list-header>
+                <ion-label>{{ 'user.settings.language' | translate }}</ion-label>
+            </ion-list-header>
+            <ion-item>
+                <ion-label>{{ 'user.settings.german' | translate }}</ion-label>
+                <ion-radio value="de" slot="start"
+                           [checked]="currentLang === 'de'"></ion-radio>
+            </ion-item>
+            <ion-item>
+                <ion-label>{{ 'user.settings.english' | translate }}</ion-label>
+                <ion-radio value="en" slot="start"
+                           [checked]="currentLang === 'en'"></ion-radio>
+            </ion-item>
+        </ion-radio-group>
+        <ion-list>
+            <ion-list-header>
+                <ion-label>{{ 'user.settings.favorite_delivery_place' | translate }}</ion-label>
+            </ion-list-header>
+            <ion-item>
+                <ion-label>
+                    <ion-icon color=primary name="pin"></ion-icon>
+                    {{ 'user.settings.favorite_delivery_place.selected' | translate}}
+                </ion-label>
+                <ion-select [formControlName]="'deliveryPlace'">
+                    <ion-select-option *ngFor="let deliveryPlace of deliveryPlaces$ | async"
+                                       [value]="deliveryPlace">{{deliveryPlace.description}}
+                    </ion-select-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+    </form>
+</ion-content>

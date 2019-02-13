@@ -23,7 +23,7 @@ import {MatButtonModule, MatCardModule,} from '@angular/material';
         MatCardModule,
         TranslateModule
     ],
-    exports: [VehicleRequestViewComponent]
+    exports: [VehicleRequestViewComponent, DeliveryplacesComponent]
 })
 export class VehiclesModule {
 }

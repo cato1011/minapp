@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {User, UserSettings} from './user.model';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
+import {BehaviorSubject, Observable, ReplaySubject} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +9,7 @@ import {BehaviorSubject, Observable, Subject} from 'rxjs';
 export class UserService {
 
     private user$ = new BehaviorSubject<User | null>(null);
-    private userSettings$ = new Subject<UserSettings | null>();
+    private userSettings$ = new ReplaySubject<UserSettings | null>(1);
 
     constructor(private httpClient: HttpClient) {
     }
@@ -35,6 +35,7 @@ export class UserService {
     }
 
     setSettings(settings) {
+        console.log(settings);
         this.userSettings$.next(settings);
     }
 

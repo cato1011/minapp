@@ -32,6 +32,11 @@
   "parcel.header.retoure": "Return parcel",
 
   "user.settings.header": "Settings",
+  "user.settings.language": "Language",
+  "user.settings.english": "English",
+  "user.settings.german": "German",
+  "user.settings.favorite_delivery_place": "Delivery place",
+  "user.settings.favorite_delivery_place.selected": "Your favorite delivery place",
 
   "pagenotfound.title": "Coming soon",
   "pagenotfound.heading": "This feature has not yet been implemented."
