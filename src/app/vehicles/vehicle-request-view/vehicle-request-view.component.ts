@@ -104,8 +104,8 @@ export class VehicleRequestViewComponent implements OnInit {
 
         // Send Vehicle Request
         this.vehicleService.sendVehicleRequest(this.vehicles);
-       // this.router.navigate(['/vehicleRequested'], { skipLocationChange: false });
-       this.navCtrl.navigate('vehicleRequested', {name:"marium"});
+       
+       this.navCtrl.navigate('vehicleRequested', {datetime:this.vehicles.time, selectedPlace:this.vehicleRequestForm.value.deliveryplaces});
     }
 
     reset()
