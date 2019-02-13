@@ -1,8 +1,8 @@
 <ion-header>
     <ion-toolbar [color]="'#1365B6'">
         <ion-buttons slot="end">
-            <ion-button>
-                <ion-icon slot="icon-only" name="refresh"></ion-icon>
+            <ion-button (click)="reset()">
+                <ion-icon slot="icon-only" name="refresh" ></ion-icon>
             </ion-button>
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
@@ -20,7 +20,7 @@
         <ion-row>
             <ion-col offset="4">
                 <button [class]="vehicleRequestForm.valid ? 'button-dark' : 'button-disabled-dark'" type="submit">
-                    <img src="../../../assets/icons/request/send_button_2x.png">
+                    <img src="../../../assets/icons/request/send_button.png">
                 </button>
             </ion-col>
         </ion-row>

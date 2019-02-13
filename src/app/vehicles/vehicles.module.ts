@@ -9,9 +9,10 @@ import {TranslateModule} from '@ngx-translate/core';
 import {DeliveryplacesComponent} from './deliveryplaces-item/deliveryplaces.component';
 import {DatetimeItemComponent} from './datetime-item/datetime-item.component';
 import {MatButtonModule, MatCardModule,} from '@angular/material';
+import { VehicleConfirmationViewComponent } from './vehicle-confirmation-view/vehicle-confirmation-view.component';
 
 @NgModule({
-    declarations: [VehicleRequestViewComponent, DeliveryplacesComponent, DatetimeItemComponent],
+    declarations: [VehicleRequestViewComponent, DeliveryplacesComponent, DatetimeItemComponent, VehicleConfirmationViewComponent],
     imports: [
         CommonModule,
         RouterModule,
