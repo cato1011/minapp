@@ -25,8 +25,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     declarations: [AppComponent],
     entryComponents: [],
     imports: [
-        BrowserModule,
         IonicModule.forRoot(),
+        BrowserModule,
+        CoreModule,
+        UserModule,
+        VehiclesModule,
+        DeliveryPlacesModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -34,10 +38,6 @@ export function HttpLoaderFactory(http: HttpClient) {
                 deps: [HttpClient]
             }
         }),
-        UserModule,
-        VehiclesModule,
-        CoreModule,
-        DeliveryPlacesModule,
         AppRoutingModule
     ],
     providers: [

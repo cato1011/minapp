@@ -52,7 +52,7 @@ export class VehicleRequestViewComponent implements OnInit {
     ngOnInit() {
         this.initForm();
         this.initQueryParams();
-      //  this.initDeliveryPlaces();
+        this.initDeliveryPlaces();
     }
 
     initForm() {
@@ -75,7 +75,6 @@ export class VehicleRequestViewComponent implements OnInit {
         this.deliveryPlaces$ = this.deliveryPlacesService.getDeliveryPlaces();
     }
 
-
     sendData() {
         // TODO extract longitude and latitude from delivery place model
         var latitude_longitude = this.vehicleRequestForm.value.deliveryplaces.split('|', 2);
@@ -96,17 +95,11 @@ export class VehicleRequestViewComponent implements OnInit {
         }
 
         // Set other required fields for Vehicle Request Object
-
         this.vehicles.status = 'PENDING';
         this.vehicles.time = this.vehicleRequestForm.value.datetime;
         this.vehicles.userToken = this.userToken;
 
         // Send Vehicle Request
         this.vehicleService.sendVehicleRequest(this.vehicles);
-
     }
-
-   
-
-
 }

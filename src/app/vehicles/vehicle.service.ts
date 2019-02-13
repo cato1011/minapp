@@ -8,8 +8,6 @@ import {ReplaySubject, Subject} from 'rxjs';
     providedIn: 'root'
 })
 export class VehicleService {
-
-
     private userToken = 'c1e46f017983b562c8c6af0627f28ff9';
     vehicleRequest: Vehicles[];
     private vehicleRequestSubject: Subject<Vehicles[]> = new ReplaySubject<Vehicles[]>(25);
@@ -35,31 +33,22 @@ export class VehicleService {
 
 
     constructor(private httpClient: HttpClient) {
-
     }
 
 
     public sendVehicleRequest(vehicle_obj: Vehicles) {
-
         this.sendVehicleRequestUrl = this.carrierServerUrl + '/vehicleRequests';
-
-        var obs = this.httpClient.post(this.sendVehicleRequestUrl, JSON.stringify(vehicle_obj), {
+        return this.httpClient.post(this.sendVehicleRequestUrl, JSON.stringify(vehicle_obj), {
             headers: {userToken: this.userToken, identifier: 'APP', 'Content-Type': 'application/json'}
-
-        })
-            .subscribe(
-                (response: Response) => {
-                    console.log(response);
-                }
-            );
-
-        return obs;
+        }).subscribe(
+            (response: Response) => {
+                console.log(response);
+            }
+        );
     }
 
     public getVehicleRequestById(vehicleRequest_id: number) {
-
         this.getVehicleRequestUrl = this.carrierServerUrl + '/vehicleRequests/' + vehicleRequest_id;
-
         this.httpClient.get<Vehicles[]>(this.getVehicleRequestUrl, {
             headers: {userToken: this.userToken, identifier: 'APP'}
         }).subscribe((ps) => {
@@ -70,30 +59,18 @@ export class VehicleService {
 
 
     public cancelVehicleRequest(parcel_obj: Parcel) {
-
         this.getVehicleRequestById(parcel_obj.vehicleRequestId).subscribe(
             (vehicleRequest: Vehicles[]) => {
                 this.vehicleRequest = vehicleRequest;
             });
-
         // Set status for the Vehicle Request
-
-
         // Set Cancelled status in vehicle Request
         this.cancelVehicleRequestUrl = this.carrierServerUrl + '/vehicleRequests/' + parcel_obj.vehicleRequestId;
-
-        var obs = this.httpClient.put(this.cancelVehicleRequestUrl, JSON.stringify(this.vehicleRequest), {
+        return this.httpClient.put(this.cancelVehicleRequestUrl, JSON.stringify(this.vehicleRequest), {
             headers: {identifier: 'APP', 'Content-Type': 'application/json'}
-
-        })
-            .subscribe(
-                (response: Response) => {
-                    console.log(response);
-                }
-            );
-
-        return obs;
+        }).subscribe(
+            (response: Response) => {
+                console.log(response);
+            });
     }
-
-
 }

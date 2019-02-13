@@ -21,7 +21,6 @@ export class MenuListComponent implements OnInit {
         this.firstMenuItems = this.menuService.getFirstMenuItem();
         this.commercialMenuItems = this.menuService.getCommercialMenuItems();
         this.secondMenuItems = this.menuService.getSecondMenuItems();
-        console.log(this.firstMenuItems);
     }
 
 }

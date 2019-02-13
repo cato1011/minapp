@@ -90,7 +90,7 @@ export class MenuService {
             },
             {
                 title: 'menu.disclaimer',
-                url: '/dislaimer',
+                url: '/disclaimer',
                 icon: this.imagePrefix + 'disclaimer_2x.png'
             }
         ];

@@ -9,7 +9,6 @@ import {HttpClient} from '@angular/common/http';
 export class DeliveryPlacesService {
 
     private deliveryPlacesSubject: Subject<DeliveryPlace[]> = new ReplaySubject<DeliveryPlace[]>(50);
-    public deliveryPlaces: DeliveryPlace[];
     public deliverPlacesUrl = 'http://localhost:8082/deliveryPlaces';
     public userToken = 'c1e46f017983b562c8c6af0627f28ff9';
 

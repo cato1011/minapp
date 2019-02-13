@@ -23,7 +23,6 @@ export class AppComponent {
     ) {
         this.initializeApp();
         this.href = this.router.url;
-        console.log(this.router.url);
     }
 
     initializeApp() {
@@ -33,7 +32,6 @@ export class AppComponent {
         });
         this.menuService.navState$.subscribe((state) => {
             this.isSidebarVisible = state;
-            console.log(state);
         }, error => console.log(error));
     }
 }

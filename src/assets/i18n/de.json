@@ -11,7 +11,7 @@
   "menu.parcels_from_me": "Sendungen von mir",
   "menu.return": "Paket zurücksenden",
   "menu.courier": "Quartier-Kurier",
-  "menu.divider": "Nur für kommerzielle Nutzung",
+  "menu.divider": "Nur für Organisationen",
   "menu.supplier": "Zulieferer-Anlieferung",
   "menu.waste": "Altpapier-Entsorgung",
   "menu.settings": "Einstellungen",
@@ -25,8 +25,14 @@
   
   "parcel.request_appointment": "Termin vereinbaren",
   "parcel.cancel_appointment": "Termin absagen",
+  "parcel.header.appointments": "Aktive Termine",
   "parcel.header.in": "Sendungen zu mir",
   "parcel.header.out": "Sendungen von mir",
+  "parcel.header.n2n": "Nachbar zu Nachbar",
+  "parcel.header.retoure": "Paket zurücksenden / Retoure",
 
-  "user.settings.header": "Einstellungen"
+  "user.settings.header": "Einstellungen",
+
+  "pagenotfound.title": "Demnächst verfügbar",
+  "pagenotfound.heading": "Dieses Feature wurde noch nicht implementiert."
 }
