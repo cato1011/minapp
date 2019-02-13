@@ -102,4 +102,10 @@ export class VehicleRequestViewComponent implements OnInit {
         // Send Vehicle Request
         this.vehicleService.sendVehicleRequest(this.vehicles);
     }
+
+    reset()
+    {
+        this.vehicleRequestForm.reset();
+        this.initForm();
+    }
 }
