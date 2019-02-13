@@ -1,15 +1,24 @@
-<ion-item>
-    <!--TODO show different icon, when request is confirmed -->
-    <ion-img [src]="imagePrefix + 'vehicle_requested.png'"></ion-img>
-    <ion-label>{{parcel.status}}</ion-label>
-    <ion-button *ngIf="parcel.status== 'DELIVERY_REQUESTED' || parcel.status== 'DELIVERY_CONFIRMED' 
+<ion-item-group (mouseenter)="isHovering = true" (mouseleave)="isHovering = false">
+    <ion-item [lines]="'none'" [@hover]="isHovering">
+        <!--TODO show different icon, when request is confirmed -->
+        <ion-img [src]="imagePrefix + 'vehicle_requested.png'"></ion-img>
+        <ion-label>{{parcel.status}}</ion-label>
+        <ion-button *ngIf="parcel.status== 'DELIVERY_REQUESTED' || parcel.status== 'DELIVERY_CONFIRMED'
     && parcel.status!= 'DELIVERED'" color="danger" fill="outline" slot="end" (click)="DeleteAppointment(parcel)">
-        {{'parcel.cancel_appointment' | translate}}
-    </ion-button>
+            {{'parcel.cancel_appointment' | translate}}
+        </ion-button>
 
-    <ion-button *ngIf="parcel.status!= 'DELIVERY_REQUESTED' && parcel.status!= 'DELIVERY_CONFIRMED' && parcel.status!= 'DELIVERED'" [routerLink]="['/vehicleRequest']" [queryParams]="{func: 'pd', parcelGUID: parcel.parcelGUID}" [skipLocationChange]="true" fill="outline" slot="end">{{'parcel.request_appointment' | translate}}</ion-button>
-    <!-- <ion-button fill="outline" slot="end">Details</ion-button> -->
-</ion-item>
-<ion-card-content>
-    {{parcel.sender}}
-</ion-card-content>
+        <ion-button
+                *ngIf="parcel.status!= 'DELIVERY_REQUESTED' && parcel.status!= 'DELIVERY_CONFIRMED' && parcel.status!= 'DELIVERED'"
+                [routerLink]="['/vehicleRequest']" [queryParams]="{func: 'pd', parcelGUID: parcel.parcelGUID}"
+                [skipLocationChange]="true" fill="outline"
+                slot="end">{{'parcel.request_appointment' | translate}}</ion-button>
+        <!-- <ion-button fill="outline" slot="end">Details</ion-button> -->
+    </ion-item>
+    <ion-item-divider></ion-item-divider>
+    <ion-item [lines]="'none'" [@hover]="isHovering">
+        <ion-text>
+            {{parcel.sender}}
+        </ion-text>
+    </ion-item>
+</ion-item-group>

@@ -32,11 +32,12 @@
   "parcel.header.retoure": "Return parcel",
 
   "user.settings.header": "Settings",
-  "user.settings.language": "Language",
+  "user.settings.language": "Set language",
   "user.settings.english": "English",
   "user.settings.german": "German",
-  "user.settings.favorite_delivery_place": "Delivery place",
-  "user.settings.favorite_delivery_place.selected": "Your preferred delivery place",
+  "user.settings.preferred_delivery_place": "Select favorite delivery place",
+  "user.settings.preferred_delivery_place.select": "Select delivery place",
+  "user.settings.preferred_delivery_place.selected": "Your preferred delivery place",
 
   "pagenotfound.title": "Coming soon",
   "pagenotfound.heading": "This feature has not yet been implemented."
