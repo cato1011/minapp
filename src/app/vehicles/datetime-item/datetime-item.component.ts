@@ -12,8 +12,7 @@ export class DatetimeItemComponent implements OnInit {
   @Input() parentForm: FormGroup;
   // Get the present date
   presentDate: Date = new Date();
-  // Add 30 mins to present date to set the minimum date for drop down
-  preSelectedDateTime = (new Date(this.presentDate.setMinutes(this.presentDate.getMinutes() + 90))).toISOString();
+  // Disable old date in drop down 
   minimumDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
   
 

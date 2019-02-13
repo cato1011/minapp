@@ -37,7 +37,7 @@ export class VehicleRequestViewComponent implements OnInit {
 
     // For Default value in Form Group
     presentDate: Date = new Date();
-    minimumDate = this.presentDate.toISOString();
+    preSelectedDateTime = (new Date(this.presentDate.setMinutes(this.presentDate.getMinutes() + 90))).toISOString();
 
     constructor(
         private deliveryPlaceService: DeliveryPlacesService,
@@ -56,7 +56,7 @@ export class VehicleRequestViewComponent implements OnInit {
     initForm() {
         this.vehicleRequestForm = this.formBuilder.group({
             deliveryplaces: ['', Validators.required],
-            datetime: [this.minimumDate]
+            datetime: [this.preSelectedDateTime]
         });
     }
 
@@ -101,6 +101,8 @@ export class VehicleRequestViewComponent implements OnInit {
         this.vehicleService.sendVehicleRequest(this.vehicles);
 
     }
+
+   
 
 
 }
