@@ -43,13 +43,12 @@ export class ParcelListItemComponent implements OnInit {
                     role: 'no',
                     cssClass: 'ion-color-danger',
                     handler: (blah) => {
-                        console.log('Confirm Cancel');
+                        console.log('Cancelled');
                     }
                 }, {
                     text: 'Yes',
                     cssClass: 'mat-raised-button',
-                    handler: () => {
-                        console.log('Cancel Vehicle Request:');
+                    handler: () => {                        
                         this.vehicleService.cancelVehicleRequest(parcel_object);
 
                     }
