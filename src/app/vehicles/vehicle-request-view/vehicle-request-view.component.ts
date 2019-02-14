@@ -16,14 +16,13 @@ import {Observable} from 'rxjs';
 export class VehicleRequestViewComponent implements OnInit {
 
     packetSizes = ['S', 'M', 'L', 'XL'];
-    vehicleRequestForm: FormGroup;
     userToken = 'c1e46f017983b562c8c6af0627f28ff9';
+    vehicleRequestForm: FormGroup;
     requestType: string;
     parcelGUID: string;
     deliveryPlaces$: Observable<DeliveryPlace[]>;
     deliveryPlace: DeliveryPlace;
     deliveryDate: Date;
-    vehicleRequest = new VehicleRequest();
     presentDate: Date = new Date();
     preSelectedDateTime = (new Date(this.presentDate.setMinutes(this.presentDate.getMinutes() + 90))).toISOString();
 
@@ -32,7 +31,8 @@ export class VehicleRequestViewComponent implements OnInit {
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private vehicleService: VehicleService,
-        private router: Router
+        private router: Router,
+        private vehicleRequest: VehicleRequest
     ) {
     }
 
@@ -58,6 +58,7 @@ export class VehicleRequestViewComponent implements OnInit {
     }
 
     initDeliveryPlaces() {
+        // TODO get favorite delivery place from user via userService.getSettings
         this.deliveryPlacesService.reloadDeliveryPlaces();
         this.deliveryPlaces$ = this.deliveryPlacesService.getDeliveryPlaces();
     }
@@ -65,9 +66,11 @@ export class VehicleRequestViewComponent implements OnInit {
     sendData() {
         this.vehicleRequest.latitude = this.vehicleRequestForm.value.deliveryPlace.latitude;
         this.vehicleRequest.longitude = this.vehicleRequestForm.value.deliveryPlace.longitude;
-        this.vehicleRequest.status = 'PENDING';
-        this.vehicleRequest.requestPurpose = this.requestType;
         this.vehicleRequest.time = this.vehicleRequestForm.value.deliveryDate;
+        this.vehicleRequest.requestPurpose = this.requestType;
+        this.vehicleRequest.status = 'PENDING';
+        // TODO later set user token via userService in vehicleService
+        // TODO getUserToken in userService to make it easier for all other services which make request (prevents requesting always whole user object to extract only the token)
         this.vehicleRequest.userToken = this.userToken;
         this.vehicleService.sendVehicleRequest(this.vehicleRequest);
         this.router.navigate(['vehicleRequested']);
