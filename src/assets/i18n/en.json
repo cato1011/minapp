@@ -5,6 +5,7 @@
   "login.button_text": "Login",
   "login.forgot_password": "Forgot Password?",
 
+  "menu.title": "Menu",
   "menu.dashboard": "Dashboard",
   "menu.appointments": "Active appointments",
   "menu.parcels_to_me":  "Received parcels",
