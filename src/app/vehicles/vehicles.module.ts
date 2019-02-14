@@ -11,6 +11,7 @@ import {DatetimeItemComponent} from './datetime-item/datetime-item.component';
 import {MatButtonModule, MatCardModule, MatMenuModule} from '@angular/material';
 import {VehicleRequestedViewComponent} from './vehicle-requested-view/vehicle-requested-view.component';
 import {VehicleRequest} from './vehicles.model';
+import {DateFnsModule} from 'ngx-date-fns';
 
 @NgModule({
     declarations: [VehicleRequestViewComponent, DeliveryplacesComponent, DatetimeItemComponent, VehicleRequestedViewComponent],
@@ -24,7 +25,8 @@ import {VehicleRequest} from './vehicles.model';
         MatButtonModule,
         MatCardModule,
         MatMenuModule,
-        TranslateModule
+        TranslateModule,
+        DateFnsModule.forRoot()
     ],
     providers: [VehicleRequest],
     exports: [VehicleRequestViewComponent, VehicleRequestedViewComponent]
