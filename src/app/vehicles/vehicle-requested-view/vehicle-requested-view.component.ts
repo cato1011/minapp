@@ -10,12 +10,15 @@ import {VehicleService} from '../vehicle.service';
 export class VehicleRequestedViewComponent implements OnInit {
 
     private imageUrl = '../assets/icons/parcels/vehicle_requested.png';
+    private dateTime=this.vehicleService.getLastVehicleRequest().time.slice(0, -1);;
+    
 
     constructor(private vehicleService: VehicleService) {
     }
 
     ngOnInit() {
         console.log(this.vehicleService.getLastVehicleRequest());
+
     }
 
 }

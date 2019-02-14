@@ -15,6 +15,7 @@ import {Observable} from 'rxjs';
 })
 export class VehicleRequestViewComponent implements OnInit {
 
+    // Will be used with normal Vehicle Request (Not used now)
     packetSizes = ['S', 'M', 'L', 'XL'];
     userToken = 'c1e46f017983b562c8c6af0627f28ff9';
     vehicleRequestForm: FormGroup;
