@@ -1,6 +1,8 @@
 {
   "name": "buga-app-mobile",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "8c94f13a"
 }
