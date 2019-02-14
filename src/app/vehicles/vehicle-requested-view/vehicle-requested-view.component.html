@@ -9,7 +9,7 @@
     </ion-toolbar>
 </ion-header>
 <ion-header id="sub-header">
-    <ion-item>
+    <ion-item [lines]="'none'">
         <ion-buttons slot="end">
             <ion-button routerLink="../dashboard">
                 <ion-icon name="arrow-back"></ion-icon>
@@ -33,7 +33,6 @@
                             </ion-card-title>
                         </ion-card-content>
                     </ion-item>
-
                 </ion-card>
             </ion-col>
         </ion-row>

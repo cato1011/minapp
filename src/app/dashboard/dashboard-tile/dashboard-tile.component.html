@@ -2,7 +2,9 @@
     <ion-card-header>
         <ion-item [lines]="'none'">
             <ion-img [src]="dashboardItem.image"></ion-img>
-            <ion-badge [color]="'#3BB95D'" id="dashboard-badge">&nbsp;7&nbsp;</ion-badge>
+            <!-- TODO ngIf badge number is bigger than 9 than use badge without whitespaces for correct circle-->
+            <!-- TODO create css classes for badges with different background-color and set class according to desired logic-->
+            <ion-badge id="dashboard-badge">&nbsp;7&nbsp;</ion-badge>
         </ion-item>
     </ion-card-header>
     <ion-card-content>
