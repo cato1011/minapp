@@ -14,8 +14,8 @@
 <ion-content [color]="'#BCE0FD'">
     <ion-grid>
         <ion-row>
-            <ion-col>
-                <ion-card *ngFor="let dashboardItem of dashboardItems">
+            <ion-col *ngFor="let dashboardItem of dashboardItems; let i = index" [sizeSm]="(i === 0) ? 12 : 6" [sizeXs]="12">
+                <ion-card >
                     <app-dashboard-tile [dashboardItem]="dashboardItem"></app-dashboard-tile>
                 </ion-card>
             </ion-col>
