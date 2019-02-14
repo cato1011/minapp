@@ -3,6 +3,7 @@ import {Parcel} from '../parcel.model';
 import {AlertController} from '@ionic/angular';
 import {VehicleService} from '../../vehicles/vehicle.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {ParcelService} from '../parcel.service';
 
 @Component({
     selector: 'app-parcel-list-item',
@@ -26,8 +27,10 @@ export class ParcelListItemComponent implements OnInit {
     imagePrefix = './assets/icons/parcels/';
     isHovering = false;
 
-    constructor(private alertController: AlertController, private vehicleService: VehicleService) {
-
+    constructor(
+        private alertController: AlertController,
+        private vehicleService: VehicleService,
+        private parcelService: ParcelService) {
     }
 
     async DeleteAppointment(parcel_object) {
@@ -57,6 +60,10 @@ export class ParcelListItemComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    clickedRequestAppointment() {
+        this.parcelService.setCurrentSelectedParcel(this.parcel);
     }
 
     deleteParcel() {

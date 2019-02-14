@@ -1,22 +1,26 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Vehicles} from '../vehicles/vehicles.model';
+import {Vehicle, VehicleRequest} from '../vehicles/vehicles.model';
 import {Parcel} from '../parcels/parcel.model';
 import {ReplaySubject, Subject} from 'rxjs';
+import {ParcelService} from '../parcels/parcel.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class VehicleService {
+
     private userToken = 'c1e46f017983b562c8c6af0627f28ff9';
-    vehicleRequest: Vehicles[];
-    private vehicleRequestSubject: Subject<Vehicles[]> = new ReplaySubject<Vehicles[]>(25);
+    vehicleRequest: Vehicle[];
+    private vehicleRequestSubject: Subject<Vehicle[]> = new ReplaySubject<Vehicle[]>(25);
     private sendVehicleRequestUrl: string;
     private getVehicleRequestUrl: string;
     private cancelVehicleRequestUrl: string;
+    private lastVehicleRequest: Vehicle;
     carrierServerUrl = 'http://localhost:8081';
 
-    finalVehicleRequest: Vehicles = {
+
+    finalVehicleRequest: Vehicle = {
         'boxGUID': '',
         'id': 0,
         'latitude': 0,
@@ -32,26 +36,36 @@ export class VehicleService {
     };
 
 
-    constructor(private httpClient: HttpClient) {
+    constructor(private httpClient: HttpClient, private parcelService: ParcelService) {
     }
 
 
-    public sendVehicleRequest(vehicle_obj: Vehicles) {
+    public sendVehicleRequest(vehicleRequest: VehicleRequest) {
+        if (vehicleRequest.requestPurpose === 'PARCEL_DELIVERY') {
+            vehicleRequest.parcelGUID = this.parcelService.getCurrentSelectedParcel().parcelGUID;
+        }
+        this.lastVehicleRequest = vehicleRequest;
         this.sendVehicleRequestUrl = this.carrierServerUrl + '/vehicleRequests';
-        return this.httpClient.post(this.sendVehicleRequestUrl, JSON.stringify(vehicle_obj), {
+        return this.httpClient.post(this.sendVehicleRequestUrl, JSON.stringify(vehicleRequest), {
             headers: {userToken: this.userToken, identifier: 'APP', 'Content-Type': 'application/json'}
         }).subscribe(
             (response: Response) => {
-                console.log(response);            
-               
+                console.log(response);
             }
         );
-        
+    }
+
+    public setLastVehicleRequest(vehicleRequest: Vehicle) {
+        this.lastVehicleRequest = vehicleRequest;
+    }
+
+    public getLastVehicleRequest(): Vehicle {
+        return this.lastVehicleRequest;
     }
 
     public getVehicleRequestById(vehicleRequest_id: number) {
         this.getVehicleRequestUrl = this.carrierServerUrl + '/vehicleRequests/' + vehicleRequest_id;
-        this.httpClient.get<Vehicles[]>(this.getVehicleRequestUrl, {
+        this.httpClient.get<Vehicle[]>(this.getVehicleRequestUrl, {
             headers: {userToken: this.userToken, identifier: 'APP'}
         }).subscribe((ps) => {
             this.vehicleRequestSubject.next(ps);
@@ -62,7 +76,7 @@ export class VehicleService {
 
     public cancelVehicleRequest(parcel_obj: Parcel) {
         this.getVehicleRequestById(parcel_obj.vehicleRequestId).subscribe(
-            (vehicleRequest: Vehicles[]) => {
+            (vehicleRequest: Vehicle[]) => {
                 this.vehicleRequest = vehicleRequest;
             });
         // Set status for the Vehicle Request

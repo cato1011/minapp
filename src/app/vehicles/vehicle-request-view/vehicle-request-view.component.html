@@ -19,7 +19,7 @@
         <app-datetime-item [parentForm]="vehicleRequestForm"></app-datetime-item>
         <ion-row>
             <ion-col offset="4">
-                <button [disabled]="vehicleRequestForm.valid" [class]="vehicleRequestForm.valid ? 'button-dark' : 'button-disabled-dark'" type="submit">
+                <button [disabled]="!vehicleRequestForm.valid" [class]="vehicleRequestForm.valid ? 'button-dark' : 'button-disabled-dark'" type="submit">
                     <img src="../../../assets/icons/request/send_button_2x.png">
                 </button>
             </ion-col>

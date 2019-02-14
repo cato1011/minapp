@@ -11,9 +11,20 @@ export class ParcelService {
 
     private parcelInSubject: Subject<Parcel[]> = new ReplaySubject<Parcel[]>(25);
     private parcelOutSubject: Subject<Parcel[]> = new ReplaySubject<Parcel[]>(25);
+    private currentSelectedParcel: Parcel;
+
     userToken = 'c1e46f017983b562c8c6af0627f28ff9';
 
     constructor(private httpClient: HttpClient, private loginService: UserService) {
+    }
+
+    setCurrentSelectedParcel(parcel: Parcel) {
+        console.log(parcel);
+        this.currentSelectedParcel = parcel;
+    }
+
+    getCurrentSelectedParcel(): Parcel {
+        return this.currentSelectedParcel;
     }
 
     reloadIn() {
