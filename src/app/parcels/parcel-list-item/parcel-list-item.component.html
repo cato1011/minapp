@@ -8,7 +8,7 @@
             {{'parcel.cancel_appointment' | translate}}
         </ion-button>
 
-        <ion-button (click)="clickedRequestAppointment(parcel)"
+        <ion-button (click)="clickedRequestAppointment()"
                 *ngIf="parcel.status!= 'DELIVERY_REQUESTED' && parcel.status!= 'DELIVERY_CONFIRMED' && parcel.status!= 'DELIVERED'"
                 [routerLink]="['/vehicleRequest']" [queryParams]="{type: 'PARCEL_DELIVERY'}"
                 [skipLocationChange]="false" fill="outline"
