@@ -25,7 +25,7 @@ export class VehicleRequestViewComponent implements OnInit {
     deliveryPlace: DeliveryPlace;
     deliveryDate: Date;
     presentDate: Date = new Date();
-    preSelectedDateTime = (new Date(this.presentDate.setMinutes(this.presentDate.getMinutes() + 90))).toISOString().slice(0, -1);;
+    preSelectedDateTime = (new Date(this.presentDate.setMinutes(this.presentDate.getMinutes() + 90))).toISOString();
 
     constructor(
         private deliveryPlacesService: DeliveryPlacesService,
