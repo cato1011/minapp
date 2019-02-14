@@ -1,6 +1,9 @@
 <ion-item (click)="onClick()" (mouseenter)="isHovering = true" (mouseleave)="isHovering = false" [@hover]="isHovering">
     <ion-card-header>
-            <ion-badge color="success" id="dashboard-badge">77</ion-badge>  <ion-img [src]="dashboardItem.image"></ion-img>
+        <ion-item [lines]="'none'">
+            <ion-img [src]="dashboardItem.image"></ion-img>
+            <ion-badge [color]="'#3BB95D'" id="dashboard-badge">&nbsp;7&nbsp;</ion-badge>
+        </ion-item>
     </ion-card-header>
     <ion-card-content>
         <ion-card-title class="mat-accent"><h2 [@title]="isHovering">{{dashboardItem.title}}</h2></ion-card-title>

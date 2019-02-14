@@ -45,6 +45,7 @@ export class VehicleRequestViewComponent implements OnInit {
     initForm() {
         this.vehicleRequestForm = new FormGroup({
             deliveryPlace: new FormControl(this.deliveryPlace, Validators.required),
+            // TODO write own validator which validates if the selected time is in the future
             deliveryDate: new FormControl(this.preSelectedDateTime)
         });
     }

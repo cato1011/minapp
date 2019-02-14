@@ -17,6 +17,7 @@
         <app-deliveryplaces [deliveryPlaces]="deliveryPlaces$ | async"
                             [parentForm]="vehicleRequestForm"></app-deliveryplaces>
         <app-datetime-item [parentForm]="vehicleRequestForm"></app-datetime-item>
+        <!-- TODO show hint that time has to be in the future -->
         <ion-row>
             <ion-col offset="4">
                 <button [disabled]="!vehicleRequestForm.valid" [class]="vehicleRequestForm.valid ? 'button-dark' : 'button-disabled-dark'" type="submit">
