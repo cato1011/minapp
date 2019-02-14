@@ -75,3 +75,16 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 }
+
+.vehicleToast
+{
+--background: #3BB95D;
+--color: #f4f5f8; 
+--border-color: rgb(37, 94, 52);
+--border-radius: 2px;
+
+.toast-wrapper {
+  transform: translateY(170px) !important;
+}
+}
+
