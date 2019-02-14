@@ -8,12 +8,11 @@ import {IonicModule} from '@ionic/angular';
 import {TranslateModule} from '@ngx-translate/core';
 import {DeliveryplacesComponent} from './deliveryplaces-item/deliveryplaces.component';
 import {DatetimeItemComponent} from './datetime-item/datetime-item.component';
-import {MatButtonModule, MatCardModule,MatMenuModule} from '@angular/material';
-import { VehicleRequestedViewComponent } from './vehicle-requested-view/vehicle-requested-view.component';
-import { NgxNavigationWithDataComponent } from "ngx-navigation-with-data";
+import {MatButtonModule, MatCardModule, MatMenuModule} from '@angular/material';
+import {VehicleRequestedViewComponent} from './vehicle-requested-view/vehicle-requested-view.component';
 
 @NgModule({
-    declarations: [NgxNavigationWithDataComponent,VehicleRequestViewComponent, DeliveryplacesComponent, DatetimeItemComponent, VehicleRequestedViewComponent],
+    declarations: [VehicleRequestViewComponent, DeliveryplacesComponent, DatetimeItemComponent, VehicleRequestedViewComponent],
     imports: [
         CommonModule,
         RouterModule,
@@ -25,10 +24,9 @@ import { NgxNavigationWithDataComponent } from "ngx-navigation-with-data";
         MatCardModule,
         MatMenuModule,
         TranslateModule
-        
     ],
-    providers: [NgxNavigationWithDataComponent],
-    exports: [VehicleRequestViewComponent, DeliveryplacesComponent,VehicleRequestedViewComponent]
+    providers: [],
+    exports: [VehicleRequestViewComponent, DeliveryplacesComponent, VehicleRequestedViewComponent]
 })
 export class VehiclesModule {
 }
