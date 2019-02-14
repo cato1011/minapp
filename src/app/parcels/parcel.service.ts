@@ -29,7 +29,7 @@ export class ParcelService {
 
     reloadIn() {
         // this.loginService.getUser().subscribe(user => this.userToken = user.userToken);
-        this.httpClient.get<Parcel[]>('http://localhost:8082/parcels' + '/in/' + this.userToken, {
+        this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels' + '/in/' + this.userToken, {
             headers: {userToken: this.userToken}
         }).subscribe((ps) => {
             this.parcelInSubject.next(ps);
@@ -38,7 +38,7 @@ export class ParcelService {
 
     reloadOut() {
         // this.loginService.getUser().subscribe(user => this.userToken = user.userToken);
-        this.httpClient.get<Parcel[]>('http://localhost:8082/parcels/' + 'out/' + this.userToken, {
+        this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/' + 'out/' + this.userToken, {
             headers: {userToken: this.userToken}
         }).subscribe((ps) => {
             this.parcelOutSubject.next(ps);

@@ -17,7 +17,7 @@ export class VehicleService {
     private getVehicleRequestUrl: string;
     private cancelVehicleRequestUrl: string;
     private lastVehicleRequest: Vehicle;
-    carrierServerUrl = 'http://localhost:8081';
+    carrierServerUrl = 'https://carrierserver.cabreracano.de';
 
 
     finalVehicleRequest: Vehicle = {
