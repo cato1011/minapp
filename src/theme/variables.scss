@@ -28,7 +28,7 @@
   --ion-color-tertiary-tint: #7e57ff;
 
   /** success **/
-  --ion-color-success: #10dc60;
+  --ion-color-success: #3BB95D;
   --ion-color-success-rgb: 16, 220, 96;
   --ion-color-success-contrast: #ffffff;
   --ion-color-success-contrast-rgb: 255, 255, 255;
@@ -74,17 +74,5 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
-}
-
-.vehicleToast
-{
---background: #3BB95D;
---color: #f4f5f8; 
---border-color: rgb(37, 94, 52);
---border-radius: 2px;
-
-.toast-wrapper {
-  transform: translateY(170px) !important;
-}
 }
 

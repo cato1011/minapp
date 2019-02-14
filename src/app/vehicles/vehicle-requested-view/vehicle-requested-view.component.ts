@@ -17,17 +17,10 @@ export class VehicleRequestedViewComponent implements OnInit {
 
     constructor(private vehicleService: VehicleService, public toastController: ToastController) {
     }
-    async presentToast() {
-        const toast = await this.toastController.create({
-          message: 'Thank you! The delivery date is now requested. We will notify you when the appointment is confirmed..',        
-          position:'middle',
-          cssClass:'vehicleToast'              
-        });
-        toast.present();
-      }
+    
     ngOnInit() {
         console.log(this.vehicleService.getLastVehicleRequest());
-        this.presentToast();
+       
 
     }
 
