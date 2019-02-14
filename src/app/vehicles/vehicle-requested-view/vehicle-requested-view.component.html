@@ -29,7 +29,22 @@
                         </ion-card-header>
                         <ion-card-content>
                             <ion-card-title class="mat-accent">
-                                <h2> {{'vehicle.requested.message'|translate}} <Br /> {{ dateTime | dfnsFormat: 'YYYY/MM/DD' }} <br /> {{ dateTime | dfnsFormat: 'HH:mm' }}</h2>
+                                <h2> {{'vehicle.requested.message'|translate}} <Br /> {{ dateTime | dfnsFormat: 'DD-MM-YYYY' }} | {{ dateTime | dfnsFormat: 'HH:mm' }}{{'vehicle.requested.hour' |translate}}</h2>
+                            </ion-card-title>
+                        </ion-card-content>
+                    </ion-item>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-card >
+                    <ion-item [color]="'success'">                        
+                        <ion-card-content>
+                            <ion-card-title style="color:white">
+                                <h2> {{'vehicle.requested.toast.message'|translate}} </h2>
                             </ion-card-title>
                         </ion-card-content>
                     </ion-item>
