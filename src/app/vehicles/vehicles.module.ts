@@ -10,6 +10,7 @@ import {DeliveryplacesComponent} from './deliveryplaces-item/deliveryplaces.comp
 import {DatetimeItemComponent} from './datetime-item/datetime-item.component';
 import {MatButtonModule, MatCardModule, MatMenuModule} from '@angular/material';
 import {VehicleRequestedViewComponent} from './vehicle-requested-view/vehicle-requested-view.component';
+import {VehicleRequest} from './vehicles.model';
 
 @NgModule({
     declarations: [VehicleRequestViewComponent, DeliveryplacesComponent, DatetimeItemComponent, VehicleRequestedViewComponent],
@@ -25,8 +26,8 @@ import {VehicleRequestedViewComponent} from './vehicle-requested-view/vehicle-re
         MatMenuModule,
         TranslateModule
     ],
-    providers: [],
-    exports: [VehicleRequestViewComponent, DeliveryplacesComponent, VehicleRequestedViewComponent]
+    providers: [VehicleRequest],
+    exports: [VehicleRequestViewComponent, VehicleRequestedViewComponent]
 })
 export class VehiclesModule {
 }
