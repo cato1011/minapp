@@ -9,28 +9,26 @@ import {
     MatCardModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatIconModule, MatInputModule,
+    MatIconModule,
+    MatInputModule,
     MatListModule,
-    MatSidenavModule, MatSnackBarModule,
+    MatSidenavModule,
+    MatSnackBarModule,
     MatTooltipModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {BrowserModule} from '@angular/platform-browser';
 import {IonicModule} from '@ionic/angular';
 import {TranslateModule} from '@ngx-translate/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MenuListItemComponent} from './menu-list-item/menu-list-item.component';
 import {RouterModule} from '@angular/router';
 
 @NgModule({
     declarations: [PagenotfoundComponent, LoginViewComponent, MenuListComponent, MenuListItemComponent],
     imports: [
-        CommonModule,
         FormsModule,
         RouterModule,
-        BrowserModule,
         HttpClientModule,
-        BrowserAnimationsModule,
+        CommonModule,
         ReactiveFormsModule,
         MatFormFieldModule,
         MatListModule,

@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-toolbar [color]="'#1365B6'">
+        <ion-buttons slot="end">
+            <ion-button>
+                <ion-icon slot="icon-only" name="refresh"></ion-icon>
+            </ion-button>
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            {{('parcel.header.' + context) | translate}}
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <app-tab-bar-parcels></app-tab-bar-parcels>
+    <app-parcel-list-view [parcels]="parcels$ | async"></app-parcel-list-view>
+</ion-content>

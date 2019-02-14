@@ -1,15 +1,16 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ParcelListViewComponent} from './parcel-list-view/parcel-list-view.component';
+import {ParcelListRouteComponent} from './parcel-list-route/parcel-list-route.component';
 
 const routes: Routes = [
-  { path: ':context', component: ParcelListViewComponent }
+    {path: ':context', component: ParcelListRouteComponent}
 ];
 
 @NgModule({
-  declarations: [],
-  imports: [
-    RouterModule.forChild(routes)
-  ]
+    declarations: [],
+    imports: [
+        RouterModule.forChild(routes)
+    ]
 })
-export class ParcelRouterModule { }
+export class ParcelRouterModule {
+}

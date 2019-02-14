@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Vehicle, VehicleRequest} from '../vehicles/vehicles.model';
+import {Vehicle, VehicleRequest} from './vehicles.model';
 import {Parcel} from '../parcels/parcel.model';
 import {ReplaySubject, Subject} from 'rxjs';
 import {ParcelService} from '../parcels/parcel.service';
@@ -18,23 +18,6 @@ export class VehicleService {
     private cancelVehicleRequestUrl: string;
     private lastVehicleRequest: Vehicle;
     carrierServerUrl = 'https://carrierserver.cabreracano.de';
-
-
-    finalVehicleRequest: Vehicle = {
-        'boxGUID': '',
-        'id': 0,
-        'latitude': 0,
-        'longitude': 0,
-        'parcelGUID': '',
-        'potentialVehicleIds': [0],
-        'requestPurpose': '',
-        'size': 'new_request',
-        'status': '',
-        'time': '',
-        'userToken': '',
-        'waitingTime': 0,
-    };
-
 
     constructor(private httpClient: HttpClient, private parcelService: ParcelService) {
     }

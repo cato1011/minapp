@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ParcelService} from '../parcel.service';
 import {Parcel} from '../parcel.model';
@@ -11,25 +11,12 @@ import {Observable} from 'rxjs';
 })
 export class ParcelListViewComponent implements OnInit {
 
-    context: string;
-    parcels: Parcel[];
-    parcels$: Observable<Parcel[]>;
+    @Input() parcels: Parcel[];
 
-    constructor(private route: ActivatedRoute, private parcelService: ParcelService) {
+    constructor() {
     }
 
     ngOnInit() {
-        this.route.params.subscribe(params => {
-            this.context = params['context'];
-            if (this.context === 'in') {
-                // this.parcels = this.parcelService.getParcelsIn();
-                this.parcelService.reloadIn();
-                this.parcels$ = this.parcelService.getAllIn();
-            } else {
-                // this.parcels = this.parcelService.getParcelsOut();
-                this.parcelService.reloadOut();
-                this.parcels$ = this.parcelService.getAllOut();
-            }
-        });
     }
+
 }

@@ -35,7 +35,6 @@ export class DashboardTileComponent implements OnInit {
     }
 
     onClick() {
-        console.log('hello');
         this.router.navigate([this.dashboardItem.link]);
     }
 

@@ -15,7 +15,7 @@ import {TranslateModule} from '@ngx-translate/core';
         DashboardRouterModule,
         CommonModule,
         MatCardModule,
-        MatButtonModule,        
+        MatButtonModule,
         IonicModule,
         TranslateModule
     ],

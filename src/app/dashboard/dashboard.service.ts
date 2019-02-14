@@ -18,7 +18,7 @@ export class DashboardService {
         this.dashboardItems = [
             {
                 title: this.translate.instant('dashboard.appointments'),
-                link: 'events',
+                link: 'parcels/appointments',
                 image: this.imagePrefix + 'clock_big_2x.png'
             },
             {

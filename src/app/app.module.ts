@@ -17,6 +17,7 @@ import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {DeliveryPlacesModule} from './delivery-places/delivery-places.module';
 import {DashboardModule} from './dashboard/dashboard.module';
+import {CommonModule} from '@angular/common';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -27,8 +28,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     entryComponents: [],
     imports: [
         IonicModule.forRoot(),
-        BrowserModule,
         CoreModule,
+        CommonModule,
         UserModule,
         VehiclesModule,
         DeliveryPlacesModule,
