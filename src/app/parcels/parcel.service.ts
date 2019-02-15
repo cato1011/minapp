@@ -11,10 +11,9 @@ export class ParcelService {
 
     private parcelInSubject: Subject<Parcel[]> = new ReplaySubject<Parcel[]>(25);
     private parcelOutSubject: Subject<Parcel[]> = new ReplaySubject<Parcel[]>(25);
-    private currentSelectedParcel: Parcel;  
-
+    private currentSelectedParcel: Parcel;
     userToken = 'c1e46f017983b562c8c6af0627f28ff9';
-    private parcelInUrl='http://localhost:8082/parcels/users/'+ this.userToken+'?filter=in'
+    private parcelInUrl = 'http://localhost:8082/parcels/users/' + this.userToken + '?filter=in';
 
     constructor(private httpClient: HttpClient, private loginService: UserService) {
     }
