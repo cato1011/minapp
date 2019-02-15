@@ -31,8 +31,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         CoreModule,
         CommonModule,
         UserModule,
-        VehiclesModule,
-        DeliveryPlacesModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

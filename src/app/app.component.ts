@@ -30,6 +30,7 @@ export class AppComponent implements OnInit {
             this.isSidebarVisible = state;
         }, error => console.log(error));
         this.href = this.router.url;
+        this.menuService.setNavBarState(false);
     }
 
     initializeApp() {

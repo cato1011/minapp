@@ -18,6 +18,10 @@ const routes: Routes = [
         loadChildren: './dashboard/dashboard.module#DashboardModule'
     },
     {
+        path: 'vehicles',
+        loadChildren: './vehicles/vehicles.module#VehiclesModule'
+    },
+    {
         path: 'parcels',
         pathMatch: 'prefix',
         loadChildren: './parcels/parcels.module#ParcelsModule'

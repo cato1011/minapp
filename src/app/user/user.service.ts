@@ -11,6 +11,7 @@ export class UserService {
     private user$ = new BehaviorSubject<User | null>(null);
     // TODO remove fixed user token value in production
     private userToken = 'c1e46f017983b562c8c6af0627f28ff9';
+    private mobileAuthToken = '';
     private userSettings$ = new ReplaySubject<UserSettings | null>(1);
 
     constructor(private httpClient: HttpClient) {
@@ -38,6 +39,7 @@ export class UserService {
 
     setUser(user: User) {
         this.userToken = user.userToken;
+        this.authToken = user.mobileAuthToken;
         this.user$.next(user);
     }
 
@@ -56,5 +58,9 @@ export class UserService {
 
     getUserToken() {
         return this.userToken;
+    }
+
+    getMobileAuthToken() {
+        return this.mobileAuthToken;
     }
 }
