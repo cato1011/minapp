@@ -18,6 +18,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {DeliveryPlacesModule} from './delivery-places/delivery-places.module';
 import {DashboardModule} from './dashboard/dashboard.module';
 import {CommonModule} from '@angular/common';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -38,7 +40,8 @@ export function HttpLoaderFactory(http: HttpClient) {
                 deps: [HttpClient]
             }
         }),
-        AppRoutingModule
+        AppRoutingModule,
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     ],
     providers: [
         StatusBar,
