@@ -9,15 +9,12 @@ import {UserService} from '../user/user.service';
 })
 export class AuthService {
 
-    // the URL of the server through which all HTTP requests to the different backend servers are routed.
-    nodejsRouterUrl = 'https://bugalog-nodejs.se.hs-heilbronn.de:8443/';
-
     constructor(private httpClient: HttpClient, private userService: UserService) {
     }
 
     // authenticate via parcelserver
     login(username: string, password: string): Observable<User> {
-        const userResult = this.httpClient.get<User>(this.nodejsRouterUrl + 'users/auth', {
+        const userResult = this.httpClient.get<User>('https://parcelserver.cabreracano.de/users/auth', {
                 headers: {
                     'username': '#demo#' + username,  // this will probably be changed eventually but cannot yet
                     'password': password
