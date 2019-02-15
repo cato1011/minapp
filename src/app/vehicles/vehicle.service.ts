@@ -4,6 +4,7 @@ import {Vehicle, VehicleRequest} from './vehicles.model';
 import {Parcel} from '../parcels/parcel.model';
 import {ReplaySubject, Subject} from 'rxjs';
 import {ParcelService} from '../parcels/parcel.service';
+import {UserService} from '../user/user.service';
 
 @Injectable({
     providedIn: 'root'
@@ -18,7 +19,7 @@ export class VehicleService {
     // public vehcileRequestUrl = 'http://localhost:8081/vehicleRequests/';
     private cancelledStatus: string = 'CANCELED_BY_USER';
 
-    constructor(private httpClient: HttpClient, private parcelService: ParcelService) {
+    constructor(private httpClient: HttpClient, private parcelService: ParcelService, private userService: UserService) {
     }
 
 

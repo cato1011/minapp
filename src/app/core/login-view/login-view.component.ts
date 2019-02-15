@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {MenuService} from '../menu.service';
 import {AuthService} from '../auth.service';
 
@@ -15,7 +15,7 @@ export class LoginViewComponent implements OnInit {
     public username: string;
     public title = 'Herzlich Willkommen';
 
-    constructor(private authService: AuthService, private menuService: MenuService, private router: Router) {
+    constructor(private authService: AuthService, private menuService: MenuService, private router: Router, private route: ActivatedRoute) {
     }
 
     onSubmit() {
@@ -32,7 +32,6 @@ export class LoginViewComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.menuService.setNavBarState(false);
         this.form = new FormGroup({
             username: new FormControl(this.username, Validators.required),
             password: new FormControl('', Validators.required)

@@ -9,6 +9,8 @@ import {BehaviorSubject, Observable, ReplaySubject} from 'rxjs';
 export class UserService {
 
     private user$ = new BehaviorSubject<User | null>(null);
+    // TODO remove fixed user token value in production
+    private userToken = 'c1e46f017983b562c8c6af0627f28ff9';
     private userSettings$ = new ReplaySubject<UserSettings | null>(1);
 
     constructor(private httpClient: HttpClient) {
@@ -26,7 +28,16 @@ export class UserService {
         // TODO reload logged in user
     }
 
+    saveUser() {
+        // TODO send post request
+    }
+
+    saveSettings() {
+        // TODO send post request
+    }
+
     setUser(user: User) {
+        this.userToken = user.userToken;
         this.user$.next(user);
     }
 
@@ -41,5 +52,9 @@ export class UserService {
 
     getSettings(): Observable<UserSettings | null> {
         return this.userSettings$.asObservable();
+    }
+
+    getUserToken() {
+        return this.userToken;
     }
 }

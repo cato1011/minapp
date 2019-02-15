@@ -12,6 +12,6 @@
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <app-tab-bar-parcels></app-tab-bar-parcels>
+    <app-tab-bar-parcels *ngIf="tabBarVisible"></app-tab-bar-parcels>
     <app-parcel-list-view [parcels]="parcels$ | async"></app-parcel-list-view>
 </ion-content>

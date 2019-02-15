@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, ReplaySubject} from 'rxjs';
 import {MenuItem} from './menu.model';
 
 @Injectable({
@@ -7,8 +7,8 @@ import {MenuItem} from './menu.model';
 })
 export class MenuService {
 
-    // has to be changed to false in prod mode in order to prevent showing the navbar without login
-    private navStateSource = new BehaviorSubject<boolean>(true);
+    // TODO has to be changed to false in prod mode in order to prevent showing the navbar without login
+    private navStateSource = new ReplaySubject<boolean>(1);
     public menuItemsFirst: MenuItem[];
     public commercialMenuItems: MenuItem[];
     public menuItemsSecond: MenuItem[];

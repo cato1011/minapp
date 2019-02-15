@@ -12,6 +12,7 @@ import {Observable} from 'rxjs';
 export class ParcelListRouteComponent implements OnInit {
 
     parcels$: Observable<Parcel[]>;
+    tabBarVisible = false;
     context: string;
 
     constructor(private route: ActivatedRoute, private parcelService: ParcelService) {
@@ -20,6 +21,7 @@ export class ParcelListRouteComponent implements OnInit {
     ngOnInit() {
         this.route.params.subscribe(params => {
             this.context = params['context'];
+            (['in', 'out', 'appointments'].indexOf(this.context) > -1) ? this.tabBarVisible = true : this.tabBarVisible = false;
             console.log(this.context);
             if (this.context === 'in') {
                 this.parcelService.reloadIn();
