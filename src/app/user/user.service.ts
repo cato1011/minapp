@@ -39,7 +39,7 @@ export class UserService {
 
     setUser(user: User) {
         this.userToken = user.userToken;
-        this.authToken = user.mobileAuthToken;
+        this.mobileAuthToken = user.mobileAuthToken;
         this.user$.next(user);
     }
 
