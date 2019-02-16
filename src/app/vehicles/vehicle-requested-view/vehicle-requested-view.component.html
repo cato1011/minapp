@@ -22,12 +22,12 @@
     <ion-grid>
         <ion-row>
             <ion-col>
-                <ion-card>
+                <ion-card id='grey-border'>
                     <ion-item>
                         <ion-card-header>
                             <ion-img [src]="imageUrl"></ion-img>
                         </ion-card-header>
-                        <ion-card-content>
+                        <ion-card-content >
                             <ion-card-title class="mat-accent">
                                 <h2> {{'vehicle.requested.message'|translate}} <Br /> {{ dateTime | dfnsFormat: 'DD-MM-YYYY' }} | {{ dateTime | dfnsFormat: 'HH:mm' }}{{'vehicle.requested.hour' |translate}}</h2>
                             </ion-card-title>
