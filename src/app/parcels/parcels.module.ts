@@ -10,6 +10,7 @@ import {CoreModule} from '../core/core.module';
 import {CommonModule} from '@angular/common';
 import {ParcelListRouteComponent} from './parcel-list-route/parcel-list-route.component';
 import {TabBarParcelsComponent} from './tab-bar-parcels/tab-bar-parcels.component';
+import {DateFnsModule} from 'ngx-date-fns';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {TabBarParcelsComponent} from './tab-bar-parcels/tab-bar-parcels.componen
         RouterModule,
         ParcelRouterModule,
         IonicModule,
-        TranslateModule
+        TranslateModule,
+        DateFnsModule.forRoot()
     ],
     exports: [TabBarParcelsComponent, ParcelListViewComponent]
 })
