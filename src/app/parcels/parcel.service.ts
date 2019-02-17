@@ -13,7 +13,8 @@ export class ParcelService {
     private parcelOutSubject: Subject<Parcel[]> = new ReplaySubject<Parcel[]>(25);
     private currentSelectedParcel: Parcel;
     // otherUserToken = 'b7417fd77717365710c8ff2700fd645d';
-    // parcelInUrl = 'http://localhost:8082/parcels/users/' + this.userToken + '?filter=in';
+   //  newParcelInUrl = 'http://localhost:8082/parcels/users/' + this.userToken + '?filter=in';
+  //   parcelInUrl2=https://parcelserver.cabreracano.de/parcels/' + 'in/' + this.userService.getUserToken();
 
     constructor(private httpClient: HttpClient, private userService: UserService) {
     }
@@ -28,8 +29,8 @@ export class ParcelService {
     }
 
     reloadIn() {
-        // this.loginService.getUser().subscribe(user => this.userToken = user.userToken);
-        this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/' + 'in/' + this.userService.getUserToken(), {
+       
+        this.httpClient.get<Parcel[]>('http://localhost:8082/parcels/' + 'in/' + this.userService.getUserToken(), {
             headers: {userToken: this.userService.getUserToken()}
         }).subscribe((ps) => {
             console.log(ps);

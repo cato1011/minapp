@@ -73,14 +73,14 @@ export class ParcelListItemComponent implements OnInit {
             case 'STATION':
             case 'PIN':
                 {
-                    return 'New Parcel';
+                    return 'You have a new Parcel';
                 }
             case 'REJECTED':
             case 'CANCELED':
                 {
-                    return 'New delivry date should be requested';
+                    return 'New delivery date should be requested';
                 }
-            case 'DELIVERYY_CONFIRMED': {
+            case 'DELIVERY_CONFIRMED': {
                 return 'Delivery is confirmed';
             }
         }

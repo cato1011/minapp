@@ -15,8 +15,8 @@ export class VehicleService {
     vehicleRequest: Vehicle[];
     private vehicleRequestSubject: Subject<Vehicle[]> = new ReplaySubject<Vehicle[]>(25);
     private lastVehicleRequest: Vehicle;
-    public vehcileRequestUrl = 'https://carrierserver.cabreracano.de/vehicleRequests/';
-    // public vehcileRequestUrl = 'http://localhost:8081/vehicleRequests/';
+   // public vehcileRequestUrl = 'https://carrierserver.cabreracano.de/vehicleRequests/';
+    public vehcileRequestUrl = 'http://localhost:8081/vehicleRequests/';
     private cancelledStatus: string = 'CANCELED_BY_USER';
 
     constructor(private httpClient: HttpClient, private parcelService: ParcelService, private userService: UserService) {
