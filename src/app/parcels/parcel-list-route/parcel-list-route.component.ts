@@ -35,4 +35,10 @@ export class ParcelListRouteComponent implements OnInit {
         });
     }
 
+    public reset()
+    {
+        this.parcelService.getAllIn();
+        this.parcelService.getAllOut();
+    }
+
 }

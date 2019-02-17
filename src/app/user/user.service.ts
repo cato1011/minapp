@@ -61,6 +61,7 @@ export class UserService {
     }
 
     getMobileAuthToken() {
+        console.log(this.user$);
         return this.mobileAuthToken;
     }
 }

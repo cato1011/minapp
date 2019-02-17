@@ -21,6 +21,21 @@ import {CommonModule} from '@angular/common';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+// For push notifications
+import { MessagingService } from './core/messaging.service';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+// Configuration of firebase
+export const firebaseConfig = {
+    apiKey: "AIzaSyCyC_Y0GyM3Pob6ucRxNXK8BBUIXgGf_4c",
+      authDomain: "push-buga.firebaseapp.com",
+      databaseURL: "https://push-buga.firebaseio.com",
+      projectId: "push-buga",
+      storageBucket: "push-buga.appspot.com",
+      messagingSenderId: "429056293943"
+  };
+
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
 }
@@ -42,11 +57,14 @@ export function HttpLoaderFactory(http: HttpClient) {
             }
         }),
         AppRoutingModule,
-        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+        AngularFireModule.initializeApp(firebaseConfig),
+        AngularFirestoreModule
     ],
     providers: [
         StatusBar,
         SplashScreen,
+        MessagingService,
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
         {
             provide: APP_INITIALIZER,
