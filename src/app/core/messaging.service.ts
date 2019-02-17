@@ -91,7 +91,7 @@ export class MessagingService {
             }
           }
           else {
-            this.firestore.collection(`pushnotifications`).doc(`${user_document}`).set({ 'authToken': this.user, 'fcmToken': token });
+            this.firestore.collection(`pushnotifications`).doc(`${user_document}`).set({ 'authToken': this.userService.getMobileAuthToken(), 'fcmToken': token });
             fcmtoken_exists = true;
           }
 
