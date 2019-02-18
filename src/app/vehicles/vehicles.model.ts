@@ -36,7 +36,8 @@ export enum VehicleStatus {
     PENDING = 'PENDING',
     CONFIRMED = 'CONFIRMED',
     REJECTED = 'REJECTED',
-    EXPIRED = 'EXPIRED'
+    EXPIRED = 'EXPIRED',
+    CANCELED_BY_USER = 'CANCELED_BY_USER'
 }
 
 export class VehicleRequest implements Vehicle {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Vehicle, VehicleRequest } from './vehicles.model';
+import {Vehicle, VehicleRequest, VehicleStatus} from './vehicles.model';
 import { Parcel } from '../parcels/parcel.model';
 import { ReplaySubject, Subject } from 'rxjs';
 import { ParcelService } from '../parcels/parcel.service';
@@ -17,7 +17,6 @@ export class VehicleService {
     private lastVehicleRequest: Vehicle;
     public vehicleRequestUrl = 'https://carrierserver.cabreracano.de/vehicleRequests/';
     // public vehicleRequestUrl = 'http://localhost:8081/vehicleRequests/';
-    private cancelledStatus: string = 'CANCELED_BY_USER';
     private allVehicleRequestsSubject: Subject<Vehicle[]> = new ReplaySubject<Vehicle[]>(25);
 
     constructor(private httpClient: HttpClient, private parcelService: ParcelService, private userService: UserService) {
@@ -26,7 +25,8 @@ export class VehicleService {
 
     public sendVehicleRequest(vehicleRequest: VehicleRequest) {
         if (vehicleRequest.requestPurpose === 'PARCEL_DELIVERY') {
-            vehicleRequest.parcelGUID = this.parcelService.getCurrentSelectedParcel().parcelGUID;
+            // TODO write method getParcelGUIDsfromCurrentSelectedVehicle
+            vehicleRequest.parcelGUIDList = [this.parcelService.getCurrentSelectedParcel().parcelGUID];
         }
         this.lastVehicleRequest = vehicleRequest;
         return this.httpClient.post(this.vehicleRequestUrl, JSON.stringify(vehicleRequest), {
@@ -58,9 +58,10 @@ export class VehicleService {
 
     public cancelVehicleRequest(parcelObject: Parcel) {
         this.getVehicleRequestById(parcelObject.vehicleRequestId).subscribe(data => {
+            // TODO write method getVehicleRequestById, first get vehicle request and in response set status
             this.vehicleRequest = data;
             // Set Cancelation status for vehicle request
-            this.vehicleRequest['status'] = this.cancelledStatus;
+            this.vehicleRequest['status'] = VehicleStatus.CANCELED_BY_USER;
             // Cancel Vehicle Request
             this.httpClient.put(this.vehicleRequestUrl + parcelObject.vehicleRequestId, JSON.stringify(this.vehicleRequest), {
                 headers: { identifier: 'APP', 'Content-Type': 'application/json' }
