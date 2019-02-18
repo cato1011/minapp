@@ -37,13 +37,8 @@ export class ParcelListRouteComponent implements OnInit {
 
     public reset()
     {
-        if (this.context === 'in') {
-            this.parcelService.reloadIn();
-            this.parcels$ = this.parcelService.getAllIn();
-        } else if (this.context === 'out') {
-            this.parcelService.reloadOut();
-            this.parcels$ = this.parcelService.getAllOut();
-        }
+        this.ngOnInit();
+        
     }
 
 }
