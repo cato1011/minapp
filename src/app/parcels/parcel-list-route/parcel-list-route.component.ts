@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ParcelService} from '../parcel.service';
+import {VehicleService} from '../../vehicles/vehicle.service';
+import {Vehicle} from '../../vehicles/vehicles.model';
 import {ActivatedRoute} from '@angular/router';
 import {Parcel} from '../parcel.model';
 import {Observable} from 'rxjs';
@@ -12,10 +14,11 @@ import {Observable} from 'rxjs';
 export class ParcelListRouteComponent implements OnInit {
 
     parcels$: Observable<Parcel[]>;
+    appointments$: Observable<Vehicle[]>;
     tabBarVisible = false;
     context: string;
 
-    constructor(private route: ActivatedRoute, private parcelService: ParcelService) {
+    constructor(private route: ActivatedRoute, private parcelService: ParcelService, private vehicleService:VehicleService) {
     }
 
     ngOnInit() {
@@ -30,8 +33,11 @@ export class ParcelListRouteComponent implements OnInit {
                 this.parcelService.reloadOut();
                 this.parcels$ = this.parcelService.getAllOut();
             } else {
-                // Load requested parcels
+                if (this.context === 'appointments') {
+                    this.vehicleService.reloadVehicleRequests();
+                    this.appointments$ = this.vehicleService.getAllVehicleRequests();
             }
+        }
         });
     }
 
