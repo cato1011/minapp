@@ -31,6 +31,7 @@
   "parcel.header.out": "Sent parcels",
   "parcel.header.n2n": "Neighbour to neighbour",
   "parcel.header.retoure": "Return parcel",
+  "parcel.DHL": "DHL Shipment #",
 
   "user.settings.header": "Settings",
   "user.settings.language": "Set language",
@@ -47,5 +48,9 @@
 
 
   "pagenotfound.title": "Coming soon",
-  "pagenotfound.heading": "This feature has not yet been implemented."
+  "pagenotfound.heading": "This feature has not yet been implemented.",
+
+  "currentappointments.confirmedappointments":"Confirmed Appointments",
+  "currentappointments.requestedappointments":"Requested Appointments",
+  "currentappointments.caneledappointments":"Cancelled Appointments"
 }
