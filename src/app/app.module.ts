@@ -1,5 +1,4 @@
 import {APP_INITIALIZER, NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
 import {RouteReuseStrategy} from '@angular/router';
 
 import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
@@ -10,21 +9,18 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {UserModule} from './user/user.module';
 import {UserService} from './user/user.service';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {CoreModule} from './core/core.module';
 import {VehiclesModule} from './vehicles/vehicles.module';
 import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {DeliveryPlacesModule} from './delivery-places/delivery-places.module';
-import {DashboardModule} from './dashboard/dashboard.module';
 import {CommonModule} from '@angular/common';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
-
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 // For push notifications
-import { MessagingService } from './core/messaging.service';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import {MessagingService} from './core/messaging.service';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
 
 // Configuration of firebase
 export const firebaseConfig = {
@@ -45,6 +41,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     entryComponents: [],
     imports: [
         IonicModule.forRoot(),
+        HttpClientModule,
         CoreModule,
         CommonModule,
         UserModule,
