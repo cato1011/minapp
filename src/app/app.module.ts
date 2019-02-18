@@ -41,7 +41,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     entryComponents: [],
     imports: [
         IonicModule.forRoot(),
-        HttpClientModule,
         CoreModule,
         CommonModule,
         UserModule,

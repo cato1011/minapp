@@ -13,7 +13,7 @@ export class ParcelService {
     private parcelOutSubject: Subject<Parcel[]> = new ReplaySubject<Parcel[]>(25);
     private currentSelectedParcel: Parcel;
 
-    constructor(private httpClient: HttpClient, private userService: UserService, private params: HttpParams, private headers: HttpHeaders) {
+    constructor(private httpClient: HttpClient, private userService: UserService) {
     }
 
     setCurrentSelectedParcel(parcel: Parcel) {
@@ -25,7 +25,8 @@ export class ParcelService {
     }
 
     reloadIn() {
-        this.params.set('filter', 'in');
+        const params = new HttpParams();
+        params.set('filter', 'in');
         this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/' + this.userService.getUserToken(), {
             headers: {userToken: this.userService.getUserToken()}
         }).subscribe((ps) => {
@@ -35,7 +36,8 @@ export class ParcelService {
     }
 
     reloadOut() {
-        this.params.set('filter', 'out');
+        const params = new HttpParams();
+        params.set('filter', 'out');
         this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/' + this.userService.getUserToken(), {
             headers: {userToken: this.userService.getUserToken()}
         }).subscribe((ps) => {
