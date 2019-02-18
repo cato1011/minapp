@@ -4,7 +4,7 @@
         <!--TODO show different icon, when request is confirmed -->
         
         <ion-img [src]="imagePrefix + 'vehicle_requested.png'"></ion-img>
-        <ion-label >{{ parcelMessage(parcel.status) }} <br />
+        <ion-label >{{ parcel.status | parcelEnum | translate }} <br />
           {{ parcel.date | dfnsFormat: 'DD-MM-YYYY' }} |
             {{ parcel.date | dfnsFormat: 'HH:mm' }} <br />  {{parcel.deliveryplace}}</ion-label>
         

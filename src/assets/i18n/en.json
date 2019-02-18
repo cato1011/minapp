@@ -33,6 +33,14 @@
   "parcel.header.retoure": "Return parcel",
   "parcel.DHL": "DHL Shipment #",
 
+  "parcel.status.station": "You have a new parcel",
+  "parcel.status.pin": "You have a new parcel",
+  "parcel.status.delivery_requested": "Delivery is requested",
+  "parcel.status.delivery_confirmed": "Delivery request is confirmed",
+  "parcel.status.delivered": "Parcel has been delivered",
+  "parcel.status.canceled": "Delivery request canceled",
+  "parcel.status.rejected": "Delivery request rejected",
+
   "user.settings.header": "Settings",
   "user.settings.language": "Set language",
   "user.settings.english": "English",

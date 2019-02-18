@@ -69,7 +69,6 @@ export class VehicleRequestViewComponent implements OnInit {
         this.vehicleRequest.longitude = this.vehicleRequestForm.value.deliveryPlace.longitude;
         this.vehicleRequest.time = this.vehicleRequestForm.value.deliveryDate;
         this.vehicleRequest.requestPurpose = this.requestType;
-        this.vehicleRequest.status = 'PENDING';
         // TODO later set user token via userService in vehicleService
         // TODO getUserToken in userService to make it easier for all other services which make request (prevents requesting always whole user object to extract only the token)
         this.vehicleRequest.userToken = this.userToken;

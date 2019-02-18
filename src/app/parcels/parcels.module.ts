@@ -11,10 +11,11 @@ import {CommonModule} from '@angular/common';
 import {ParcelListRouteComponent} from './parcel-list-route/parcel-list-route.component';
 import {TabBarParcelsComponent} from './tab-bar-parcels/tab-bar-parcels.component';
 import {DateFnsModule} from 'ngx-date-fns';
+import { ParcelEnumPipe } from './parcel-enum.pipe';
 
 
 @NgModule({
-    declarations: [ParcelListViewComponent, ParcelListItemComponent, ParcelDetailViewComponent, ParcelListRouteComponent, TabBarParcelsComponent],
+    declarations: [ParcelListViewComponent, ParcelListItemComponent, ParcelDetailViewComponent, ParcelListRouteComponent, TabBarParcelsComponent, ParcelEnumPipe],
     imports: [
         CoreModule,
         CommonModule,

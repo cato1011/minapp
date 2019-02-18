@@ -8,7 +8,7 @@
   "menu.title": "Menü",
   "menu.dashboard": "Übersicht",
   "menu.appointments": "Aktuelle Termine",
-  "menu.parcels_to_me":  "Sendungen zu mir",
+  "menu.parcels_to_me": "Sendungen zu mir",
   "menu.parcels_from_me": "Sendungen von mir",
   "menu.return": "Paket zurücksenden",
   "menu.courier": "Quartier-Kurier",
@@ -23,7 +23,7 @@
   "dashboard.appointments": "Aktuelle Termin",
   "dashboard.parcels_to_me": "Sendungen zu mir",
   "dashboard.parcels_from_me": "Sendungen von mir",
-  
+
   "parcel.request_appointment": "Termin vereinbaren",
   "parcel.cancel_appointment": "Termin absagen",
   "parcel.header.appointments": "Aktive Termine",
@@ -33,6 +33,14 @@
   "parcel.header.retoure": "Paket zurücksenden / Retoure",
   "parcel.DHL": "DHL Sendung",
 
+  "parcel.status.station": "Paket liegt auf der Station",
+  "parcel.status.pin": "Paket wird abgeholt",
+  "parcel.status.delivery_requested": "Liefertermin wurde angefragt",
+  "parcel.status.delivery_confirmed": "Liefertermin bestätigt",
+  "parcel.status.delivered": "Paket wurde ausgeliefert",
+  "parcel.status.canceled": "Liefertermin abgesagt",
+  "parcel.status.rejected": "Liefertermin abgelehnt",
+
   "user.settings.header": "Einstellungen",
   "user.settings.language": "Sprache festlegen",
   "user.settings.english": "Englisch",
@@ -41,17 +49,14 @@
   "user.settings.preferred_delivery_place.select": "Lieferort wählen",
   "user.settings.preferred_delivery_place.selected": "Dein bevorzugter Lieferort",
 
-  "vehicle.requested.backtodashboard":"Zurück zur Übersicht",
-  "vehicle.requested.message":"Lieferung wird angefragt…",
-  "vehicle.requested.hour":"Uhr",
-  "vehicle.requested.toast.message":"Vielen Dank! Der Liefertermin wird jetzt angefragt. Wir benachrichtigen Sie, wenn der Termin bestätigt ist.",
+  "vehicle.requested.backtodashboard": "Zurück zur Übersicht",
+  "vehicle.requested.message": "Lieferung wird angefragt…",
+  "vehicle.requested.hour": "Uhr",
+  "vehicle.requested.toast.message": "Vielen Dank! Der Liefertermin wird jetzt angefragt. Wir benachrichtigen Sie, wenn der Termin bestätigt ist.",
 
   "pagenotfound.title": "Demnächst verfügbar",
   "pagenotfound.heading": "Dieses Feature wurde noch nicht implementiert.",
-
-  "currentappointments.confirmedappointments":"Bestätigte Termine",
-  "currentappointments.requestedappointments":"Angefragte Termine",
-  "currentappointments.canceledappointments":"Terminänderungen"
-
-  
+  "currentappointments.confirmedappointments": "Bestätigte Termine",
+  "currentappointments.requestedappointments": "Angefragte Termine",
+  "currentappointments.canceledappointments": "Terminänderungen"
 }

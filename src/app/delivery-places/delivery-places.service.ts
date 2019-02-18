@@ -9,15 +9,15 @@ import {HttpClient} from '@angular/common/http';
 export class DeliveryPlacesService {
 
     private deliveryPlacesSubject: Subject<DeliveryPlace[]> = new ReplaySubject<DeliveryPlace[]>(50);
-    //public deliverPlacesUrl = 'https://parcelserver.cabreracano.de/deliveryPlaces';
-    public deliverPlacesUrl = 'http://localhost:8082/deliveryPlaces';
+    public deliveryPlacesUrl = 'https://parcelserver.cabreracano.de/deliveryPlaces';
+    // public deliveryPlacesUrl = 'http://localhost:8082/deliveryPlaces';
     public userToken = 'c1e46f017983b562c8c6af0627f28ff9';
 
     constructor(private httpClient: HttpClient) {
     }
 
     reloadDeliveryPlaces() {
-        this.httpClient.get<DeliveryPlace[]>(this.deliverPlacesUrl, {
+        this.httpClient.get<DeliveryPlace[]>(this.deliveryPlacesUrl, {
             headers: {userToken: this.userToken}
         }).subscribe((dp) => {
             this.deliveryPlacesSubject.next(dp);

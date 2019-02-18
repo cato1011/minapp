@@ -1,5 +1,3 @@
-import {UserService} from '../user/user.service';
-
 export interface Vehicle {
     id: number;
     boxGUID: string;
@@ -9,7 +7,7 @@ export interface Vehicle {
     potentialVehicleIds: number[];
     requestPurpose: string;
     size: string;
-    status: string;
+    status: VehicleStatus;
     time: string;
     userToken: string;
     waitingTime: number;
@@ -21,14 +19,27 @@ export interface AlternativeVehicle {
     alternDeliveryTimeOne: string;
     alternDeliveryTimeThree: string;
     alternDeliveryTimeTwo: string;
-    choice: string;
+    choice: TimeChoice;
     deliveryRequestID: number;
     status: string;
     ttl: string;
 }
 
-export class VehicleRequest implements Vehicle {
+export enum TimeChoice {
+    NO_CHOICE,
+    FIRST_TIME,
+    SECOND_TIME,
+    THIRD_TIME
+}
 
+export enum VehicleStatus {
+    PENDING = 'PENDING',
+    CONFIRMED = 'CONFIRMED',
+    REJECTED = 'REJECTED',
+    EXPIRED = 'EXPIRED'
+}
+
+export class VehicleRequest implements Vehicle {
     id: number;
     boxGUID: string;
     latitude: number;
@@ -37,7 +48,7 @@ export class VehicleRequest implements Vehicle {
     potentialVehicleIds: number[];
     requestPurpose: string;
     size: string;
-    status: string;
+    status: VehicleStatus;
     time: string;
     userToken: string;
     waitingTime: number;
@@ -50,8 +61,8 @@ export class VehicleRequest implements Vehicle {
         this.parcelGUID = '';
         this.potentialVehicleIds = [0];
         this.requestPurpose = '';
-        this.size = '';
-        this.status = '';
+        this.size = 'new_request';
+        this.status = VehicleStatus.PENDING;
         this.time = '';
         this.userToken = '';
         this.waitingTime = 0;

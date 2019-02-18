@@ -1,10 +1,10 @@
-import {Parcel} from './parcel.model';
+import {Parcel, ParcelStatus} from './parcel.model';
 
 export const PARCELS_OUT: Parcel[] = [
     {
         id: 19,
         userId: 6,
-        status: 'STATION',
+        status: ParcelStatus.STATION,
         boxGUID: 'string',
         parcelGUID: 'string',
         inTimestamp: 'string',
@@ -24,7 +24,7 @@ export const PARCELS_OUT: Parcel[] = [
     {
         id: 21,
         userId: 6,
-        status: 'DELIVERED',
+        status: ParcelStatus.DELIVERED,
         boxGUID: 'string',
         parcelGUID: 'string',
         inTimestamp: 'string',
@@ -44,7 +44,7 @@ export const PARCELS_OUT: Parcel[] = [
     {
         id: 22,
         userId: 6,
-        status: 'PIN',
+        status: ParcelStatus.PIN,
         boxGUID: 'string',
         parcelGUID: 'string',
         inTimestamp: 'string',
@@ -67,7 +67,7 @@ export const PARCELS_IN: Parcel[] = [
     {
         id: 18,
         userId: 9,
-        status: 'STATION',
+        status: ParcelStatus.STATION,
         boxGUID: 'string',
         parcelGUID: 'string',
         inTimestamp: 'string',
@@ -87,7 +87,7 @@ export const PARCELS_IN: Parcel[] = [
     {
         id: 20,
         userId: 9,
-        status: 'STATION',
+        status: ParcelStatus.STATION,
         boxGUID: 'string',
         parcelGUID: 'string',
         inTimestamp: 'string',
