@@ -21,6 +21,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 export class MenuListItemComponent implements OnInit {
     @Input() menuItem: MenuItem;
+    isHovering = false;
 
     constructor() {
     }
