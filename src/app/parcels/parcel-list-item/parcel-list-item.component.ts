@@ -14,7 +14,7 @@ import {ConfirmDialogComponent} from '../../core/confirm-dialog/confirm-dialog.c
     animations: [
         trigger('hover', [
             state('true', style({
-                transform: 'scale(1.025)',
+                transform: 'scale(1.01)',
                 'color': '#42B961'
             })),
             state('false', style({transform: 'scale(1.0)'})),
@@ -37,6 +37,7 @@ export class ParcelListItemComponent implements OnInit {
     ) {
     }
 
+
     openConfirmDialog() {
         const dialogRef = this.dialog.open(ConfirmDialogComponent, {
             width: '350px',
@@ -50,7 +51,7 @@ export class ParcelListItemComponent implements OnInit {
 
     async DeleteAppointment(parcel_object) {
         /**
-        const alert = await this.alertController.create({
+         const alert = await this.alertController.create({
             header: 'Cancel Appointment!',
             message: 'Are you sure you want to cancel the appointment?',
             buttons: [
@@ -71,11 +72,13 @@ export class ParcelListItemComponent implements OnInit {
                 }
             ]
         });
-        await alert.present();
+         await alert.present();
          **/
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+        console.log(this.parcel);
+    }
 
     clickedRequestAppointment() {
         this.parcelService.setCurrentSelectedParcel(this.parcel);

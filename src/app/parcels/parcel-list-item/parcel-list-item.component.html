@@ -4,13 +4,15 @@
         <!--TODO show different icon, when request is confirmed -->
         
         <ion-img [src]="imagePrefix + 'vehicle_requested.png'"></ion-img>
-        <ion-label >{{ parcel.status | parcelEnum | translate }} <br />
-          {{ parcel.date | dfnsFormat: 'DD-MM-YYYY' }} |
-            {{ parcel.date | dfnsFormat: 'HH:mm' }} <br />  {{parcel.deliveryplace}}</ion-label>
+        <ion-label >{{ parcel.status | parcelEnum | translate }}
+            <br />
+            <!-- TODO catch null exception for outDate and date -- whats the difference between outDate and date -->
+          <!-- {{ parcel.outDate  | dfnsFormat: 'DD-MM-YYYY' }} | {{ parcel.outDate| dfnsFormat: 'HH:mm' }} -->
+            <br />  {{parcel.deliveryplace}}</ion-label>
 
-        <!--  *ngIf="parcel.status== 'DELIVERY_REQUESTED' || parcel.status== 'DELIVERY_CONFIRMED'
-    && parcel.status!= 'DELIVERED'" -->
-        <ion-button color="danger" fill="outline" slot="end" (click)="openConfirmDialog()">
+
+        <ion-button *ngIf="parcel.status== 'DELIVERY_REQUESTED' || parcel.status== 'DELIVERY_CONFIRMED'
+    && parcel.status!= 'DELIVERED'" color="danger" fill="outline" slot="end" (click)="openConfirmDialog()">
             {{'parcel.cancel_appointment' | translate}}
         </ion-button>
 

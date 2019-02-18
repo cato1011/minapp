@@ -25,8 +25,9 @@ export class ParcelService {
     }
 
     reloadIn() {
-        this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/' + this.userService.getUserToken() + '?filter=in', {
-            headers: {userToken: this.userService.getUserToken()}
+        this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/users/' + this.userService.getUserToken(), {
+            headers: {userToken: this.userService.getUserToken()},
+            params: {filter: 'in'}
         }).subscribe((ps) => {
             console.log(ps);
             this.parcelInSubject.next(ps);
@@ -34,7 +35,7 @@ export class ParcelService {
     }
 
     reloadOut() {
-        this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/' + this.userService.getUserToken() + '?filter=out', {
+        this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/users/' + this.userService.getUserToken() + '?filter=out', {
             headers: {userToken: this.userService.getUserToken()}
         }).subscribe((ps) => {
             console.log(ps);
