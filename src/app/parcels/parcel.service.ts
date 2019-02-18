@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Parcel} from './parcel.model';
 import {ReplaySubject, Subject} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {UserService} from '../user/user.service';
 
 @Injectable({
@@ -12,15 +12,11 @@ export class ParcelService {
     private parcelInSubject: Subject<Parcel[]> = new ReplaySubject<Parcel[]>(25);
     private parcelOutSubject: Subject<Parcel[]> = new ReplaySubject<Parcel[]>(25);
     private currentSelectedParcel: Parcel;
-    // otherUserToken = 'b7417fd77717365710c8ff2700fd645d';
-    // newParcelInUrl = 'http://localhost:8082/parcels/users/' + this.userToken + '?filter=in';
-    // parcelInUrl2=https://parcelserver.cabreracano.de/parcels/' + 'in/' + this.userService.getUserToken();
 
-    constructor(private httpClient: HttpClient, private userService: UserService) {
+    constructor(private httpClient: HttpClient, private userService: UserService, private params: HttpParams, private headers: HttpHeaders) {
     }
 
     setCurrentSelectedParcel(parcel: Parcel) {
-        console.log(parcel);
         this.currentSelectedParcel = parcel;
     }
 
@@ -29,7 +25,8 @@ export class ParcelService {
     }
 
     reloadIn() {
-        this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/' + 'in/' + this.userService.getUserToken(), {
+        this.params.set('filter', 'in');
+        this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/' + this.userService.getUserToken(), {
             headers: {userToken: this.userService.getUserToken()}
         }).subscribe((ps) => {
             console.log(ps);
@@ -38,8 +35,8 @@ export class ParcelService {
     }
 
     reloadOut() {
-        // this.loginService.getUser().subscribe(user => this.userToken = user.userToken);
-        this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/' + 'out/' + this.userService.getUserToken(), {
+        this.params.set('filter', 'out');
+        this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/' + this.userService.getUserToken(), {
             headers: {userToken: this.userService.getUserToken()}
         }).subscribe((ps) => {
             console.log(ps);

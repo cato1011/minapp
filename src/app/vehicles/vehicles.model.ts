@@ -1,9 +1,9 @@
 export interface Vehicle {
     id: number;
-    boxGUID: string;
+    boxGUIDList: string[];
     latitude: number;
     longitude: number;
-    parcelGUID: string;
+    parcelGUIDList: string[];
     potentialVehicleIds: number[];
     requestPurpose: string;
     size: string;
@@ -15,7 +15,7 @@ export interface Vehicle {
 
 export interface AlternativeVehicle {
     id: number;
-    boxGUID: string;
+    boxGUIDList: string[];
     alternDeliveryTimeOne: string;
     alternDeliveryTimeThree: string;
     alternDeliveryTimeTwo: string;
@@ -41,10 +41,10 @@ export enum VehicleStatus {
 
 export class VehicleRequest implements Vehicle {
     id: number;
-    boxGUID: string;
+    boxGUIDList: string[];
     latitude: number;
     longitude: number;
-    parcelGUID: string;
+    parcelGUIDList: string[];
     potentialVehicleIds: number[];
     requestPurpose: string;
     size: string;
@@ -55,10 +55,10 @@ export class VehicleRequest implements Vehicle {
 
     constructor() {
         this.id = 0;
-        this.boxGUID = '';
+        this.boxGUIDList = [];
         this.latitude = 0;
         this.longitude = 0;
-        this.parcelGUID = '';
+        this.parcelGUIDList = [];
         this.potentialVehicleIds = [0];
         this.requestPurpose = '';
         this.size = 'new_request';

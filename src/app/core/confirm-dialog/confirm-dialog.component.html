@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Confirm</h1>
+<div mat-dialog-content>
+    Are you sure you want to...?
+</div>
+<div mat-dialog-actions>
+    <a mat-button color="accent">{{'confirm.dialog.no' | translate}}</a>
+    <button (click)="confirmed()" mat-button color="danger" class="flex-right">{{'confirm.dialog.yes' | translate}}
+    </button>
+</div>
+
+

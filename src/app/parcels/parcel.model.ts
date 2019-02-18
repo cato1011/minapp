@@ -15,6 +15,7 @@ export interface Parcel {
   sender: string;
   status: ParcelStatus;
   userId: number;
+  vehicleId: number;
   vehicleAlternativeRequestId: number;
   vehicleRequestId: number;
 }

@@ -12,6 +12,7 @@ import {ParcelListRouteComponent} from './parcel-list-route/parcel-list-route.co
 import {TabBarParcelsComponent} from './tab-bar-parcels/tab-bar-parcels.component';
 import {DateFnsModule} from 'ngx-date-fns';
 import { ParcelEnumPipe } from './parcel-enum.pipe';
+import {MatDialogModule} from '@angular/material';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ParcelEnumPipe } from './parcel-enum.pipe';
         ParcelRouterModule,
         IonicModule,
         TranslateModule,
+        MatDialogModule,
         DateFnsModule.forRoot()
     ],
     exports: [TabBarParcelsComponent, ParcelListViewComponent]

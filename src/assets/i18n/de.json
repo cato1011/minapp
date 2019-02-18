@@ -58,5 +58,8 @@
   "pagenotfound.heading": "Dieses Feature wurde noch nicht implementiert.",
   "currentappointments.confirmedappointments": "Bestätigte Termine",
   "currentappointments.requestedappointments": "Angefragte Termine",
-  "currentappointments.canceledappointments": "Terminänderungen"
+  "currentappointments.canceledappointments": "Terminänderungen",
+
+  "confirm.dialog.yes": "Ja",
+  "confirm.dialog.no": "Nein"
 }

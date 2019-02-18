@@ -60,5 +60,8 @@
 
   "currentappointments.confirmedappointments":"Confirmed Appointments",
   "currentappointments.requestedappointments":"Requested Appointments",
-  "currentappointments.caneledappointments":"Cancelled Appointments"
+  "currentappointments.caneledappointments":"Cancelled Appointments",
+
+  "confirm.dialog.yes": "Yes",
+  "confirm.dialog.no": "No"
 }

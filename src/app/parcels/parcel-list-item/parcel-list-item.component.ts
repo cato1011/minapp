@@ -4,6 +4,8 @@ import {AlertController} from '@ionic/angular';
 import {VehicleService} from '../../vehicles/vehicle.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {ParcelService} from '../parcel.service';
+import {MatDialog} from '@angular/material';
+import {ConfirmDialogComponent} from '../../core/confirm-dialog/confirm-dialog.component';
 
 @Component({
     selector: 'app-parcel-list-item',
@@ -30,11 +32,24 @@ export class ParcelListItemComponent implements OnInit {
     constructor(
         private alertController: AlertController,
         private vehicleService: VehicleService,
-        private parcelService: ParcelService
+        private parcelService: ParcelService,
+        private dialog: MatDialog
     ) {
     }
 
+    openConfirmDialog() {
+        const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+            width: '350px',
+            // TODO create context enum fitting all kinds of confirmations for the application
+            data: {context: 'CONTEXT'}
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed with result ', result);
+        });
+    }
+
     async DeleteAppointment(parcel_object) {
+        /**
         const alert = await this.alertController.create({
             header: 'Cancel Appointment!',
             message: 'Are you sure you want to cancel the appointment?',
@@ -57,6 +72,7 @@ export class ParcelListItemComponent implements OnInit {
             ]
         });
         await alert.present();
+         **/
     }
 
     ngOnInit() {}

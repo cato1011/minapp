@@ -21,9 +21,10 @@ import {IonicModule} from '@ionic/angular';
 import {TranslateModule} from '@ngx-translate/core';
 import {MenuListItemComponent} from './menu-list-item/menu-list-item.component';
 import {RouterModule} from '@angular/router';
+import {ConfirmDialogComponent} from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
-    declarations: [PagenotfoundComponent, LoginViewComponent, MenuListComponent, MenuListItemComponent],
+    declarations: [PagenotfoundComponent, LoginViewComponent, MenuListComponent, MenuListItemComponent, ConfirmDialogComponent],
     imports: [
         FormsModule,
         RouterModule,
@@ -43,7 +44,7 @@ import {RouterModule} from '@angular/router';
         IonicModule,
         TranslateModule
     ],
-    entryComponents: [],
+    entryComponents: [ConfirmDialogComponent],
     exports: [MenuListComponent]
 })
 export class CoreModule {
