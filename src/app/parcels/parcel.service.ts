@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Parcel} from './parcel.model';
 import {ReplaySubject, Subject} from 'rxjs';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {UserService} from '../user/user.service';
 
 @Injectable({
@@ -25,9 +25,7 @@ export class ParcelService {
     }
 
     reloadIn() {
-        const params = new HttpParams();
-        params.set('filter', 'in');
-        this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/' + this.userService.getUserToken(), {
+        this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/' + this.userService.getUserToken() + '?filter=in', {
             headers: {userToken: this.userService.getUserToken()}
         }).subscribe((ps) => {
             console.log(ps);
@@ -36,9 +34,7 @@ export class ParcelService {
     }
 
     reloadOut() {
-        const params = new HttpParams();
-        params.set('filter', 'out');
-        this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/' + this.userService.getUserToken(), {
+        this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/' + this.userService.getUserToken() + '?filter=out', {
             headers: {userToken: this.userService.getUserToken()}
         }).subscribe((ps) => {
             console.log(ps);
