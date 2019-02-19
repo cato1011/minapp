@@ -24,6 +24,7 @@ export class ParcelService {
         return this.currentSelectedParcel;
     }
 
+    // TODO url with string interpolation ``
     reloadIn() {
         this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/users/' + this.userService.getUserToken(), {
             headers: {userToken: this.userService.getUserToken()},
@@ -35,8 +36,9 @@ export class ParcelService {
     }
 
     reloadOut() {
-        this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/users/' + this.userService.getUserToken() + '?filter=out', {
-            headers: {userToken: this.userService.getUserToken()}
+        this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/users/' + this.userService.getUserToken(), {
+            headers: {userToken: this.userService.getUserToken()},
+            params: {filter: 'out'}
         }).subscribe((ps) => {
             console.log(ps);
             this.parcelOutSubject.next(ps);
