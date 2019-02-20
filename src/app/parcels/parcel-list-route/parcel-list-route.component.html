@@ -13,5 +13,8 @@
 </ion-header>
 <ion-content>
     <app-tab-bar-parcels *ngIf="tabBarVisible"></app-tab-bar-parcels>
+    <!-- TODO split parcels into different arrays for each  vehicle -->
+    <!-- TODO divider shows vehicle number and request / cancel appointment -->
+    <app-divider-parcels></app-divider-parcels>
     <app-parcel-list-view [parcels]="parcels$ | async"></app-parcel-list-view>
 </ion-content>
