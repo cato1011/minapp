@@ -1,21 +1,16 @@
 <ion-item-group (mouseenter)="isHovering = true" (mouseleave)="isHovering = false">
-    
     <ion-item [lines]="'none'" [@hover]="isHovering">
         <!--TODO show different icon, when request is confirmed -->
-        
         <ion-img [src]="imagePrefix + 'vehicle_requested.png'"></ion-img>
         <ion-label >{{ parcel.status | parcelEnum | translate }}
             <br />
             <!-- TODO catch null exception for outDate and date -- whats the difference between outDate and date -->
           <!-- {{ parcel.outDate  | dfnsFormat: 'DD-MM-YYYY' }} | {{ parcel.outDate| dfnsFormat: 'HH:mm' }} -->
             <br />  {{parcel.deliveryplace}}</ion-label>
-
-
         <ion-button *ngIf="parcel.status== 'DELIVERY_REQUESTED' || parcel.status== 'DELIVERY_CONFIRMED'
     && parcel.status!= 'DELIVERED'" color="danger" fill="outline" slot="end" (click)="openConfirmDialog()">
             {{'parcel.cancel_appointment' | translate}}
         </ion-button>
-
         <ion-button (click)="clickedRequestAppointment()"
             *ngIf="parcel.status!= 'DELIVERY_REQUESTED' && parcel.status!= 'DELIVERY_CONFIRMED' && parcel.status!= 'DELIVERED'"
             [routerLink]="['/vehicleRequest']" [queryParams]="{type: 'PARCEL_DELIVERY'}" [skipLocationChange]="false"

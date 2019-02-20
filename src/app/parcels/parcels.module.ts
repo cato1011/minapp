@@ -13,10 +13,11 @@ import {TabBarParcelsComponent} from './tab-bar-parcels/tab-bar-parcels.componen
 import {DateFnsModule} from 'ngx-date-fns';
 import { ParcelEnumPipe } from './parcel-enum.pipe';
 import {MatDialogModule} from '@angular/material';
+import {DividerParcelsComponent} from './divider-parcels/divider-parcels.component';
 
 
 @NgModule({
-    declarations: [ParcelListViewComponent, ParcelListItemComponent, ParcelDetailViewComponent, ParcelListRouteComponent, TabBarParcelsComponent, ParcelEnumPipe],
+    declarations: [ParcelListViewComponent, ParcelListItemComponent, ParcelDetailViewComponent, ParcelListRouteComponent, TabBarParcelsComponent, DividerParcelsComponent, ParcelEnumPipe],
     imports: [
         CoreModule,
         CommonModule,
@@ -27,7 +28,7 @@ import {MatDialogModule} from '@angular/material';
         MatDialogModule,
         DateFnsModule.forRoot()
     ],
-    exports: [TabBarParcelsComponent, ParcelListViewComponent]
+    exports: [TabBarParcelsComponent, DividerParcelsComponent, ParcelListViewComponent]
 })
 export class ParcelsModule {
 }

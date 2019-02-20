@@ -3,6 +3,7 @@ import {Parcel} from './parcel.model';
 import {ReplaySubject, Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {UserService} from '../user/user.service';
+import {PARCELS_IN, PARCELS_OUT} from './parcels.mock';
 
 @Injectable({
     providedIn: 'root'
@@ -26,6 +27,8 @@ export class ParcelService {
 
     // TODO url with string interpolation ``
     reloadIn() {
+        this.parcelInSubject.next(PARCELS_IN);
+        /**
         this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/users/' + this.userService.getUserToken(), {
             headers: {userToken: this.userService.getUserToken()},
             params: {filter: 'in'}
@@ -33,9 +36,12 @@ export class ParcelService {
             console.log(ps);
             this.parcelInSubject.next(ps);
         });
+         **/
     }
 
     reloadOut() {
+        this.parcelOutSubject.next(PARCELS_OUT);
+        /**
         this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/users/' + this.userService.getUserToken(), {
             headers: {userToken: this.userService.getUserToken()},
             params: {filter: 'out'}
@@ -43,6 +49,7 @@ export class ParcelService {
             console.log(ps);
             this.parcelOutSubject.next(ps);
         });
+         **/
     }
 
     getAllIn() {

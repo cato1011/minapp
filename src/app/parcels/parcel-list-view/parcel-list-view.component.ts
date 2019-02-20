@@ -1,8 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {ParcelService} from '../parcel.service';
 import {Parcel} from '../parcel.model';
-import {Observable} from 'rxjs';
 
 @Component({
     selector: 'app-parcel-list-view',
