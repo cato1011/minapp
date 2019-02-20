@@ -27,8 +27,7 @@ export class ParcelService {
 
     // TODO url with string interpolation ``
     reloadIn() {
-        this.parcelInSubject.next(PARCELS_IN);
-        /**
+        // this.parcelInSubject.next(PARCELS_IN);
         this.httpClient.get<Parcel[]>('https://parcelserver.cabreracano.de/parcels/users/' + this.userService.getUserToken(), {
             headers: {userToken: this.userService.getUserToken()},
             params: {filter: 'in'}
@@ -36,7 +35,6 @@ export class ParcelService {
             console.log(ps);
             this.parcelInSubject.next(ps);
         });
-         **/
     }
 
     reloadOut() {

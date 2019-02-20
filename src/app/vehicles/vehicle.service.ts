@@ -27,12 +27,14 @@ export class VehicleService {
         if (vehicleRequest.requestPurpose === 'PARCEL_DELIVERY') {
             // TODO write method getParcelGUIDsfromCurrentSelectedVehicle
             vehicleRequest.parcelGUIDList = [this.parcelService.getCurrentSelectedParcel().parcelGUID];
+            vehicleRequest.boxGUIDList = [this.parcelService.getCurrentSelectedParcel().boxGUID];
         }
         this.lastVehicleRequest = vehicleRequest;
         return this.httpClient.post(this.vehicleRequestUrl, JSON.stringify(vehicleRequest), {
             headers: { userToken: this.userToken, identifier: 'APP', 'Content-Type': 'application/json' }
         }).subscribe(
             (response: Response) => {
+                console.log(this.vehicleRequest);
                 console.log(response);
             }
         );
