@@ -18,7 +18,7 @@ export class ParcelListRouteComponent implements OnInit {
     tabBarVisible = false;
     context: string;
 
-    constructor(private route: ActivatedRoute, private parcelService: ParcelService, private vehicleService:VehicleService) {
+    constructor(private route: ActivatedRoute, private parcelService: ParcelService, private vehicleService: VehicleService) {
     }
 
     ngOnInit() {
@@ -36,15 +36,13 @@ export class ParcelListRouteComponent implements OnInit {
                 if (this.context === 'appointments') {
                     this.vehicleService.reloadVehicleRequests();
                     this.appointments$ = this.vehicleService.getAllVehicleRequests();
+                }
             }
-        }
         });
     }
 
-    public reset()
-    {
+    public reset() {
         this.ngOnInit();
-        
     }
 
 }

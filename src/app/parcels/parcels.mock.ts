@@ -84,7 +84,7 @@ export const PARCELS_IN: Parcel[] = [
         vehicleAlternativeRequestId: 0,
         sender: 'Marium',
         deliveryplace: 'string',
-        vehicleId: 1,
+        vehicleId: 2,
         date: 'string',
         outDate: '2019-01-30T22:14:34.614+0000'
     },
@@ -105,7 +105,7 @@ export const PARCELS_IN: Parcel[] = [
         vehicleAlternativeRequestId: 0,
         sender: 'Marium',
         deliveryplace: 'string',
-        vehicleId: 1,
+        vehicleId: 2,
         date: 'string',
         outDate: '2019-01-30T22:14:34.614+0000'
     }, {

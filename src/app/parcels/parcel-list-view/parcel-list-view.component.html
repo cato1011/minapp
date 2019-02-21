@@ -1,3 +1,4 @@
-<ion-card *ngFor="let parcel of parcels; let i = index" [id]="'parcel-card-' + i">
+<ion-item-divider *ngIf="(parcelsFromVehicle$ | async).length > 0" [id]="'top-parcel-divider'">Parcels from Vehicle {{vehicle}}</ion-item-divider>
+<ion-card *ngFor="let parcel of parcelsFromVehicle$ | async; let i = index" [id]="'parcel-card-' + i">
     <app-parcel-list-item [parcel]="parcel"></app-parcel-list-item>
 </ion-card>

@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Parcel} from '../parcel.model';
+import {Observable} from 'rxjs';
+import {ParcelService} from '../parcel.service';
 
 @Component({
     selector: 'app-parcel-list-view',
@@ -8,12 +10,15 @@ import {Parcel} from '../parcel.model';
 })
 export class ParcelListViewComponent implements OnInit {
 
-    @Input() parcels: Parcel[];
+    @Input() vehicle: number;
+    @Input() parcels$: Observable<Parcel[]>;
+    parcelsFromVehicle$: Observable<Parcel[]>;
 
-    constructor() {
+    constructor(private parcelService: ParcelService) {
     }
 
     ngOnInit() {
+        this.parcelsFromVehicle$ = this.parcelService.getParcelsFromVehicleWithVehicleId(this.parcels$, this.vehicle);
     }
 
 }

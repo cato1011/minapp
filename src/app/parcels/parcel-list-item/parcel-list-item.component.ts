@@ -77,7 +77,7 @@ export class ParcelListItemComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log(this.parcel);
+
     }
 
     clickedRequestAppointment() {

@@ -1,9 +1,9 @@
 <ion-header>
-    <ion-toolbar [color]="'#1365B6'">        
-            <ion-buttons slot="end">
-                <ion-button (click)="reset()">
-                    <ion-icon slot="icon-only" name="refresh" ></ion-icon>
-                </ion-button>
+    <ion-toolbar [color]="'#1365B6'">
+        <ion-buttons slot="end">
+            <ion-button (click)="reset()">
+                <ion-icon slot="icon-only" name="refresh"></ion-icon>
+            </ion-button>
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
         <ion-title>
@@ -13,8 +13,6 @@
 </ion-header>
 <ion-content>
     <app-tab-bar-parcels *ngIf="tabBarVisible"></app-tab-bar-parcels>
-    <!-- TODO split parcels into different arrays for each  vehicle -->
-    <!-- TODO divider shows vehicle number and request / cancel appointment -->
-    <app-divider-parcels></app-divider-parcels>
-    <app-parcel-list-view [parcels]="parcels$ | async"></app-parcel-list-view>
+    <app-parcel-list-view *ngFor="let vehicle of [1,2,3]" [vehicle]="vehicle"
+                          [parcels$]="parcels$"></app-parcel-list-view>
 </ion-content>
