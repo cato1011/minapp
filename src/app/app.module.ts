@@ -66,7 +66,7 @@ export function HttpLoaderFactory(http: HttpClient) {
             provide: APP_INITIALIZER,
             useFactory: (userService: UserService) => () => userService.init(),
             deps: [UserService, HttpClient],
-            multi: true
+            multi: true           
         }
     ],
     bootstrap: [AppComponent]
