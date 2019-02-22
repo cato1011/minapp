@@ -5,6 +5,7 @@ import {UserService} from '../user.service';
 import {DeliveryPlacesService} from '../../delivery-places/delivery-places.service';
 import {DeliveryPlace} from '../../delivery-places/delivery-places.model';
 import {FormControl, FormGroup} from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'app-settings-view',
@@ -21,7 +22,7 @@ export class SettingsViewComponent implements OnInit {
 
     constructor(private translateService: TranslateService,
                 private userService: UserService,
-                private deliveryPlacesService: DeliveryPlacesService) {
+                private deliveryPlacesService: DeliveryPlacesService, private httpClient:HttpClient ) {
     }
 
     ngOnInit() {
@@ -54,4 +55,20 @@ export class SettingsViewComponent implements OnInit {
             this.translateService.use(form.language);
         });
     }
-}
+
+    // public sendUserConfiguration(parcelObject: Parcel) {
+
+    //         // Cancel Vehicle Request
+    //         this.httpClient.put(this.vehicleRequestUrl + parcelObject.vehicleRequestId, JSON.stringify(this.vehicleRequest), {
+    //             headers: { identifier: 'APP', 'Content-Type': 'application/json' }
+    //         }).subscribe(
+    //             (response: Response) => {
+    //                 console.log('Vehicle Request is canceled');
+    //             });
+    //     }
+        
+
+
+    
+
+    }

@@ -73,7 +73,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 })
 export class AppModule {
     constructor(private translate: TranslateService) {
-        translate.setDefaultLang('de');
-        translate.use('en');
+        translate.setDefaultLang('DE');
+        translate.use('EN');
     }
 }
