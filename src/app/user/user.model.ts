@@ -67,7 +67,9 @@ export interface User {
   zipCode: string;
 }
 
-export interface UserSettings {
-  language: string;
-  deliveryPlace: DeliveryPlace;
-}
+export interface UserSettings 
+  {
+    "applicationLangauge": "string",
+    "id": 0,
+    "preferedDeliveryPlaceId": "string"
+  }
