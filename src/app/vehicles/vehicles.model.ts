@@ -62,7 +62,7 @@ export class VehicleRequest implements Vehicle {
         this.parcelGUIDList = [];
         this.potentialVehicleIds = [0];
         this.requestPurpose = '';
-        this.size = 'new_request';
+        this.size = '';
         this.status = VehicleStatus.PENDING;
         this.time = '';
         this.userToken = '';
