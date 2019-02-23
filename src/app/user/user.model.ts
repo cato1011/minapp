@@ -70,6 +70,19 @@ export interface User {
 export interface UserSettings 
   {
     "applicationLangauge": "string",
-    "id": 0,
+    "id": number,
     "preferedDeliveryPlaceId": "string"
   }
+
+  export class UserConfiguration implements UserSettings {
+    "applicationLangauge": "string";
+    "id": number;
+    "preferedDeliveryPlaceId": "string";
+
+    constructor() {
+        this.applicationLangauge = 'string';
+        this.id = 0;
+        this.preferedDeliveryPlaceId = 'string';
+        
+    }
+}

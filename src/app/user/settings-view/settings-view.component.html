@@ -14,7 +14,7 @@
 </ion-header>
 <ion-item-divider></ion-item-divider>
 <ion-content>
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)=sendData()>
         <ion-radio-group [formControlName]="'language'">
             <ion-list-header [color]="'#BCE0FD'">
                 <ion-label>{{ 'user.settings.language' | translate }}</ion-label>
@@ -50,6 +50,6 @@
             </div>
         </ion-list>
         <ion-item><ion-button size="medium" color="light">Cancel</ion-button>
-        <ion-button size="medium" color="primary">Submit</ion-button></ion-item>
+        <ion-button type="Submit" size="medium" color="primary">Submit</ion-button></ion-item>
     </form>
 </ion-content>

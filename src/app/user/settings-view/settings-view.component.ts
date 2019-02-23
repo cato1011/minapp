@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
-import {Observable} from 'rxjs';
-import {UserService} from '../user.service';
-import {DeliveryPlacesService} from '../../delivery-places/delivery-places.service';
-import {DeliveryPlace} from '../../delivery-places/delivery-places.model';
-import {FormControl, FormGroup} from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
+import { UserService } from '../user.service';
+import { DeliveryPlacesService } from '../../delivery-places/delivery-places.service';
+import { DeliveryPlace } from '../../delivery-places/delivery-places.model';
+import { UserConfiguration } from '../user.model';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'app-settings-view',
@@ -20,9 +20,11 @@ export class SettingsViewComponent implements OnInit {
     deliveryPlace: DeliveryPlace;
     preferredDeliveryPlaceExist: boolean = false;
 
+
     constructor(private translateService: TranslateService,
-                private userService: UserService,
-                private deliveryPlacesService: DeliveryPlacesService, private httpClient:HttpClient ) {
+        private userService: UserService,
+        private deliveryPlacesService: DeliveryPlacesService,
+        private userConfiguration: UserConfiguration) {
     }
 
     ngOnInit() {
@@ -56,19 +58,21 @@ export class SettingsViewComponent implements OnInit {
         });
     }
 
-    // public sendUserConfiguration(parcelObject: Parcel) {
-
-    //         // Cancel Vehicle Request
-    //         this.httpClient.put(this.vehicleRequestUrl + parcelObject.vehicleRequestId, JSON.stringify(this.vehicleRequest), {
-    //             headers: { identifier: 'APP', 'Content-Type': 'application/json' }
-    //         }).subscribe(
-    //             (response: Response) => {
-    //                 console.log('Vehicle Request is canceled');
-    //             });
-    //     }
-        
-
-
-    
+    sendData() {
+        this.userConfiguration.applicationLangauge = this.form.value.language;
+        this.userConfiguration.id = this.userService.getuserId();
+        // Set id for Deliveryplace after asking from Michael
+        this.userConfiguration.preferedDeliveryPlaceId = this.form.value.deliveryPlace.description;
+        // Set user settings
+        this.userService.saveSettings(this.userConfiguration);
 
     }
+
+
+
+
+
+
+
+
+}
