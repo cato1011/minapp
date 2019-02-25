@@ -18,12 +18,10 @@
                             [parentForm]="vehicleRequestForm"></app-deliveryplaces>
         <app-datetime-item [parentForm]="vehicleRequestForm"></app-datetime-item>
         <!-- TODO show hint that time has to be in the future -->
-        <ion-row>
-            <ion-col offset="4">
+        <div text-center>
                 <button [disabled]="!vehicleRequestForm.valid" [class]="vehicleRequestForm.valid ? 'button-dark' : 'button-disabled-dark'" type="submit">
                     <img src="../../../assets/icons/request/send_button_2x.png">
                 </button>
-            </ion-col>
-        </ion-row>
+            </div>
     </form>
 </ion-content>
