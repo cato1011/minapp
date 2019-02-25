@@ -13,10 +13,9 @@ export class DashboardService {
 
     public dashboardItems: DashboardItem[];
     public imagePrefix = './assets/icons/dashboard/';
-    public length: number = 0;
-    public parcelInUrl = 'http://localhost:8082/parcels/users/' + this.userService.getUserToken() + '?filter=in';
-    public parcelOutUrl = 'https://parcelserver.cabreracano.de/parcels/users/' + this.userService.getUserToken() + '?filter=out';
-    public AppointmentsUrl = 'https://parcelserver.cabreracano.de/parcels/users/' + '?filter=in';
+    public parcelInLength: number = 0;
+    public parcelOutLength: number = 0;
+    public appointmentsLength: number = 0;
 
 
     constructor(
@@ -57,20 +56,28 @@ export class DashboardService {
         this.parcelService.reloadIn();
         this.parcelService.getAllIn().subscribe
             ((parcelin: Parcel[]) => {
-                this.length = parcelin.length;
+                if (parcelin != null) {
+                    this.parcelInLength = parcelin.length;
+                }
+
+
             })
 
-        return this.length;
+        return this.parcelInLength;
     }
 
     public getCountofParcelsOut() {
         this.parcelService.reloadOut();
         this.parcelService.getAllOut().subscribe
             ((parcelout: Parcel[]) => {
-                this.length = parcelout.length;
+                if (parcelout != null) {
+                    this.parcelOutLength = parcelout.length;
+                }
+
+
             })
 
-        return this.length;
+        return this.parcelOutLength;
 
     }
 
@@ -79,10 +86,15 @@ export class DashboardService {
 
         this.vehicleService.getAllVehicleRequests().subscribe
             (
-                (vehicleRequests) => {                    
-                    this.length = vehicleRequests.length;
+                (vehicleRequests) => {
+
+                    if (vehicleRequests != null) {
+                        this.appointmentsLength = vehicleRequests.length;
+                    }
+
+
                 }
             )
-        return this.length;
+        return this.appointmentsLength;
     }
 }
