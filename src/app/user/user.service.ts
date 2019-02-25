@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User, UserSettings } from './user.model';
 import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import {MessageDialogService} from '../core/message-dialog.service'
+import {TranslateService} from '@ngx-translate/core';
 
 @Injectable({
     providedIn: 'root'
@@ -18,7 +19,7 @@ export class UserService {
     //private parcelServerUrl='https://parcelserver.cabreracano.de';
     private parcelServerUrl = 'http://localhost:8082';
 
-    constructor(private httpClient: HttpClient, private messageDialogService: MessageDialogService) {
+    constructor(private httpClient: HttpClient, private messageDialogService: MessageDialogService, private translate: TranslateService) {
     }
 
     init() {
@@ -50,15 +51,15 @@ export class UserService {
             (response: Response) => {
                 console.log(response);
                 this.messageDialogService.presentAlert(
-                    'Success!',
-                    'Your account settings were edited successfully!',
+                    this.translate.instant('success.header'),
+                    this.translate.instant('success.message.settings'),
                     'success-message');
             },
             error => 
             { 
                 this.messageDialogService.presentAlert(
-                    'Request Failed!',
-                    'Your request to edit account settings failed. <br /> <br /> Please try again later!',
+                    this.translate.instant('failure.header'),
+                    this.translate.instant('failure.message.settings'),
                     'failure-message');} 
             );
 

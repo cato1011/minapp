@@ -61,5 +61,10 @@
   "currentappointments.canceledappointments": "Terminänderungen",
 
   "confirm.dialog.yes": "Ja",
-  "confirm.dialog.no": "Nein"
+  "confirm.dialog.no": "Nein",
+
+  "success.message.settings":"Your account settings were edited successfully!",
+  "failure.message.settings":"Your request to edit account settings failed. <br /> Please try again later!",
+  "success.header":"Success!",
+  "failure.header":"Request Failed!"
 }
