@@ -69,7 +69,6 @@ export class SettingsViewComponent implements OnInit {
 
     sendData() {
         this.userConfiguration.applicationLangauge = this.form.value.language;
-        this.userConfiguration.id = this.userService.getuserId();
         this.userConfiguration.preferedDeliveryPlaceId = this.form.value.deliveryPlace;
         // Set user settings
         console.log(this.userConfiguration);

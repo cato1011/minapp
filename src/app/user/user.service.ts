@@ -45,7 +45,7 @@ export class UserService {
 
     saveSettings(userConfiguration: UserSettings) {
         // Send post request
-        this.httpClient.put(this.parcelServerUrl + "/users/" + userConfiguration.id + '/configuration', JSON.stringify(userConfiguration), {
+        this.httpClient.put(this.parcelServerUrl + "/users/" + this.getuserId() + '/configuration', JSON.stringify(userConfiguration), {
             headers: { userToken: this.userToken, 'Content-Type': 'application/json' }
         }).subscribe(
             (response: Response) => {

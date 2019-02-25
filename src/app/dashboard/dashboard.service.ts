@@ -60,7 +60,6 @@ export class DashboardService {
                     this.parcelInLength = parcelin.length;
                 }
 
-
             })
 
         return this.parcelInLength;
