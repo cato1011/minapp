@@ -5,3 +5,11 @@ export interface DeliveryPlace {
   longitude: number;
 
 }
+
+export const PREFERED_DELIVERY_PLACE: DeliveryPlace = {
+    id: 4,
+    description: 'BuGa Beach',
+    latitude: 49.155783,
+    longitude: 9.210792
+};
+

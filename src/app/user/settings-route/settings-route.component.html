@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar [color]="'#1365B6'">
+        <ion-buttons slot="end">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            {{'user.settings.header' | translate}}
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-header id="sub-header">
+    <!-- TODO ask claudia for flat settings icon without shadow-->
+    <ion-img [src]="'./assets/icons/menu/settings_2x.png'"></ion-img>
+</ion-header>
+<ion-item-divider></ion-item-divider>
+<ion-content>
+    <app-settings-view [deliveryPlaces]="deliveryPlaces$ | async"
+                       [preferedDeliveryPlace$]="preferedDeliveryPlace$ | async"
+                       [preferedDeliveryPlaceId]="preferedDeliveryPlaceId"
+                       [currentLang]="currentLang"
+                       [preferedDeliveryPlaceExist]="preferedDeliveryPlaceExists"></app-settings-view>
+</ion-content>

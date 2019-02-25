@@ -1,59 +1,36 @@
-<ion-header>
-    <ion-toolbar [color]="'#1365B6'">
-        <ion-buttons slot="end">
-            <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title>
-            {{'user.settings.header' | translate}}
-        </ion-title>
-    </ion-toolbar>
-</ion-header>
-<ion-header id="sub-header">
-    <!-- TODO ask claudia for flat settings icon without shadow-->
-    <ion-img [src]="'./assets/icons/menu/settings_2x.png'"></ion-img>
-</ion-header>
-<ion-item-divider></ion-item-divider>
-<ion-content>
-    <form [formGroup]="form" (ngSubmit)=sendData()>
-        <ion-radio-group [formControlName]="'language'">
-            <ion-list-header [color]="'#BCE0FD'">
-                <ion-label>{{ 'user.settings.language' | translate }}</ion-label>
-            </ion-list-header>
-            <ion-item [lines]="'none'" [color]="'#BCE0FD'">
-                <ion-label>{{ 'user.settings.german' | translate }}</ion-label>
-                <ion-radio value="DE" slot="start"
-                           [checked]="currentLang === 'DE'"></ion-radio>
+<form [formGroup]="form">
+    <ion-radio-group [formControlName]="'applicationLangauge'">
+        <ion-list-header [color]="'#BCE0FD'">
+            <ion-label>{{ 'user.settings.language' | translate }}</ion-label>
+        </ion-list-header>
+        <ion-item [lines]="'none'" [color]="'#BCE0FD'">
+            <ion-label>{{ 'user.settings.german' | translate }}</ion-label>
+            <ion-radio value="DE" slot="start"
+                       [checked]="currentLang === 'DE'"></ion-radio>
+        </ion-item>
+        <ion-item [lines]="'none'" [color]="'#BCE0FD'">
+            <ion-label>{{ 'user.settings.english' | translate }}</ion-label>
+            <ion-radio value="EN" slot="start"
+                       [checked]="currentLang === 'EN'"></ion-radio>
+        </ion-item>
+    </ion-radio-group>
+    <ion-list>
+        <ion-list-header [color]="'#BCE0FD'">
+            <ion-label>{{ 'user.settings.preferred_delivery_place' | translate }}</ion-label>
+        </ion-list-header>
+        <div id="select-frame">
+            <ion-item [lines]="'none'" id="select-item">
+                <ion-label>
+                    <ion-icon name="pin"></ion-icon>
+                    <!-- TODO ngif preferred delivery place exist then use string user.setting.preferred_delivery_place.selected-->
+                    <p id="select-label-text">{{ (preferredDeliveryPlaceExist ? 'user.settings.preferred_delivery_place.selected' : 'user.settings.preferred_delivery_place.select') | translate}}</p>
+                </ion-label>
+                <ion-select [formControlName]="'preferedDeliveryPlaceId'">
+                    <ion-select-option *ngFor="let deliveryPlace of deliveryPlaces"
+                                       [value]="deliveryPlace.id">{{deliveryPlace.description}}
+                    </ion-select-option>
+                </ion-select>
             </ion-item>
-            <ion-item [lines]="'none'" [color]="'#BCE0FD'">
-                <ion-label>{{ 'user.settings.english' | translate }}</ion-label>
-                <ion-radio value="EN" slot="start"
-                           [checked]="currentLang === 'EN'"></ion-radio>
-            </ion-item>
-        </ion-radio-group>
-        <ion-list>
-            <ion-list-header [color]="'#BCE0FD'">
-                <ion-label>{{ 'user.settings.preferred_delivery_place' | translate }}</ion-label>
-            </ion-list-header>
-            <div id="select-frame">
-                <ion-item [lines]="'none'" id="select-item">
-                    <ion-label>
-                        <ion-icon name="pin"></ion-icon>
-                        <!-- TODO ngif preferred delivery place exist then use string user.setting.preferred_delivery_place.selected-->
-                        <p id="select-label-text">{{ (preferredDeliveryPlaceExist ? 'user.settings.preferred_delivery_place.selected' : 'user.settings.preferred_delivery_place.select') | translate}}</p>
-                    </ion-label>
-                    <ion-select [formControlName]="'deliveryPlace'">
-                        <ion-select-option *ngFor="let deliveryPlace of deliveryPlaces$ | async"
-                                           [value]="deliveryPlace.id">{{deliveryPlace.description}}
-                        </ion-select-option>
-                    </ion-select>
-                </ion-item>
-            </div>
-        </ion-list>
-        <div text-center>
-                <ion-button type="Submit" size="medium" color="primary">Submit</ion-button>
-            <ion-button size="medium" color="light" [routerLink]="['/dashboard']">Cancel</ion-button>
-        
         </div>
-        <ion-item-divider></ion-item-divider>
-    </form>
-</ion-content>
+    </ion-list>
+</form>
