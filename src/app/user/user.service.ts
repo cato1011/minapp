@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User, UserSettings } from './user.model';
 import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
+import {MessageDialogService} from '../core/message-dialog.service'
 
 @Injectable({
     providedIn: 'root'
@@ -17,7 +18,7 @@ export class UserService {
     //private parcelServerUrl='https://parcelserver.cabreracano.de';
     private parcelServerUrl = 'http://localhost:8082';
 
-    constructor(private httpClient: HttpClient) {
+    constructor(private httpClient: HttpClient, private messageDialogService: MessageDialogService) {
     }
 
     init() {
@@ -48,8 +49,11 @@ export class UserService {
         }).subscribe(
             (response: Response) => {
                 console.log(response);
+                this.messageDialogService.presentAlert('Success!','Your account settings were edited successfully!','success-message');
             },
-            error => console.log('oops', error)
+            error => 
+            { 
+                this.messageDialogService.presentAlert('Failure!','Your request to edit account settings failed! Please try again later','failure-message');} 
             );
 
     }

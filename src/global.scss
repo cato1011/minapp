@@ -53,9 +53,25 @@ ion-content {
   opacity: 0.4;
 }
 
-.success-message {
-  background-color: #3BB95D;
-  color:white;
-  --background: #3BB95D;
-}
-
+  ion-alert {
+    &.success-message {
+      .alert-head {
+        background: #3BB95D;       
+        margin-bottom: 15px;
+      }
+      .alert-title
+      {
+        color: white;
+      }
+    }
+    &.failure-message {
+      .alert-head {
+        background:#e50000;       
+        margin-bottom: 15px;
+      }
+      .alert-title
+      {
+        color: white;
+      }
+    }
+  }
