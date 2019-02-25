@@ -49,11 +49,17 @@ export class UserService {
         }).subscribe(
             (response: Response) => {
                 console.log(response);
-                this.messageDialogService.presentAlert('Success!','Your account settings were edited successfully!','success-message');
+                this.messageDialogService.presentAlert(
+                    'Success!',
+                    'Your account settings were edited successfully!',
+                    'success-message');
             },
             error => 
             { 
-                this.messageDialogService.presentAlert('Failure!','Your request to edit account settings failed! Please try again later','failure-message');} 
+                this.messageDialogService.presentAlert(
+                    'Request Failed!',
+                    'Your request to edit account settings failed. <br /> <br /> Please try again later!',
+                    'failure-message');} 
             );
 
     }

@@ -63,15 +63,28 @@ ion-content {
       {
         color: white;
       }
+      .alert-message
+      {
+        text-align: center;
+        color: gray;
+        font-style: italic
+      }
     }
     &.failure-message {
       .alert-head {
-        background:#e50000;       
+        background:#e24516;       
         margin-bottom: 15px;
       }
       .alert-title
       {
-        color: white;
+        color: white;     
+
+      }
+      .alert-message
+      {
+        
+        color: gray;
+        font-style: italic
       }
     }
   }
