@@ -19,7 +19,10 @@ export class UserService {
     //private parcelServerUrl='https://parcelserver.cabreracano.de';
     private parcelServerUrl = 'http://localhost:8082';
 
-    constructor(private httpClient: HttpClient, private messageDialogService: MessageDialogService, private translate: TranslateService) {
+    constructor(
+        private httpClient: HttpClient, 
+        private messageDialogService: MessageDialogService, 
+        private translate: TranslateService) {
     }
 
     init() {

@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
+import {AlertController} from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageDialogService {
 
-  constructor() { }
+  constructor(private alertController: AlertController) { }
 
   async presentAlert(header:string, message:string,cssClass:string) {
-    const alertController = document.querySelector('ion-alert-controller');
-    await alertController.componentOnReady();
   
-    const alert = await alertController.create({
+  
+    const alert = await this.alertController.create({
       header: header,      
       message: message,
       buttons: ['OK'],
