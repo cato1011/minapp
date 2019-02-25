@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DashboardItem } from './dashboard.model';
 import { TranslateService } from '@ngx-translate/core';
-import { HttpClient } from '@angular/common/http';
 import { UserService } from '../user/user.service'
 import { Parcel } from '../parcels/parcel.model'
 import { ParcelService } from '../parcels/parcel.service'
@@ -19,7 +18,7 @@ export class DashboardService {
     public AppointmentsUrl = 'https://parcelserver.cabreracano.de/parcels/users/' + '?filter=in';
 
 
-    constructor(private translate: TranslateService, private httpClient: HttpClient, private userService: UserService, private parcelService: ParcelService) {
+    constructor(private translate: TranslateService, private userService: UserService, private parcelService: ParcelService) {
 
     }
 
