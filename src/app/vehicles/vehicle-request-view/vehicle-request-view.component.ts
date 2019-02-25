@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {VehicleService} from '../vehicle.service';
 import {VehicleRequest} from '../vehicles.model';
+import {UserService} from '../../user/user.service'
 import {ActivatedRoute, Router} from '@angular/router';
 import {DeliveryPlacesService} from '../../delivery-places/delivery-places.service';
 import {DeliveryPlace} from '../../delivery-places/delivery-places.model';
@@ -33,7 +34,8 @@ export class VehicleRequestViewComponent implements OnInit {
         private route: ActivatedRoute,
         private vehicleService: VehicleService,
         private router: Router,
-        private vehicleRequest: VehicleRequest
+        private vehicleRequest: VehicleRequest,
+        private userService:UserService
     ) {
     }
 
@@ -68,10 +70,9 @@ export class VehicleRequestViewComponent implements OnInit {
         this.vehicleRequest.latitude = this.vehicleRequestForm.value.deliveryPlace.latitude;
         this.vehicleRequest.longitude = this.vehicleRequestForm.value.deliveryPlace.longitude;
         this.vehicleRequest.time = this.vehicleRequestForm.value.deliveryDate;
-        this.vehicleRequest.requestPurpose = this.requestType;
-        // TODO later set user token via userService in vehicleService
-        // TODO getUserToken in userService to make it easier for all other services which make request (prevents requesting always whole user object to extract only the token)
-        this.vehicleRequest.userToken = this.userToken;
+        this.vehicleRequest.requestPurpose = this.requestType;        
+        
+        this.vehicleRequest.userToken = this.userService.getUserToken();
         this.vehicleService.sendVehicleRequest(this.vehicleRequest);
         this.router.navigate(['vehicleRequested']);
     }
