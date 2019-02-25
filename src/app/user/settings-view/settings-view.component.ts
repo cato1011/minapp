@@ -3,7 +3,6 @@ import {Observable} from 'rxjs';
 import {UserService} from '../user.service';
 import {DeliveryPlace} from '../../delivery-places/delivery-places.model';
 import {FormControl, FormGroup} from '@angular/forms';
-import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-settings-view',
@@ -18,10 +17,8 @@ export class SettingsViewComponent implements OnInit {
     @Input() preferedDeliveryPlace$: Observable<DeliveryPlace>;
     @Input() preferedDeliveryPlaceId: number;
     @Input() preferedDeliveryPlaceExist;
-    subscription;
-    interval = -1;
 
-    constructor(private userService: UserService, private translateService: TranslateService) {
+    constructor(private userService: UserService) {
     }
 
     ngOnInit() {
@@ -31,7 +28,7 @@ export class SettingsViewComponent implements OnInit {
 
     initForm() {
         this.form = new FormGroup({
-            applicationLangauge: new FormControl(this.translateService.currentLang),
+            applicationLangauge: new FormControl(this.currentLang),
             preferedDeliveryPlaceId: new FormControl(this.preferedDeliveryPlaceId)
         });
     }
