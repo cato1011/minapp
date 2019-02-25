@@ -3,7 +3,7 @@ import {Parcel} from './parcel.model';
 import {Observable, ReplaySubject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {UserService} from '../user/user.service';
-import {PARCELS_IN, PARCELS_OUT} from './parcels.mock';
+import {PARCELS_ALL, PARCELS_IN, PARCELS_OUT} from './parcels.mock';
 import {map} from 'rxjs/operators';
 
 @Injectable({
@@ -13,7 +13,9 @@ export class ParcelService {
 
     private parcelInSubject: ReplaySubject<Parcel[]> = new ReplaySubject<Parcel[]>(25);
     private parcelOutSubject: ReplaySubject<Parcel[]> = new ReplaySubject<Parcel[]>(25);
+    private parcelAllSubject: ReplaySubject<Parcel[]> = new ReplaySubject<Parcel[]>(25);
     private currentSelectedParcel: Parcel;
+    private parcelsOnCurrentSelectedVehicle: Parcel[];
 
     constructor(private httpClient: HttpClient, private userService: UserService) {
     }
@@ -26,10 +28,22 @@ export class ParcelService {
         return this.currentSelectedParcel;
     }
 
+    setParcelsOnCurrentSelectedVehicle(parcels: Observable<Parcel[]>) {
+        parcels.subscribe(value => this.parcelsOnCurrentSelectedVehicle = value);
+    }
+
+    getParcelsonCurrentSelectedVehicle() {
+        return this.parcelsOnCurrentSelectedVehicle;
+    }
+
     getParcelsFromVehicleWithVehicleId(parcels$: Observable<Parcel[]>, vehicleId: number): Observable<Parcel[]> {
         return parcels$.pipe(
             map(parcels => parcels.filter(item => item.vehicleId === vehicleId)),
         );
+    }
+
+    reloadAll() {
+        this.parcelAllSubject.next(PARCELS_ALL);
     }
 
     // TODO url with string interpolation ``
@@ -57,6 +71,10 @@ export class ParcelService {
             this.parcelOutSubject.next(ps);
         });
          **/
+    }
+
+    getAll() {
+        return this.parcelAllSubject;
     }
 
     getAllIn() {

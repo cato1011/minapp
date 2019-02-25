@@ -1,4 +1,13 @@
-<ion-item-divider *ngIf="(parcelsFromVehicle$ | async).length > 0" [id]="'top-parcel-divider'">Parcels from Vehicle {{vehicle}}</ion-item-divider>
+<ion-item-group *ngIf="(parcelsFromVehicle$ | async).length > 0">
+    <ion-item-divider [id]="'parcel-divider-' + vehicle">
+        <!--TODO show different icon, when request is confirmed -->
+        <ion-img slot="start" [class]="'parcel-img'" [src]="'./assets/icons/parcels/vehicle_requested.png'"></ion-img>
+        <!-- TODO on click save current selected vehicle id in parcel service -->
+        <!-- TODO if there is an appointment with a parcel on this vehicle already - show cancel appointment button -->
+        <ion-button (click)="clickedRequestAppointment()" [routerLink]="['/vehicleRequest']" [queryParams]="{type: 'PARCEL_DELIVERY'}" slot="start" [color]="'white'">Request appointment</ion-button>
+        <ion-img [class]="'vehicle-img'" [src]="'./assets/icons/vehicles/vehicle_' + vehicle + '_solo_2x.png'"></ion-img>
+    </ion-item-divider>
+</ion-item-group>
 <ion-card *ngFor="let parcel of parcelsFromVehicle$ | async; let i = index" [id]="'parcel-card-' + i">
     <app-parcel-list-item [parcel]="parcel"></app-parcel-list-item>
 </ion-card>

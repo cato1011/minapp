@@ -78,7 +78,6 @@ export class VehicleService {
     }
 
     public reloadVehicleRequests() {
-
         this.httpClient.get<Vehicle[]>(this.vehicleRequestUrl + 'users/' + this.userService.getUserToken(), {
             headers: { userToken: this.userService.getUserToken(), identifier: "APP" }
         }).subscribe((ps) => {
