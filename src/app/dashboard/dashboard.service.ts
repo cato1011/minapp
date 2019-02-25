@@ -79,7 +79,7 @@ export class DashboardService {
 
         this.vehicleService.getAllVehicleRequests().subscribe
             (
-                (vehicleRequests) => {
+                (vehicleRequests) => {                    
                     this.length = vehicleRequests.length;
                 }
             )
