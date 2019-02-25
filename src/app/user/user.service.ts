@@ -14,7 +14,8 @@ export class UserService {
     private mobileAuthToken = 'ee6488b082bb58cf99609567eb87fd76255979d2e2383eda10dd7b1b8a2ea8bc';
     private userId = 9;
     private userSettings$ = new ReplaySubject<UserSettings | null>(1);
-    private parcelServerUrl='https://parcelserver.cabreracano.de';
+    //private parcelServerUrl='https://parcelserver.cabreracano.de';
+    private parcelServerUrl = 'http://localhost:8082';
 
     constructor(private httpClient: HttpClient) {
     }
@@ -24,7 +25,12 @@ export class UserService {
     }
 
     loadSettings() {
-        // TODO load settings from user and set the settings: ask michael
+
+        return this.httpClient.get<UserSettings[]>(this.parcelServerUrl + '/users/usertoken/' + this.userToken, {
+            headers: { userToken: this.userToken }
+        });
+
+
     }
 
     loadUser() {
@@ -35,9 +41,9 @@ export class UserService {
         // TODO send post request
     }
 
-    saveSettings(userConfiguration:UserSettings) {
+    saveSettings(userConfiguration: UserSettings) {
         // Send post request
-        this.httpClient.put(this.parcelServerUrl+"/users/"+userConfiguration.id+'/configuration', JSON.stringify(userConfiguration), {
+        this.httpClient.put(this.parcelServerUrl + "/users/" + userConfiguration.id + '/configuration', JSON.stringify(userConfiguration), {
             headers: { userToken: this.userToken, 'Content-Type': 'application/json' }
         }).subscribe(
             (response: Response) => {

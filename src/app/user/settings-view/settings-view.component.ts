@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { UserService } from '../user.service';
 import { DeliveryPlacesService } from '../../delivery-places/delivery-places.service';
 import { DeliveryPlace } from '../../delivery-places/delivery-places.model';
-import { UserConfiguration } from '../user.model';
+import { UserConfiguration, UserSettings } from '../user.model';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -31,6 +31,7 @@ export class SettingsViewComponent implements OnInit {
         this.initData();
         this.initForm();
         this.onChanges();
+
     }
 
     initForm() {
@@ -41,7 +42,15 @@ export class SettingsViewComponent implements OnInit {
     }
 
     initData() {
-        // TODO get settings and set preferred delivery place as preselected value for form
+        // TODO set preferred delivery place and language as preselected value for form
+        this.userService.loadSettings().subscribe(response => {
+
+            console.log(response);
+        }
+        );
+
+
+
         this.currentLang = this.translateService.currentLang;
         this.deliveryPlacesService.reloadDeliveryPlaces();
         this.deliveryPlaces$ = this.deliveryPlacesService.getDeliveryPlaces();

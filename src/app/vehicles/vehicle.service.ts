@@ -69,7 +69,7 @@ export class VehicleService {
                 headers: { identifier: 'APP', 'Content-Type': 'application/json' }
             }).subscribe(
                 (response: Response) => {
-                    console.log('Vehicle Request is canceled');
+                    console.log('Vehicle Request is cancelled');
                 });
         }
         );
