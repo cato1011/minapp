@@ -49,7 +49,11 @@
                 </ion-item>
             </div>
         </ion-list>
-        <ion-item><ion-button size="medium" color="light" [routerLink]="['/dashboard']">Cancel</ion-button>
-        <ion-button type="Submit" size="medium" color="primary">Submit</ion-button></ion-item>
+        <div text-center>
+                <ion-button type="Submit" size="medium" color="primary">Submit</ion-button>
+            <ion-button size="medium" color="light" [routerLink]="['/dashboard']">Cancel</ion-button>
+        
+        </div>
+        
     </form>
 </ion-content>

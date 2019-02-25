@@ -4,6 +4,7 @@ import { User, UserSettings } from './user.model';
 import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import {MessageDialogService} from '../core/message-dialog.service'
 import {TranslateService} from '@ngx-translate/core';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -63,7 +64,10 @@ export class UserService {
                 this.messageDialogService.presentAlert(
                     this.translate.instant('failure.header'),
                     this.translate.instant('failure.message.settings'),
-                    'failure-message');} 
+                    'failure-message');                 
+                
+                } 
+                    
             );
 
     }
