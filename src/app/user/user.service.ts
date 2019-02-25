@@ -1,7 +1,9 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { User, UserSettings } from './user.model';
-import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {CONFIG, MOCK_USER, User, UserSettings} from './user.model';
+import {BehaviorSubject, Observable, ReplaySubject} from 'rxjs';
+import {TranslateService} from '@ngx-translate/core';
+import {DeliveryPlacesService} from '../delivery-places/delivery-places.service';
 
 @Injectable({
     providedIn: 'root'
@@ -9,48 +11,39 @@ import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 export class UserService {
 
     private user$ = new BehaviorSubject<User | null>(null);
-    // TODO remove fixed user token value in production
+    private userSettings$ = new ReplaySubject<UserSettings | null>(1);
+    // TODO remove fixed user token value and other user specific values in production
     private userToken = 'c1e46f017983b562c8c6af0627f28ff9';
     private mobileAuthToken = 'ee6488b082bb58cf99609567eb87fd76255979d2e2383eda10dd7b1b8a2ea8bc';
     private userId = 9;
-    private userSettings$ = new ReplaySubject<UserSettings | null>(1);
-    //private parcelServerUrl='https://parcelserver.cabreracano.de';
-    private parcelServerUrl = 'http://localhost:8082';
+    private parcelServerUrl = 'https://parcelserver.cabreracano.de';
 
-    constructor(private httpClient: HttpClient) {
+    // private parcelServerUrl = 'http://localhost:8082';
+
+    constructor(private httpClient: HttpClient, private translateService: TranslateService, private deliveryPlacesService: DeliveryPlacesService) {
     }
 
     init() {
         console.log('init user service');
-    }
-
-    loadSettings() {
-
-        return this.httpClient.get<UserSettings[]>(this.parcelServerUrl + '/users/usertoken/' + this.userToken, {
-            headers: { userToken: this.userToken }
+        this.userSettings$.subscribe(settings => {
+            this.translateService.use(settings.applicationLangauge);
+            this.deliveryPlacesService.loadPreferedDeliveryPlace(settings.preferedDeliveryPlaceId);
         });
-
-
+        // TODO check if there is an existing user, then set this user, if not redirect to login page
+        this.setUser(MOCK_USER);
     }
 
-    loadUser() {
-        // TODO reload logged in user
-    }
-
-    saveUser() {
-        // TODO send post request
-    }
-
-    saveSettings(userConfiguration: UserSettings) {
-        // Send post request
-        this.httpClient.put(this.parcelServerUrl + "/users/" + userConfiguration.id + '/configuration', JSON.stringify(userConfiguration), {
-            headers: { userToken: this.userToken, 'Content-Type': 'application/json' }
+    saveSettings(userSettings: UserSettings) {
+        this.httpClient.put<User>(this.parcelServerUrl + '/users/' + this.userId + '/configuration', userSettings, {
+            headers: {userToken: this.userToken, 'Content-Type': 'application/json'}
         }).subscribe(
-            (response: Response) => {
-                console.log(response);
+            (user: User) => {
+                console.log(user);
+                this.userSettings$.next(user.userConfiguration);
+                this.translateService.use(user.userConfiguration.applicationLangauge);
             },
             error => console.log('oops', error)
-            );
+        );
 
     }
 
@@ -58,6 +51,7 @@ export class UserService {
         this.userToken = user.userToken;
         this.mobileAuthToken = user.mobileAuthToken;
         this.userId = user.id;
+        this.userSettings$.next(user.userConfiguration);
         this.user$.next(user);
     }
 
@@ -65,13 +59,8 @@ export class UserService {
         return this.user$.asObservable();
     }
 
-    setSettings(settings) {
-        console.log(settings);
-        this.userSettings$.next(settings);
-    }
-
     getSettings(): Observable<UserSettings | null> {
-        return this.userSettings$.asObservable();
+        return this.userSettings$;
     }
 
     getUserToken() {
@@ -81,10 +70,5 @@ export class UserService {
     getMobileAuthToken() {
 
         return this.mobileAuthToken;
-    }
-
-    getuserId() {
-
-        return this.userId;
     }
 }

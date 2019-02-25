@@ -71,8 +71,3 @@ export class VehicleRequest implements Vehicle {
         this.waitingTime = 0;
     }
 }
-
-export interface VehicleWithParcels {
-    id: number;
-    parcels: Parcel[];
-}

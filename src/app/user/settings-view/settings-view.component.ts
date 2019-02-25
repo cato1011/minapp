@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
-import { UserService } from '../user.service';
-import { DeliveryPlacesService } from '../../delivery-places/delivery-places.service';
-import { DeliveryPlace } from '../../delivery-places/delivery-places.model';
-import { UserConfiguration, UserSettings } from '../user.model';
-import { FormControl, FormGroup } from '@angular/forms';
+import {AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {interval, Observable, pipe} from 'rxjs';
+import {UserService} from '../user.service';
+import {DeliveryPlace} from '../../delivery-places/delivery-places.model';
+import {FormControl, FormGroup} from '@angular/forms';
+import {UserSettings} from '../user.model';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-settings-view',
@@ -15,73 +14,37 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class SettingsViewComponent implements OnInit {
 
     form: FormGroup;
-    currentLang;
-    public deliveryPlaces$: Observable<DeliveryPlace[]>;
-    deliveryPlace: DeliveryPlace;
-    preferredDeliveryPlaceExist: boolean = false;
+    @Input() currentLang;
+    @Input() deliveryPlaces: DeliveryPlace[];
+    @Input() preferedDeliveryPlace$: Observable<DeliveryPlace>;
+    @Input() preferedDeliveryPlaceId: number;
+    @Input() preferedDeliveryPlaceExist;
+    subscription;
+    interval = -1;
 
-
-    constructor(private translateService: TranslateService,
-        private userService: UserService,
-        private deliveryPlacesService: DeliveryPlacesService,
-        private userConfiguration: UserConfiguration) {
+    constructor(private userService: UserService, private translateService: TranslateService) {
     }
 
     ngOnInit() {
-        this.initData();
         this.initForm();
-        this.onChanges();
-
+        this.onChange();
     }
 
     initForm() {
         this.form = new FormGroup({
-            language: new FormControl(this.currentLang),
-            deliveryPlace: new FormControl(this.deliveryPlace)
+            applicationLangauge: new FormControl(this.translateService.currentLang),
+            preferedDeliveryPlaceId: new FormControl(this.preferedDeliveryPlaceId)
         });
     }
 
-    initData() {
-        // TODO set preferred delivery place and language as preselected value for form
-        this.userService.loadSettings().subscribe(response => {
-
-            console.log(response);
-        }
-        );
-
-
-
-        this.currentLang = this.translateService.currentLang;
-        this.deliveryPlacesService.reloadDeliveryPlaces();
-        this.deliveryPlaces$ = this.deliveryPlacesService.getDeliveryPlaces();
-    }
-
-    onChanges() {
-        // TODO post settings to backend
+    onChange() {
         this.form.valueChanges.subscribe(form => {
             if (form.deliveryPlace !== null) {
-                this.preferredDeliveryPlaceExist = true;
+                this.preferedDeliveryPlaceExist = true;
             }
-            this.userService.setSettings(form);
-            this.translateService.use(form.language);
+            this.userService.saveSettings(form);
         });
     }
-
-    sendData() {
-        this.userConfiguration.applicationLangauge = this.form.value.language;
-        this.userConfiguration.id = this.userService.getuserId();
-        this.userConfiguration.preferedDeliveryPlaceId = this.form.value.deliveryPlace;
-        // Set user settings
-        console.log(this.userConfiguration);
-        this.userService.saveSettings(this.userConfiguration);
-
-    }
-
-
-
-
-
-
 
 
 }
