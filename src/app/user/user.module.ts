@@ -20,6 +20,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import {SettingsViewComponent} from './settings-view/settings-view.component';
 import {RouterModule} from '@angular/router';
 import {UserRouterModule} from './user-router.module';
+import { UserConfiguration } from './user.model';
 
 @NgModule({
     declarations: [SettingsViewComponent],
@@ -44,6 +45,7 @@ import {UserRouterModule} from './user-router.module';
         IonicModule,
         TranslateModule
     ],
+    providers: [UserConfiguration],
     exports: []
 })
 export class UserModule {

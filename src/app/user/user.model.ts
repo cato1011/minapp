@@ -67,7 +67,22 @@ export interface User {
   zipCode: string;
 }
 
-export interface UserSettings {
-  language: string;
-  deliveryPlace: DeliveryPlace;
+export interface UserSettings 
+  {
+    "applicationLangauge": "string",
+    "id": number,
+    "preferedDeliveryPlaceId": "string"
+  }
+
+  export class UserConfiguration implements UserSettings {
+    "applicationLangauge": "string";
+    "id": number;
+    "preferedDeliveryPlaceId": "string";
+
+    constructor() {
+        this.applicationLangauge = 'string';
+        this.id = 0;
+        this.preferedDeliveryPlaceId = 'string';
+        
+    }
 }

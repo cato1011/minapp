@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
-import {Observable} from 'rxjs';
-import {UserService} from '../user.service';
-import {DeliveryPlacesService} from '../../delivery-places/delivery-places.service';
-import {DeliveryPlace} from '../../delivery-places/delivery-places.model';
-import {FormControl, FormGroup} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
+import { UserService } from '../user.service';
+import { DeliveryPlacesService } from '../../delivery-places/delivery-places.service';
+import { DeliveryPlace } from '../../delivery-places/delivery-places.model';
+import { UserConfiguration, UserSettings } from '../user.model';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'app-settings-view',
@@ -19,15 +20,18 @@ export class SettingsViewComponent implements OnInit {
     deliveryPlace: DeliveryPlace;
     preferredDeliveryPlaceExist: boolean = false;
 
+
     constructor(private translateService: TranslateService,
-                private userService: UserService,
-                private deliveryPlacesService: DeliveryPlacesService) {
+        private userService: UserService,
+        private deliveryPlacesService: DeliveryPlacesService,
+        private userConfiguration: UserConfiguration) {
     }
 
     ngOnInit() {
         this.initData();
         this.initForm();
         this.onChanges();
+
     }
 
     initForm() {
@@ -38,7 +42,15 @@ export class SettingsViewComponent implements OnInit {
     }
 
     initData() {
-        // TODO get settings and set preferred delivery place as preselected value for form
+        // TODO set preferred delivery place and language as preselected value for form
+        this.userService.loadSettings().subscribe(response => {
+
+            console.log(response);
+        }
+        );
+
+
+
         this.currentLang = this.translateService.currentLang;
         this.deliveryPlacesService.reloadDeliveryPlaces();
         this.deliveryPlaces$ = this.deliveryPlacesService.getDeliveryPlaces();
@@ -54,4 +66,22 @@ export class SettingsViewComponent implements OnInit {
             this.translateService.use(form.language);
         });
     }
+
+    sendData() {
+        this.userConfiguration.applicationLangauge = this.form.value.language;
+        this.userConfiguration.id = this.userService.getuserId();
+        this.userConfiguration.preferedDeliveryPlaceId = this.form.value.deliveryPlace;
+        // Set user settings
+        console.log(this.userConfiguration);
+        this.userService.saveSettings(this.userConfiguration);
+
+    }
+
+
+
+
+
+
+
+
 }

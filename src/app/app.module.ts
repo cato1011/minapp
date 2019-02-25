@@ -20,7 +20,7 @@ import {environment} from '../environments/environment';
 // For push notifications
 import {MessagingService} from './core/messaging.service';
 import {AngularFireModule} from '@angular/fire';
-import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFirestoreModule,FirestoreSettingsToken} from '@angular/fire/firestore';
 
 // Configuration of firebase
 export const firebaseConfig = {
@@ -66,14 +66,15 @@ export function HttpLoaderFactory(http: HttpClient) {
             provide: APP_INITIALIZER,
             useFactory: (userService: UserService) => () => userService.init(),
             deps: [UserService, HttpClient],
-            multi: true
-        }
+            multi: true           
+        },
+        { provide: FirestoreSettingsToken, useValue: {} }
     ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
     constructor(private translate: TranslateService) {
-        translate.setDefaultLang('de');
-        translate.use('en');
+        translate.setDefaultLang('DE');
+        translate.use('EN');
     }
 }

@@ -14,20 +14,20 @@
 </ion-header>
 <ion-item-divider></ion-item-divider>
 <ion-content>
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)=sendData()>
         <ion-radio-group [formControlName]="'language'">
             <ion-list-header [color]="'#BCE0FD'">
                 <ion-label>{{ 'user.settings.language' | translate }}</ion-label>
             </ion-list-header>
             <ion-item [lines]="'none'" [color]="'#BCE0FD'">
                 <ion-label>{{ 'user.settings.german' | translate }}</ion-label>
-                <ion-radio value="de" slot="start"
-                           [checked]="currentLang === 'de'"></ion-radio>
+                <ion-radio value="DE" slot="start"
+                           [checked]="currentLang === 'DE'"></ion-radio>
             </ion-item>
             <ion-item [lines]="'none'" [color]="'#BCE0FD'">
                 <ion-label>{{ 'user.settings.english' | translate }}</ion-label>
-                <ion-radio value="en" slot="start"
-                           [checked]="currentLang === 'en'"></ion-radio>
+                <ion-radio value="EN" slot="start"
+                           [checked]="currentLang === 'EN'"></ion-radio>
             </ion-item>
         </ion-radio-group>
         <ion-list>
@@ -43,11 +43,13 @@
                     </ion-label>
                     <ion-select [formControlName]="'deliveryPlace'">
                         <ion-select-option *ngFor="let deliveryPlace of deliveryPlaces$ | async"
-                                           [value]="deliveryPlace">{{deliveryPlace.description}}
+                                           [value]="deliveryPlace.id">{{deliveryPlace.description}}
                         </ion-select-option>
                     </ion-select>
                 </ion-item>
             </div>
         </ion-list>
+        <ion-item><ion-button size="medium" color="light" [routerLink]="['/dashboard']">Cancel</ion-button>
+        <ion-button type="Submit" size="medium" color="primary">Submit</ion-button></ion-item>
     </form>
 </ion-content>
