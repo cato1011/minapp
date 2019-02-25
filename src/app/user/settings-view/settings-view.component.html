@@ -43,7 +43,7 @@
                     </ion-label>
                     <ion-select [formControlName]="'deliveryPlace'">
                         <ion-select-option *ngFor="let deliveryPlace of deliveryPlaces$ | async"
-                                           [value]="deliveryPlace">{{deliveryPlace.description}}
+                                           [value]="deliveryPlace.id">{{deliveryPlace.description}}
                         </ion-select-option>
                     </ion-select>
                 </ion-item>
