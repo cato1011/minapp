@@ -48,7 +48,9 @@ export class UserService {
         }).subscribe(
             (response: Response) => {
                 console.log(response);
-            });
+            },
+            error => console.log('oops', error)
+            );
 
     }
 
