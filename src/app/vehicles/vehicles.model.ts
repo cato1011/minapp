@@ -1,3 +1,5 @@
+import {Parcel} from '../parcels/parcel.model';
+
 export interface Vehicle {
     id: number;
     boxGUIDList: string[];
@@ -68,4 +70,9 @@ export class VehicleRequest implements Vehicle {
         this.userToken = '';
         this.waitingTime = 0;
     }
+}
+
+export interface VehicleWithParcels {
+    id: number;
+    parcels: Parcel[];
 }

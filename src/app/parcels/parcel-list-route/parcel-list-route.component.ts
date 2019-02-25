@@ -14,7 +14,6 @@ import {Observable} from 'rxjs';
 export class ParcelListRouteComponent implements OnInit {
 
     parcels$: Observable<Parcel[]>;
-    appointments$: Observable<Vehicle[]>;
     tabBarVisible = false;
     context: string;
 
@@ -34,8 +33,8 @@ export class ParcelListRouteComponent implements OnInit {
                 this.parcels$ = this.parcelService.getAllOut();
             } else {
                 if (this.context === 'appointments') {
-                    this.vehicleService.reloadVehicleRequests();
-                    this.appointments$ = this.vehicleService.getAllVehicleRequests();
+                    this.parcelService.reloadAll();
+                    this.parcels$ = this.parcelService.getAll();
                 }
             }
         });
