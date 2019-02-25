@@ -15,8 +15,8 @@ export class VehicleService {
     vehicleRequest: Vehicle[];
     private vehicleRequestSubject: Subject<Vehicle[]> = new ReplaySubject<Vehicle[]>(25);
     private lastVehicleRequest: Vehicle;
-    public vehicleRequestUrl = 'https://carrierserver.cabreracano.de/vehicleRequests/';
-    // public vehicleRequestUrl = 'http://localhost:8081/vehicleRequests/';
+    //public vehicleRequestUrl = 'https://carrierserver.cabreracano.de/vehicleRequests/';
+     public vehicleRequestUrl = 'http://localhost:8081/vehicleRequests/';
     private allVehicleRequestsSubject: Subject<Vehicle[]> = new ReplaySubject<Vehicle[]>(25);
 
     constructor(private httpClient: HttpClient, private parcelService: ParcelService, private userService: UserService) {

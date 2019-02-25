@@ -1,9 +1,8 @@
-import {AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {interval, Observable, pipe} from 'rxjs';
+import {Component, Input, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
 import {UserService} from '../user.service';
 import {DeliveryPlace} from '../../delivery-places/delivery-places.model';
 import {FormControl, FormGroup} from '@angular/forms';
-import {UserSettings} from '../user.model';
 import {TranslateService} from '@ngx-translate/core';
 
 @Component({
@@ -45,6 +44,5 @@ export class SettingsViewComponent implements OnInit {
             this.userService.saveSettings(form);
         });
     }
-
 
 }

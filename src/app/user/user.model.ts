@@ -78,11 +78,6 @@ export interface UserSettings {
     preferedDeliveryPlaceId: string;
 }
 
-export const CONFIG: UserSettings = {
-    preferedDeliveryPlaceId: '4',
-    applicationLangauge: 'DE'
-};
-
 export const MOCK_USER: User = {
     id: 9,
     guid: '8511988b-ff87-446c-9fab-db245ee6b451@USERS.PKADEMO1',
@@ -134,3 +129,4 @@ export const MOCK_USER: User = {
     },
     userGUID: '8511988b-ff87-446c-9fab-db245ee6b451@USERS.PKADEMO1'
 };
+

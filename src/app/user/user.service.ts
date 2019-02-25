@@ -1,9 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {CONFIG, MOCK_USER, User, UserSettings} from './user.model';
+import {MOCK_USER, User, UserSettings} from './user.model';
 import {BehaviorSubject, Observable, ReplaySubject} from 'rxjs';
-import {TranslateService} from '@ngx-translate/core';
 import {DeliveryPlacesService} from '../delivery-places/delivery-places.service';
+import {MessageDialogService} from '../core/message-dialog.service';
+import {TranslateService} from '@ngx-translate/core';
+
 
 @Injectable({
     providedIn: 'root'
@@ -19,8 +21,11 @@ export class UserService {
     private parcelServerUrl = 'https://parcelserver.cabreracano.de';
 
     // private parcelServerUrl = 'http://localhost:8082';
-
-    constructor(private httpClient: HttpClient, private translateService: TranslateService, private deliveryPlacesService: DeliveryPlacesService) {
+    constructor(
+        private httpClient: HttpClient,
+        private translateService: TranslateService,
+        private deliveryPlacesService: DeliveryPlacesService,
+        private messageDialogService: MessageDialogService) {
     }
 
     init() {
@@ -41,10 +46,26 @@ export class UserService {
                 console.log(user);
                 this.userSettings$.next(user.userConfiguration);
                 this.translateService.use(user.userConfiguration.applicationLangauge);
+                this.messageDialogService.presentAlert(
+                    this.translateService.instant('success.header'),
+                    this.translateService.instant('success.message.settings'),
+                    'success-message');
             },
-            error => console.log('oops', error)
+            error => {
+                this.messageDialogService.presentAlert(
+                    this.translateService.instant('failure.header'),
+                    this.translateService.instant('failure.message.settings'),
+                    'failure-message');
+            }
         );
+    };
 
+    loadUser() {
+        // TODO reload logged in user
+    }
+
+    saveUser() {
+        // TODO send post request
     }
 
     setUser(user: User) {

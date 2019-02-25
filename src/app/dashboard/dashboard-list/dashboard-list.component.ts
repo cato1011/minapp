@@ -18,5 +18,8 @@ export class DashboardListComponent implements OnInit {
         this.dashboardItems = this.dashboardService.getDashboard();
     }
 
-
+reset()
+{
+    this.ngOnInit();
+}
 }
