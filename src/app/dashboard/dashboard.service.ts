@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { UserService } from '../user/user.service'
 import { Parcel } from '../parcels/parcel.model'
 import { ParcelService } from '../parcels/parcel.service'
+import { VehicleService } from '../vehicles/vehicle.service'
 
 @Injectable({
     providedIn: 'root'
@@ -18,7 +19,11 @@ export class DashboardService {
     public AppointmentsUrl = 'https://parcelserver.cabreracano.de/parcels/users/' + '?filter=in';
 
 
-    constructor(private translate: TranslateService, private userService: UserService, private parcelService: ParcelService) {
+    constructor(
+        private translate: TranslateService,
+        private userService: UserService,
+        private parcelService: ParcelService,
+        private vehicleService: VehicleService) {
 
     }
 
@@ -28,7 +33,7 @@ export class DashboardService {
                 title: this.translate.instant('dashboard.appointments'),
                 link: 'parcels/appointments',
                 image: this.imagePrefix + 'clock_big_2x.png',
-                count: 5
+                count: this.getCountofAppointments()
             },
             {
                 title: this.translate.instant('dashboard.parcels_to_me'),
@@ -51,9 +56,8 @@ export class DashboardService {
     public getCountofParcelsIn() {
         this.parcelService.reloadIn();
         this.parcelService.getAllIn().subscribe
-            ((parcels: Parcel[]) => {
-
-                this.length = parcels.length;
+            ((parcelin: Parcel[]) => {
+                this.length = parcelin.length;
             })
 
         return this.length;
@@ -62,9 +66,8 @@ export class DashboardService {
     public getCountofParcelsOut() {
         this.parcelService.reloadOut();
         this.parcelService.getAllOut().subscribe
-            ((parcels: Parcel[]) => {
-
-                this.length = parcels.length;
+            ((parcelout: Parcel[]) => {
+                this.length = parcelout.length;
             })
 
         return this.length;
@@ -72,6 +75,14 @@ export class DashboardService {
     }
 
     public getCountofAppointments() {
+        this.vehicleService.reloadVehicleRequests();
 
+        this.vehicleService.getAllVehicleRequests().subscribe
+            (
+                (vehicleRequests) => {
+                    this.length = vehicleRequests.length;
+                }
+            )
+        return this.length;
     }
 }
