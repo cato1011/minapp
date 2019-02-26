@@ -31,7 +31,7 @@ export class MenuService {
             },
             {
                 title: 'menu.appointments',
-                url: '/parcels/appointments',
+                url: '/appointments/active',
                 icon: this.imagePrefix + 'clock_small_2x.png'
             },
             {
@@ -46,12 +46,12 @@ export class MenuService {
             },
             {
                 title: 'menu.return',
-                url: '/parcels/retoure',
+                url: '/retoure',
                 icon: this.imagePrefix + 'retoure_2x.png'
             },
             {
                 title: 'menu.courier',
-                url: '/parcels/n2n',
+                url: '/n2n',
                 icon: this.imagePrefix + 'n2n_2x.png'
             }
         ];
