@@ -91,7 +91,7 @@ export const MOCK_USER: User = {
     zipCode: '71737',
     city: 'Kirchberg / Murr',
     country: 'DE',
-    email: '',
+    email: 'sauer@P014',
     phoneNumber: '',
     phoneMobileNumber: '',
     handicap: null,
