@@ -22,6 +22,10 @@ const routes: Routes = [
         loadChildren: './vehicles/vehicles.module#VehiclesModule'
     },
     {
+        path: 'appointments',
+        loadChildren: './appointments/appointments.module#AppointmentsModule'
+    },
+    {
         path: 'parcels',
         pathMatch: 'prefix',
         loadChildren: './parcels/parcels.module#ParcelsModule'

@@ -19,6 +19,7 @@ import {environment} from '../environments/environment';
 import {MessagingService} from './core/messaging.service';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule, FirestoreSettingsToken} from '@angular/fire/firestore';
+import {AppointmentsModule} from './appointments/appointments.module';
 
 // Configuration of firebase
 export const firebaseConfig = {
@@ -43,6 +44,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         CommonModule,
         UserModule,
         VehiclesModule,
+        AppointmentsModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
