@@ -42,6 +42,12 @@ export class ParcelService {
         );
     }
 
+    getParcelsByStatus(parcels$: Observable<Parcel[]>, status: string[]): Observable<Parcel[]> {
+        return parcels$.pipe(
+            map(parcels => parcels.filter(parcel => parcel.status in status)),
+        );
+    }
+
     reloadAll() {
         this.parcelAllSubject.next(PARCELS_ALL);
     }

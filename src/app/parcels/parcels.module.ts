@@ -9,14 +9,13 @@ import {TranslateModule} from '@ngx-translate/core';
 import {CoreModule} from '../core/core.module';
 import {CommonModule} from '@angular/common';
 import {ParcelListRouteComponent} from './parcel-list-route/parcel-list-route.component';
-import {TabBarParcelsComponent} from './tab-bar-parcels/tab-bar-parcels.component';
 import {DateFnsModule} from 'ngx-date-fns';
-import { ParcelEnumPipe } from './parcel-enum.pipe';
+import {ParcelEnumPipe} from './parcel-enum.pipe';
 import {MatDialogModule} from '@angular/material';
 
 
 @NgModule({
-    declarations: [ParcelListViewComponent, ParcelListItemComponent, ParcelDetailViewComponent, ParcelListRouteComponent, TabBarParcelsComponent, ParcelEnumPipe],
+    declarations: [ParcelListViewComponent, ParcelListItemComponent, ParcelDetailViewComponent, ParcelListRouteComponent, ParcelEnumPipe],
     imports: [
         CoreModule,
         CommonModule,
@@ -27,7 +26,7 @@ import {MatDialogModule} from '@angular/material';
         MatDialogModule,
         DateFnsModule.forRoot()
     ],
-    exports: [TabBarParcelsComponent, ParcelListViewComponent]
+    exports: [ParcelListViewComponent]
 })
 export class ParcelsModule {
 }

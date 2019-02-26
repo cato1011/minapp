@@ -22,9 +22,10 @@ import {TranslateModule} from '@ngx-translate/core';
 import {MenuListItemComponent} from './menu-list-item/menu-list-item.component';
 import {RouterModule} from '@angular/router';
 import {ConfirmDialogComponent} from './confirm-dialog/confirm-dialog.component';
+import {TabBarComponent} from './tab-bar/tab-bar.component';
 
 @NgModule({
-    declarations: [PagenotfoundComponent, LoginViewComponent, MenuListComponent, MenuListItemComponent, ConfirmDialogComponent],
+    declarations: [PagenotfoundComponent, LoginViewComponent, MenuListComponent, MenuListItemComponent, ConfirmDialogComponent, TabBarComponent],
     imports: [
         FormsModule,
         RouterModule,
@@ -45,7 +46,7 @@ import {ConfirmDialogComponent} from './confirm-dialog/confirm-dialog.component'
         TranslateModule
     ],
     entryComponents: [ConfirmDialogComponent],
-    exports: [MenuListComponent]
+    exports: [MenuListComponent, TabBarComponent]
 })
 export class CoreModule {
     static forRoot(): ModuleWithProviders<CoreModule> {

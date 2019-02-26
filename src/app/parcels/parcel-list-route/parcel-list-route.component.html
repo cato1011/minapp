@@ -12,7 +12,7 @@
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <app-tab-bar-parcels *ngIf="tabBarVisible"></app-tab-bar-parcels>
+    <app-tab-bar *ngIf="tabBarVisible"></app-tab-bar>
     <app-parcel-list-view *ngFor="let vehicle of [1,2,3]" [vehicle]="vehicle"
                           [parcels$]="parcels$"></app-parcel-list-view>
 </ion-content>
