@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ParcelService} from '../parcel.service';
 import {VehicleService} from '../../vehicles/vehicle.service';
-import {Vehicle} from '../../vehicles/vehicles.model';
 import {ActivatedRoute} from '@angular/router';
 import {Parcel} from '../parcel.model';
 import {Observable} from 'rxjs';

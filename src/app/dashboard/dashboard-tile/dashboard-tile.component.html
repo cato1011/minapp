@@ -4,7 +4,7 @@
             <ion-img [src]="dashboardItem.image"></ion-img>
             <!-- TODO ngIf badge number is bigger than 9 than use badge without whitespaces for correct circle-->
             <!-- TODO create css classes for badges with different background-color and set class according to desired logic-->
-            <ion-badge id="dashboard-badge">{{dashboardItem.count}}</ion-badge>
+            <ion-badge id="dashboard-badge">&nbsp;{{dashboardItem.count}}&nbsp;</ion-badge>
         </ion-item>
     </ion-card-header>
     <ion-card-content>

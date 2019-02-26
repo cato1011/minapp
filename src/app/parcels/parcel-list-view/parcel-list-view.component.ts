@@ -18,7 +18,7 @@ export class ParcelListViewComponent implements OnInit {
     }
 
     clickedRequestAppointment() {
-        this.parcelService.setParcelsOnCurrentSelectedVehicle(this.parcels$)
+        this.parcelService.setParcelsOnCurrentSelectedVehicle(this.parcels$);
     }
 
     ngOnInit() {

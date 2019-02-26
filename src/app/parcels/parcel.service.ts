@@ -38,7 +38,7 @@ export class ParcelService {
 
     getParcelsFromVehicleWithVehicleId(parcels$: Observable<Parcel[]>, vehicleId: number): Observable<Parcel[]> {
         return parcels$.pipe(
-            map(parcels => parcels.filter(item => item.vehicleId === vehicleId)),
+            map(parcels => parcels.filter(parcel => parcel.vehicleId === vehicleId)),
         );
     }
 
