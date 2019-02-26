@@ -3,7 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {AppointmentsListRouteComponent} from './appointments-list-route/appointments-list-route.component';
 
 const routes: Routes = [
-    {path: '', component: AppointmentsListRouteComponent}
+    {path: ':context', component: AppointmentsListRouteComponent}
 ];
 
 @NgModule({
