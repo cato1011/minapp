@@ -11,7 +11,8 @@ import {AppointmentsRouterModule} from './appointments-router.module';
         CommonModule,
         RouterModule,
         AppointmentsRouterModule
-    ]
+    ],
+    exports: [AppointmentsListRouteComponent]
 })
 export class AppointmentsModule {
 }

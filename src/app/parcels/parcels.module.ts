@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {ParcelListViewComponent} from './parcel-list-view/parcel-list-view.component';
-import {ParcelDetailViewComponent} from './parcel-detail-view/parcel-detail-view.component';
 import {RouterModule} from '@angular/router';
 import {ParcelRouterModule} from './parcel-router.module';
 import {IonicModule} from '@ionic/angular';
@@ -15,7 +14,7 @@ import {MatDialogModule} from '@angular/material';
 
 
 @NgModule({
-    declarations: [ParcelListViewComponent, ParcelListItemComponent, ParcelDetailViewComponent, ParcelListRouteComponent, ParcelEnumPipe],
+    declarations: [ParcelListRouteComponent, ParcelListViewComponent, ParcelListItemComponent, ParcelEnumPipe],
     imports: [
         CoreModule,
         CommonModule,
@@ -26,7 +25,7 @@ import {MatDialogModule} from '@angular/material';
         MatDialogModule,
         DateFnsModule.forRoot()
     ],
-    exports: [ParcelListViewComponent]
+    exports: [ParcelListRouteComponent]
 })
 export class ParcelsModule {
 }

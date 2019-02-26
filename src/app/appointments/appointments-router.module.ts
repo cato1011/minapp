@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
-import {ParcelListRouteComponent} from '../parcels/parcel-list-route/parcel-list-route.component';
 import {RouterModule, Routes} from '@angular/router';
+import {AppointmentsListRouteComponent} from './appointments-list-route/appointments-list-route.component';
 
 const routes: Routes = [
-    {path: '', component: ParcelListRouteComponent}
+    {path: '', component: AppointmentsListRouteComponent}
 ];
 
 @NgModule({
