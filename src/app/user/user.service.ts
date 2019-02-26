@@ -19,8 +19,8 @@ export class UserService {
     private mobileAuthToken = 'ee6488b082bb58cf99609567eb87fd76255979d2e2383eda10dd7b1b8a2ea8bc';
     private userId = 9;
     private email;
-    // private parcelServerUrl = 'https://parcelserver.cabreracano.de';
-    private parcelServerUrl = 'http://localhost:8082';
+    private parcelServerUrl = 'https://parcelserver.cabreracano.de';
+    // private parcelServerUrl = 'http://localhost:8082';
 
     constructor(
         private httpClient: HttpClient,
