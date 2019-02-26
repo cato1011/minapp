@@ -31,16 +31,10 @@ export class UserService {
 
     init() {
         console.log('init user service');
-        this.userSettings$.subscribe(settings => {
-            this.translateService.use(settings.applicationLangauge);
-            this.deliveryPlacesService.loadPreferedDeliveryPlace(settings.preferedDeliveryPlaceId);
-        });
-        // TODO check if there is an existing user, then set this user, if not redirect to login page
         this.setUser(MOCK_USER);
     }
 
     saveSettings(userSettings: UserSettings) {
-
         this.httpClient.put<User>(this.parcelServerUrl + '/users/' + this.userId + '/configuration', userSettings, {
             headers: {userToken: this.userToken, 'Content-Type': 'application/json'}
         }).subscribe(
@@ -48,8 +42,6 @@ export class UserService {
                 console.log(user);
                 this.userSettings$.next(user.userConfiguration);
                 this.translateService.use(user.userConfiguration.applicationLangauge);
-
-
                 this.messageDialogService.presentToast(this.translateService.instant('success.message.settings'));
             },
             error => {
@@ -72,7 +64,7 @@ export class UserService {
         this.mobileAuthToken = user.mobileAuthToken;
         this.userId = user.id;
         this.email = user.email;
-        this.userSettings$.next(user.userConfiguration);
+        this.translateService.use(user.userConfiguration.applicationLangauge);
         this.user$.next(user);
     }
 
