@@ -13,14 +13,14 @@ export class TabBarComponent implements OnInit {
     constructor(private route: ActivatedRoute, private router: Router) {
     }
 
-    ngOnInit() {
+    ngOnInit() {;
         this.route.params.subscribe(params => {
             this.activeRoute = params['context'];
         });
     }
 
     click(location) {
-        this.router.navigate(['./parcels/' + location]);
+        this.router.navigate([location]);
     }
 
 }
