@@ -18,10 +18,10 @@ export class UserService {
     private userToken = 'c1e46f017983b562c8c6af0627f28ff9';
     private mobileAuthToken = 'ee6488b082bb58cf99609567eb87fd76255979d2e2383eda10dd7b1b8a2ea8bc';
     private userId = 9;
-    private parcelServerUrl = 'https://parcelserver.cabreracano.de';
+   // private parcelServerUrl = 'https://parcelserver.cabreracano.de';
+    private parcelServerUrl = 'http://localhost:8082';
     private email='sauer@example.com';
-
-    // private parcelServerUrl = 'http://localhost:8082';
+    
     constructor(
         private httpClient: HttpClient,
         private translateService: TranslateService,
@@ -40,6 +40,7 @@ export class UserService {
     }
 
     saveSettings(userSettings: UserSettings) {
+
         this.httpClient.put<User>(this.parcelServerUrl + '/users/' + this.userId + '/configuration', userSettings, {
             headers: {userToken: this.userToken, 'Content-Type': 'application/json'}
         }).subscribe(
@@ -47,16 +48,13 @@ export class UserService {
                 console.log(user);
                 this.userSettings$.next(user.userConfiguration);
                 this.translateService.use(user.userConfiguration.applicationLangauge);
-                this.messageDialogService.presentAlert(
-                    this.translateService.instant('success.header'),
-                    this.translateService.instant('success.message.settings'),
-                    'success-message');
+               
+
+     this.messageDialogService.presentToast(this.translateService.instant('success.message.settings'));
             },
-            error => {
-                this.messageDialogService.presentAlert(
-                    this.translateService.instant('failure.header'),
-                    this.translateService.instant('failure.message.settings'),
-                    'failure-message');
+            error => {              
+
+        this.messageDialogService.presentToast(this.translateService.instant('failure.message.settings'));
             }
         );
     };
@@ -73,7 +71,7 @@ export class UserService {
         this.userToken = user.userToken;
         this.mobileAuthToken = user.mobileAuthToken;
         this.userId = user.id;
-        this.emailAddress=user.email;
+        this.email=user.email;
         this.userSettings$.next(user.userConfiguration);
         this.user$.next(user);
     }
