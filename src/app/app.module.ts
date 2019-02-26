@@ -1,10 +1,8 @@
 import {APP_INITIALIZER, NgModule} from '@angular/core';
 import {RouteReuseStrategy} from '@angular/router';
-
 import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
 import {StatusBar} from '@ionic-native/status-bar/ngx';
-
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {UserModule} from './user/user.module';
@@ -61,6 +59,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         StatusBar,
         SplashScreen,
         MessagingService,
+        UserService,
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
         {
             provide: APP_INITIALIZER,
