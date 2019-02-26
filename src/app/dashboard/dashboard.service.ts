@@ -89,6 +89,7 @@ export class DashboardService {
 
                     if (vehicleRequests != null) {
                         this.appointmentsLength = vehicleRequests.length;
+                        
                     }
 
 

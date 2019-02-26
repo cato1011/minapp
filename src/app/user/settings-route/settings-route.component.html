@@ -12,7 +12,18 @@
     <!-- TODO ask claudia for flat settings icon without shadow-->
     <ion-img [src]="'./assets/icons/menu/settings_2x.png'"></ion-img>
 </ion-header>
-<ion-item-divider></ion-item-divider>
+<ion-item-divider></ion-item-divider>      
+            
+  
+      <ion-card>
+            <ion-card-header >
+              <ion-card-subtitle >{{ 'user.settings.email' | translate }}<b> {{emailAddress}}</b></ion-card-subtitle>
+              <ion-card-subtitle>
+                  <a href="https://www.myrenz.com/">{{'user.settings.renz_link' | translate}}</a>
+            </ion-card-subtitle>
+            </ion-card-header>
+            </ion-card>
+
 <ion-content>
     <app-settings-view [deliveryPlaces]="deliveryPlaces$ | async"
                        [preferedDeliveryPlace$]="preferedDeliveryPlace$ | async"

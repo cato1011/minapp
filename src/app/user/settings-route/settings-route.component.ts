@@ -17,6 +17,7 @@ export class SettingsRouteComponent implements OnInit {
     deliveryPlaces$: Observable<DeliveryPlace[]>;
     preferedDeliveryPlace$: Observable<DeliveryPlace>;
     preferedDeliveryPlaceExists: boolean = false;
+    emailAddress:string;
 
     constructor(private translateService: TranslateService,
                 private deliveryPlacesService: DeliveryPlacesService,
@@ -28,6 +29,7 @@ export class SettingsRouteComponent implements OnInit {
     }
 
     initData() {
+        this.emailAddress=this.userService.getEmail();
         this.currentLang = this.translateService.currentLang;
         this.deliveryPlacesService.reloadDeliveryPlaces();
         this.deliveryPlaces$ = this.deliveryPlacesService.getDeliveryPlaces();

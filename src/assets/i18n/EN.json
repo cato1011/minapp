@@ -48,6 +48,8 @@
   "user.settings.preferred_delivery_place": "Select preferred delivery place",
   "user.settings.preferred_delivery_place.select": "Select delivery place",
   "user.settings.preferred_delivery_place.selected": "Your preferred delivery place",
+  "user.settings.email":"Your e-mail address set with Renz is:",
+  "user.settings.renz_link":"Please change at Renz portal",
 
   "vehicle.requested.backtodashboard":"Back to Dashboard",
   "vehicle.requested.message":"Delivery is requested...",

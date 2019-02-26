@@ -48,6 +48,8 @@
   "user.settings.preferred_delivery_place": "Bevorzugten Lieferort wählen",
   "user.settings.preferred_delivery_place.select": "Lieferort wählen",
   "user.settings.preferred_delivery_place.selected": "Dein bevorzugter Lieferort",
+  "user.settings.email":"Ihre bei Renz hinterlegte E-Mail Address lautet:",
+  "user.settings.renz_link":"Bei Renz andern",
 
   "vehicle.requested.backtodashboard": "Zurück zur Übersicht",
   "vehicle.requested.message": "Lieferung wird angefragt…",
