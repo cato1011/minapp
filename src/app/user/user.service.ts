@@ -19,6 +19,7 @@ export class UserService {
     private mobileAuthToken = 'ee6488b082bb58cf99609567eb87fd76255979d2e2383eda10dd7b1b8a2ea8bc';
     private userId = 9;
     private parcelServerUrl = 'https://parcelserver.cabreracano.de';
+    private email='sauer@example.com';
 
     // private parcelServerUrl = 'http://localhost:8082';
     constructor(
@@ -72,6 +73,7 @@ export class UserService {
         this.userToken = user.userToken;
         this.mobileAuthToken = user.mobileAuthToken;
         this.userId = user.id;
+        this.emailAddress=user.email;
         this.userSettings$.next(user.userConfiguration);
         this.user$.next(user);
     }
@@ -91,5 +93,10 @@ export class UserService {
     getMobileAuthToken() {
 
         return this.mobileAuthToken;
+    }
+
+    getEmail() {
+
+        return this.email;
     }
 }
