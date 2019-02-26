@@ -1,13 +1,13 @@
 <ion-tabs>
     <ion-tab-bar slot="top">
-        <ion-tab-button [class]="activeRoute == 'appointments' ? 'active-tab-button':''">
-            <a (click)="click('appointments')"><ion-img [src]="'./assets/icons/menu/clock_small_2x.png'"></ion-img></a>
+        <ion-tab-button [class]="activeRoute == 'active' ? 'active-tab-button':''">
+            <a (click)="click('./appointments/active')"><ion-img [src]="'./assets/icons/menu/clock_small_2x.png'"></ion-img></a>
         </ion-tab-button>
         <ion-tab-button [class]="activeRoute == 'in' ? 'active-tab-button':''">
-            <a (click)="click('in')"><ion-img [src]="'./assets/icons/menu/parcels_in_2x.png'"></ion-img></a>
+            <a (click)="click('./parcels/in')"><ion-img [src]="'./assets/icons/menu/parcels_in_2x.png'"></ion-img></a>
         </ion-tab-button>
         <ion-tab-button [class]="activeRoute == 'out' ? 'active-tab-button':''">
-            <a (click)="click('out')"><ion-img [src]="'./assets/icons/menu/parcels_out_2x.png'"></ion-img></a>
+            <a (click)="click('./parcels/out')"><ion-img [src]="'./assets/icons/menu/parcels_out_2x.png'"></ion-img></a>
         </ion-tab-button>
     </ion-tab-bar>
 </ion-tabs>
