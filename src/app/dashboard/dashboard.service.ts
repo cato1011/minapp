@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { DashboardItem } from './dashboard.model';
-import { TranslateService } from '@ngx-translate/core';
-import { UserService } from '../user/user.service'
-import { Parcel } from '../parcels/parcel.model'
-import { ParcelService } from '../parcels/parcel.service'
-import { VehicleService } from '../vehicles/vehicle.service'
+import {Injectable} from '@angular/core';
+import {DashboardItem} from './dashboard.model';
+import {TranslateService} from '@ngx-translate/core';
+import {UserService} from '../user/user.service';
+import {Parcel} from '../parcels/parcel.model';
+import {ParcelService} from '../parcels/parcel.service';
+import {VehicleService} from '../vehicles/vehicle.service';
 
 @Injectable({
     providedIn: 'root'
@@ -13,9 +13,9 @@ export class DashboardService {
 
     public dashboardItems: DashboardItem[];
     public imagePrefix = './assets/icons/dashboard/';
-    public parcelInLength: number = 0;
-    public parcelOutLength: number = 0;
-    public appointmentsLength: number = 0;
+    public parcelInLength = 0;
+    public parcelOutLength = 0;
+    public appointmentsLength = 0;
 
 
     constructor(
@@ -23,7 +23,6 @@ export class DashboardService {
         private userService: UserService,
         private parcelService: ParcelService,
         private vehicleService: VehicleService) {
-
     }
 
     public getDashboard() {
@@ -55,12 +54,12 @@ export class DashboardService {
     public getCountofParcelsIn() {
         this.parcelService.reloadIn();
         this.parcelService.getAllIn().subscribe
-            ((parcelin: Parcel[]) => {
-                if (parcelin != null) {
-                    this.parcelInLength = parcelin.length;
-                }
+        ((parcelin: Parcel[]) => {
+            if (parcelin != null) {
+                this.parcelInLength = parcelin.length;
+            }
 
-            })
+        });
 
         return this.parcelInLength;
     }
@@ -68,33 +67,25 @@ export class DashboardService {
     public getCountofParcelsOut() {
         this.parcelService.reloadOut();
         this.parcelService.getAllOut().subscribe
-            ((parcelout: Parcel[]) => {
-                if (parcelout != null) {
-                    this.parcelOutLength = parcelout.length;
-                }
-
-
-            })
-
+        ((parcelout: Parcel[]) => {
+            if (parcelout != null) {
+                this.parcelOutLength = parcelout.length;
+            }
+        });
         return this.parcelOutLength;
 
     }
 
     public getCountofAppointments() {
         this.vehicleService.reloadVehicleRequests();
-
         this.vehicleService.getAllVehicleRequests().subscribe
-            (
-                (vehicleRequests) => {
-
-                    if (vehicleRequests != null) {
-                        this.appointmentsLength = vehicleRequests.length;
-                        
-                    }
-
-
+        (
+            (vehicleRequests) => {
+                if (vehicleRequests != null) {
+                    this.appointmentsLength = vehicleRequests.length;
                 }
-            )
+            }
+        );
         return this.appointmentsLength;
     }
 }
