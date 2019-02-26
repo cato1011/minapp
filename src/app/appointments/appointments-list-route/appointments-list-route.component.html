@@ -1,3 +1,16 @@
-<p>
-  appointments-list-route works!
-</p>
+<ion-header>
+    <ion-toolbar [color]="'#1365B6'">
+        <ion-buttons slot="end">
+            <ion-button (click)="reset()">
+                <ion-icon slot="icon-only" name="refresh"></ion-icon>
+            </ion-button>
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            {{('parcel.header.appointments') | translate}}
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <app-appointments-list-view></app-appointments-list-view>
+</ion-content>

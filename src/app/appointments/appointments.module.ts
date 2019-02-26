@@ -4,13 +4,17 @@ import {AppointmentsListRouteComponent} from './appointments-list-route/appointm
 import {AppointmentsListViewComponent} from './appointments-list-view/appointments-list-view.component';
 import {RouterModule} from '@angular/router';
 import {AppointmentsRouterModule} from './appointments-router.module';
+import {IonicModule} from '@ionic/angular';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
     declarations: [AppointmentsListRouteComponent, AppointmentsListViewComponent],
     imports: [
         CommonModule,
         RouterModule,
-        AppointmentsRouterModule
+        AppointmentsRouterModule,
+        IonicModule,
+        TranslateModule,
     ],
     exports: [AppointmentsListRouteComponent]
 })
