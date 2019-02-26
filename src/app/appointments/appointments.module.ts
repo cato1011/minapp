@@ -6,11 +6,13 @@ import {RouterModule} from '@angular/router';
 import {AppointmentsRouterModule} from './appointments-router.module';
 import {IonicModule} from '@ionic/angular';
 import {TranslateModule} from '@ngx-translate/core';
+import {CoreModule} from '../core/core.module';
 
 @NgModule({
     declarations: [AppointmentsListRouteComponent, AppointmentsListViewComponent],
     imports: [
         CommonModule,
+        CoreModule,
         RouterModule,
         AppointmentsRouterModule,
         IonicModule,
